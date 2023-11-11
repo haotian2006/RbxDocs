@@ -1,4 +1,4 @@
-site_name: My Docs
+site_name: Docs Idk
 theme:
   name: material
   palette:
@@ -53,3 +53,4 @@ markdown_extensions:
   - pymdownx.superfences
 plugins:
   - search
+  - glightbox

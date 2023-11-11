@@ -358,7 +358,7 @@ game:BindToClose(function()
 end)
 ```
 
-!!! warning 
+???+ warning 
     Another mistake people tend to do is using spawn/task.spawn inside of the BindToClose
     ```lua
     game:BindToClose(function()
