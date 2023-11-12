@@ -2,7 +2,7 @@
 This section will go over some basics on how to fix or find errors
 
 ## Checking Output 
-Usually, if your code doesn't run then it might be because the code has errored.
+Usually, if your code doesn't run then it might be because there was an error in your code. Which you can check by going to output.
 
 To open output you go to View -> Output
 
