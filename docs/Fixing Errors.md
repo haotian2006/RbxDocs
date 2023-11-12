@@ -77,7 +77,7 @@ end
 ```
 and for some reason doSomething() is not being invoked, instead of going to scripting help and asking why the doSomething isn't working here is what you can do.
 
-1. Print before an if statement 
+### 1. Print before an if statement 
 ```lua
 local x = getX()
 local y = getY()
@@ -97,10 +97,11 @@ x check passed
 ```
 Then you will know that y is not equal to 0
 
-!!! 
+!!! note
     You don't really need to add all those prints to figure out what's wrong for example if you know your code is running you can probably remove the print("script is running").
     You also can just print("X") (or anything that will help) instead of print("x check passed")
-2. Printing the variables
+
+### 2. Printing the variables
 
 ```lua
 local x = getX()
@@ -140,7 +141,7 @@ nil
 600.8695068359375, -531.7534790039062, -596.8199462890625
 ```
 
-For beginners, you might not see anything wrong with the script and looking at what direction is doesn't really help so what you can do here is create a part that goes in that ray direction like this
+For beginners, you might not see anything wrong with the script and looking at what direction is doesn't really help, so what you can do here is create a part that goes in that ray direction like this
 
 ```lua
 local green = workspace.PartA
