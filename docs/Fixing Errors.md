@@ -257,6 +257,7 @@ StarterGui is a container that is under Game. Its purpose is to act like a conta
 https://create.roblox.com/docs/reference/engine/classes/StarterGui
 
 So given a script like the one below, it will **not** make ScreenGui visible because it is modifying a ScreenGui in StarterGui
+
  ```lua
  --LocalScript
 local StarterGui = game.StarterGui 
@@ -272,20 +273,21 @@ https://create.roblox.com/docs/reference/engine/classes/PlayerGui
 
 so to fix the given script above we can do this
 
- ```lua
- --LocalScript
+```lua
+--LocalScript
 local player = game.Players
 local LocalPlayer = player.LocalPlayer
 local PlayerGui = LocalPlayer.PlayerGui
 local ScreenGui = PlayerGui:WaitForChild("ScreenGui")
 ScreenGui.Enabled = true 
- ```
+```
 
- ### 2. LocalScripts in the wrong places
+### 2. LocalScripts in the wrong places
 Another common mistake is having LocalScripts in the wrong place such as having a LocalScript in ServerScriptService. LocalScripts run in a client environment such as StarterPlayerScripts, ServerScriptService is on the server
 
 ![a](https://camo.githubusercontent.com/23e591c5e1aa20bca4fb4fdf7014d5cec1fc993b2047fd95c37a5744c6538e02/68747470733a2f2f6d656469612e646973636f72646170702e6e65742f6174746163686d656e74732f313039373131353134303932343634353337362f313134333432383733303839393933353235322f696d6167652e706e673f77696474683d373637266865696768743d323531)
-https://create.roblox.com/docs/reference/engine/classes/LocalScript
+
+[https://create.roblox.com/docs/reference/engine/classes/LocalScript](https://create.roblox.com/docs/reference/engine/classes/LocalScript)
 
 ### 3. Trying to access ServerStorage from the client
 ServerStorage is a Storage for the server to see not the client. If you want to store something store it in ReplicatedStorage
