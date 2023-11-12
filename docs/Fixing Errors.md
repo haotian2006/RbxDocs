@@ -38,28 +38,28 @@ What you can do is click on the error while in the game instead of after stoppin
 
 You mainly only need to focus on the Script Location, error line, and the error itself. If it's an error you don't understand you can use Google to search for the error message. There is a section below explaining how to do that.
 
-## Common Error Messages
-### <span style="color:red"> [name] is not a valid member of object </span>
-This error shows up when you try to get a child that does not exist in the object, Usually if its to do with the client you can use WaitForChild but if that doesn't work, check your code and make sure the child exists.  
-### <span style="color:red"> attempt to perform arithmetic(arithmetic) on number and [type] </span>
-This means you are trying to do arithmetic on a number and a type you can not do arithmetic on. 
-The only objects you can do arithmetic on are numbers, strings, and objects that have arithmetic metamethods (__mul,__add...)
+???+ info "Common Error Messages"
+    ### <span style="color:red"> [name] is not a valid member of object </span>
+    This error shows up when you try to get a child that does not exist in the object, Usually if its to do with the client you can use WaitForChild but if that doesn't work, check your code and make sure the child exists.  
+    ### <span style="color:red"> attempt to perform arithmetic(arithmetic) on number and [type] </span>
+    This means you are trying to do arithmetic on a number and a type you can not do arithmetic on. 
+    The only objects you can do arithmetic on are numbers, strings, and objects that have arithmetic metamethods (__mul,__add...)
 
-!!!Warning 
-    This also applies to <span style="color:red"> attempt to compare something < number </span> and <span style="color:red"> attempt to concatenate string with something </span>. They either must be types that be compared on concatenated or have the [metatmethods](https://create.roblox.com/docs/luau/metatables#metamethods) that allow them to do it
-###  <span style="color:red"> Argument [number] missing or nil </span>
-This means that one of the arguments you sent is nil or empty. arguments are the data you are sending ex.
-```lua
-local function f(x) -- x is a parameter
-    ...
-end
-f(y) -- y is an argument
-```
-to fix this make sure that the argument is being defined correctly or is the right type
-###  <span style="color:red"> Unable to cast value to Object </span>
-this means that the value you are trying to send cannot be converted into the object the function wants. To fix this make sure that the data type is the correct one.
-###  <span style="color:red"> Expected ')' (to close '(' at column [number]), got eof </span>
-This is a syntax error. it means that you either have extra parentheses or lack one. To fix this look for where the lines are underlined in red as roblox catches syntax errors before the game is being run.
+    !!!info 
+        This also applies to <span style="color:red"> attempt to compare something < number </span> and <span style="color:red"> attempt to concatenate string with something </span>. They either must be types that be compared on concatenated or have the [metatmethods](https://create.roblox.com/docs/luau/metatables#metamethods) that allow them to do it
+    ###  <span style="color:red"> Argument [number] missing or nil </span>
+    This means that one of the arguments you sent is nil or empty. arguments are the data you are sending ex.
+    ```lua
+    local function f(x) -- x is a parameter
+        ...
+    end
+    f(y) -- y is an argument
+    ```
+    to fix this make sure that the argument is being defined correctly or is the right type
+    ###  <span style="color:red"> Unable to cast value to Object </span>
+    this means that the value you are trying to send cannot be converted into the object the function wants. To fix this make sure that the data type is the correct one.
+    ###  <span style="color:red"> Expected ')' (to close '(' at column [number]), got eof </span>
+    This is a syntax error. it means that you either have extra parentheses or lack one. To fix this look for where the lines are underlined in red as roblox catches syntax errors before the game is being run.
 ## Print Debugging 
 Print debugging mainly consists of adding print statements to find out what is wrong this is mainly used if no errors are showing up in the output
 
