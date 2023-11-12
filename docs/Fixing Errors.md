@@ -227,7 +227,7 @@ end
     local randomFlag = RandomTor:FindFirstChild("Flag")
     local LocalFlag = LocalTorso:FindFirstChild("Flag")
     local RandomProx = RandomTor:FindFirstChild("ProximityPrompt")
-    RandomProx.Enabled =  (not randomFlag.Value) and (not LocalFlag.Value)
+    RandomProx.Enabled =  not (randomFlag.Value or LocalFlag.Value)
     ```
     as the condition is just a boolean 
 
