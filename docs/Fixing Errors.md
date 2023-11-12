@@ -258,12 +258,12 @@ https://create.roblox.com/docs/reference/engine/classes/StarterGui
 
 So given a script like the one below, it will **not** make ScreenGui visible because it is modifying a ScreenGui in StarterGui
 
- ```lua
+```lua
  --LocalScript
 local StarterGui = game.StarterGui 
 local ScreenGui = StarterGui:WaitForChild("ScreenGui")
 ScreenGui.Enabled = true --!! THIS WILL NOT WORK !!
- ```
+```
 #### PlayerGui
 
 PlayerGui is a container that is under the player that joined. Each player will have their own PlayerGui which other players will **not** be able to see. The server will be able to see it but its is **not recommended** to let the server modify anything in PlayerGui. PlayerGui is what the client actually sees.
