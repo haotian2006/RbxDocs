@@ -47,7 +47,7 @@ part2.Changed:Connect(Update)
 ```
 What this script does is if the green part is in a 180-degree view of the blue part, then make the arrow blue. Else make the arrow yellow, which you can see from the gif below. It also prints a value between -1 and 1 if you look at the output on the right side.
 
-![img](https://camo.githubusercontent.com/e025b77c6718ca985e8bb6df3f12d760b5369f42b41b10f5b31b91384b41745a/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f3934323633353333333635353333393030382f313131323331363237353331303436393231312f5265636f7264696e675f323032332d30352d32385f61745f30322e34362e34342e676966)
+![img](https://cdn.discordapp.com/attachments/942635333655339008/1112304828857720902/Recording_2023-05-28_at_02.01.59.gif)
 
 This can be very useful in some use cases, such as checking if you are in the field of view of an NPC.
 
