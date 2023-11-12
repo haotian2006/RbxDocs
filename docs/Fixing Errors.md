@@ -22,7 +22,7 @@ You can click on the error and it will bring you to the line and script that it 
 If clicking on it doesn't lead you anywhere and you see this 
 
 ![a](https://camo.githubusercontent.com/0946a37370117458fb6f82e47700ea7b30c21f88e8b9f47348439558394d8a57/68747470733a2f2f6d656469612e646973636f72646170702e6e65742f6174746163686d656e74732f313039303535343236383439323234373130332f313134343337383631353131353534363732342f696d6167652e706e673f77696474683d373637266865696768743d313033)
-When you hover over it it means that the script it errored in was deleted.
+it means that the script it errored in was deleted. Which usually means it was a local script or a cloned script.
 What you can do is click on the error while in the game instead of after stopping and it should lead you to the right script.
 
 ## Reading errors messages
