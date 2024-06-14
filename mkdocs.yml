@@ -1,4 +1,10 @@
 site_name: Docs Idk
+nav:
+  - Home: index.md
+  - User Guide:
+    - 'test' : 'Inheritance.md'
+  - About: page2.md
+
 theme:
   name: material
   palette:
@@ -14,6 +20,7 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
   features:
+    - navigation.tabs
     - navigation.sections
     - navigation.top
     - search.suggest
