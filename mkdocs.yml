@@ -1,12 +1,16 @@
 site_name: Docs Idk
+repo_url: https://github.com/haotian2006/MyDocs
+
 nav:
   - Home: index.md
-  - User Guide:
-    - 'test' : 'Inheritance.md'
+  - Tags:
+    - 'test' : 'tag1.md'
+    - 'test2': 'tag2.md'
   - About: page2.md
 
 theme:
   name: material
+  custom_dir: overrides
   palette:
      # Palette toggle for light mode
     - scheme: default
@@ -21,6 +25,7 @@ theme:
         name: Switch to light mode
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
     - navigation.top
     - search.suggest
@@ -53,7 +58,7 @@ markdown_extensions:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
-  - toc
+  - toc 
 
   - admonition
   - pymdownx.details
@@ -61,3 +66,7 @@ markdown_extensions:
 plugins:
   - search
   - glightbox
+  - tags
+ 
+extra:
+  generator: false
