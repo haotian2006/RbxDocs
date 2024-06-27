@@ -10,6 +10,7 @@
             "extensions": [
                 "Gruntfuggly.todo-tree",
                 "astro-build.astro-vscode",
+                "bradlc.vscode-tailwindcss",
                 "esbenp.prettier-vscode",
                 "henriiik.vscode-sort",
                 "streetsidesoftware.code-spell-checker",
