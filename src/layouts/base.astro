@@ -1,5 +1,22 @@
 ---
-import "@fontsource/roboto";
+import NavigationBar from "@/components/navigation-bar.astro";
+
+// Everyone, Roboto
+// Roboto, everyone
+
+// Hope you two get along!
+import "@fontsource/roboto/100.css";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+import "@fontsource/roboto/900.css";
+import "@fontsource/roboto/100-italic.css";
+import "@fontsource/roboto/300-italic.css";
+import "@fontsource/roboto/400-italic.css";
+import "@fontsource/roboto/500-italic.css";
+import "@fontsource/roboto/700-italic.css";
+import "@fontsource/roboto/900-italic.css";
 
 interface Props {
     class?: string;
@@ -21,6 +38,8 @@ const { class: className = null } = Astro.props;
     </head>
 
     <body>
+        <NavigationBar />
+
         <div class={className}>
             <slot />
         </div>
