@@ -1,5 +1,18 @@
 {
     "$schema": "https://json.schemastore.org/prettierrc",
+    "arrowParens": "avoid",
+    "importOrder": [
+        "<BUILTIN_MODULES>",
+        "",
+        "<THIRD_PARTY_MODULES>",
+        "",
+        "^@/(.*)",
+        "^~/(.*)",
+        "^[\\.]*/(.*)",
+        "",
+        "<TYPES>"
+    ],
+    "importOrderParserPlugins": ["typescript", "importAssertions"],
     "jsonRecursiveSort": true,
     "overrides": [
         {
@@ -10,6 +23,7 @@
         }
     ],
     "plugins": [
+        "@ianvs/prettier-plugin-sort-imports",
         "prettier-plugin-astro",
         "prettier-plugin-sort-json",
         "prettier-plugin-tailwindcss"
