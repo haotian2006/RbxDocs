@@ -1,7 +1,19 @@
 ---
+import Hyperlink from "@/components/hyperlink.astro";
 import Layout from "@/layouts/base.astro";
 ---
 
 <Layout class="p-4">
-    <main>Hello, world!</main>
+    <h1 class="pb-4 text-3xl font-light text-gray-500">Welcome</h1>
+
+    <p class="pb-2">Below are some Discord servers you can join to get help.</p>
+
+    <ul class="list-disc pl-8">
+        <li>
+            <Hyperlink href="https://discord.gg/rodevs">Rodevs</Hyperlink>
+        </li>
+        <li>
+            <Hyperlink href="https://discord.gg/hd">HiddenDevs</Hyperlink>
+        </li>
+    </ul>
 </Layout>
