@@ -21,7 +21,15 @@ const { Content } = await Astro.props.entry.render();
 
 <Layout class="flex justify-center py-12">
     <main
-        class="prose marker:text-gray-400 prose-headings:font-light prose-h1:text-gray-500 prose-h2:mt-0 prose-a:text-blue-600 prose-a:decoration-inherit prose-a:underline-offset-1 prose-a:visited:text-purple-600"
+        class={`
+            prose
+            marker:text-gray-400
+            prose-headings:font-light
+            prose-h1:text-gray-500
+            prose-h2:mt-0
+            prose-a:text-blue-600 prose-a:decoration-inherit prose-a:underline-offset-1
+            prose-a:visited:text-purple-600
+        `}
     >
         <Content />
     </main>
