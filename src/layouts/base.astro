@@ -22,7 +22,7 @@ interface Props {
     class?: string;
 }
 
-const { class: className = null } = Astro.props;
+const { class: class_ = null } = Astro.props;
 ---
 
 <!doctype html>
@@ -40,7 +40,7 @@ const { class: className = null } = Astro.props;
     <body>
         <NavigationBar />
 
-        <div class={className}>
+        <div class={class_}>
             <slot />
         </div>
     </body>

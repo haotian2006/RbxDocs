@@ -20,8 +20,7 @@ export async function getStaticPaths() {
     }));
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await Astro.props.entry.render();
 ---
 
 <Layout class="flex justify-center py-12">
