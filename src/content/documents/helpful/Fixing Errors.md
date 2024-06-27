@@ -39,8 +39,10 @@ What you can do is click on the error while in the game instead of after stoppin
 You mainly only need to focus on the Script Location, error line, and the error itself. If it's an error you don't understand you can use Google to search for the error message. There is a section below explaining how to do that.
 
 ???+ info "Common Error Messages" ### <span style="color:red"> [name] is not a valid member of object </span>
-This error shows up when you try to get a child that does not exist in the object, Usually if its to do with the client you can use WaitForChild but if that doesn't work, check your code and make sure the child exists.  
- ### <span style="color:red"> attempt to perform arithmetic(arithmetic) on number and [type] </span>
+This error shows up when you try to get a child that does not exist in the object, Usually if its to do with the client you can use WaitForChild but if that doesn't work, check your code and make sure the child exists.
+
+### <span style="color:red"> attempt to perform arithmetic(arithmetic) on number and [type] </span>
+
 This means you are trying to do arithmetic on a number and a type you can not do arithmetic on.
 The only objects you can do arithmetic on are numbers, strings, and objects that have arithmetic metamethods (**mul,**add...)
 
