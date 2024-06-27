@@ -1,34 +1,27 @@
 {
-    "name": "Next App Boilerplate",
+    "name": "MyDocs",
     "dockerFile": "Dockerfile",
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
     "workspaceFolder": "/workspace",
     "postCreateUser": "node",
-    "postCreateCommand": "bun install && (bun pm trust --all || true) && bun run prepare",
+    "postCreateCommand": "bun install && (bun pm trust --all || true)",
     "customizations": {
         "vscode": {
             "extensions": [
                 "Gruntfuggly.todo-tree",
-                "YoavBls.pretty-ts-errors",
-                "better-ts-errors.better-ts-errors",
-                "bradlc.vscode-tailwindcss",
-                "dbaeumer.vscode-eslint",
+                "astro-build.astro-vscode",
                 "esbenp.prettier-vscode",
                 "henriiik.vscode-sort",
-                "matthewpi.caddyfile-support",
-                "mikestead.dotenv",
-                "ms-vscode.vscode-typescript-next",
-                "neotan.vscode-auto-restart-typescript-eslint-servers",
                 "streetsidesoftware.code-spell-checker",
-                "tamasfe.even-better-toml",
-                "wayou.vscode-todo-highlight",
-                "wix.vscode-import-cost"
-            ]
+                "wayou.vscode-todo-highlight"
+            ],
+            "settings": {
+                "editor.defaultFormatter": "esbenp.prettier-vscode"
+            }
         }
     },
     "features": {
-        "ghcr.io/devcontainers-contrib/features/caddy": {},
-        "ghcr.io/devcontainers/features/docker-in-docker": {},
         "ghcr.io/devcontainers/features/git": {},
+        "ghcr.io/devcontainers/features/github-cli": {}
     }
 }
