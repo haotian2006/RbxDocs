@@ -1,0 +1,15 @@
+{
+    "$schema": "https://json.schemastore.org/prettierrc",
+    "jsonRecursiveSort": true,
+    "overrides": [
+        {
+            "files": "*.astro",
+            "options": {
+                "parser": "astro"
+            }
+        }
+    ],
+    "plugins": ["prettier-plugin-astro", "prettier-plugin-sort-json"],
+    "printWidth": 100,
+    "tabWidth": 4
+}
