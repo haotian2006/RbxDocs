@@ -4,9 +4,10 @@ Before reading this tutorial, you should know about metatables. An explanation o
 
 # What is Inheritance?
 
-Inheritance is used mainly in oop based languages that allow one class to inherit the properties and methods from another class. 
+Inheritance is used mainly in oop based languages that allow one class to inherit the properties and methods from another class.
 
-*do note that there are a few ways of doing inheritance in lua(u) and this is one of them
+\*do note that there are a few ways of doing inheritance in lua(u) and this is one of them
+
 ## Setting up Inheritance
 
 Let’s say we have a class called Person Class that is set up like this
@@ -37,7 +38,9 @@ end
 
 return Person
 ```
+
 Now lets make a Class call Student that will inherit from the Person Class and give it a Method called PayStudentTuition
+
 ```lua
 local Student = {}
 local Person = require(Path.To.Person.Class)
@@ -64,7 +67,8 @@ end
 
 return Student
 ```
-Basically what we've done is modify the __index metamethod so it also checks the Person class if the method you're looking for does not exist in the Student Class
+
+Basically what we've done is modify the \_\_index metamethod so it also checks the Person class if the method you're looking for does not exist in the Student Class
 
 For those that are wondering why we need to do it like that and we can't just do this
 
@@ -81,8 +85,8 @@ end
 
 it's because using setmetatable on a metatable will override the current metatable's metamethods.
 
-
 Now lets make a Class call Teacher that will inherit from the Person Class and give it a Method called GetPaycheck
+
 ```lua
 local Teacher = {}
 local Person = require(Path.To.Person.Class)
@@ -104,7 +108,7 @@ end
 return Teacher
 ```
 
-Here is an example script 
+Here is an example script
 
 ```lua
 local StudentClass = require(Path.To.Student.Class)
@@ -116,7 +120,7 @@ local Smith = TeacherClass.new("TeacherClass",37,200)
 
 Bob:GrowUp() -- this is a method in the Person Class
 Bob:PayStudentTuition(4000) -- this is a method in the Student Class
-print(Bob:GetAge()) --> 11 
+print(Bob:GetAge()) --> 11
 print(Bob:GetBalance()) --> $-3970
 print(Bob) -- Invokes the __tostring metamethod --> "Student: Bob"
 
@@ -128,14 +132,15 @@ print(Hao) --> "Hao"
 
 ```
 
-Also if you want to inherit from multiple classes you would just keep adding to the __index metamethod 
+Also if you want to inherit from multiple classes you would just keep adding to the \_\_index metamethod
 
 ```lua
 local MiddleSchoolStudent = {}
 
 MiddleSchoolStudent.__index = setmetatable(MiddleSchoolStudent,Student)
--- will first check MiddleSchoolStudent then check Student and lastly it will check Person class if a key dose not exist 
+-- will first check MiddleSchoolStudent then check Student and lastly it will check Person class if a key dose not exist
 ```
 
 ## Thanks for reading!
+
 Thats pretty much it for this method of inheritance. if you have any more questions you can ask in #scripting-help.

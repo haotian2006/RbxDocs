@@ -3,12 +3,13 @@
 Before reading this tutorial, you should know about metatables. An explanation of metatable exists in the Lua-Learning folder (not anymore).
 
 # What are Proxy Tables?
-proxy table are Tables that allow you to detect when a table is updated or changed using __newindex
+
+proxy table are Tables that allow you to detect when a table is updated or changed using \_\_newindex
 
 ???+ warning
-    Proxy tables are less efficient then normal metatables and this is caused by setting the __index to a function. If you want a more efficient method to detected Changes use Setters and Getter function instead.
-    Ex.
-    ```lua
+Proxy tables are less efficient then normal metatables and this is caused by setting the \_\_index to a function. If you want a more efficient method to detected Changes use Setters and Getter function instead.
+Ex.
+`lua
     function Proxy:GetValue(key)
         return self.RealData[key]
     end
@@ -16,10 +17,11 @@ proxy table are Tables that allow you to detect when a table is updated or chang
         self.RealData[key] = value
         print("Detected Change at",key,"new Value",value)
     end
-    ```
+    `
 
 ## How to set on up
-what we want to do it use __newindex to reference the Real Data inside of the Proxy Table. 
+
+what we want to do it use \_\_newindex to reference the Real Data inside of the Proxy Table.
 
 We can set it up like this:
 
@@ -39,7 +41,7 @@ end
 return Proxy
 ```
 
-This is basically all you need for a proxy table to function 
+This is basically all you need for a proxy table to function
 
 ```lua
 local Proxy = require(Path.To.Proxy.Module)
@@ -50,13 +52,16 @@ local data ={
 local ProxyTable = Proxy.new(data)
 
 ProxyTable.A = 2 --> Detected Change at A new Value 2
-ProxyTable.B = 3 --> Detected Change at B new Value 3 
+ProxyTable.B = 3 --> Detected Change at B new Value 3
 ProxyTable.Hao = nil --> Detected Change at Hao new Value nil
 ```
+
 ## Features you can add to your proxy table
+
 you can also add more features to the proxy table so that the proxy table can act like a normal table. here are some examples:
 
-adding the __index metamethod
+adding the \_\_index metamethod
+
 ```lua
 -- this will allow you to do ProxyTable["A"] normally to get the data
 Proxy.__index = function(self,key)
@@ -68,21 +73,24 @@ print(ProxyTable.ProxyTable.A) -- > 2
 print(ProxyTable.A) -- > 2
 ```
 
-adding the __iter metamethod
+adding the \_\_iter metamethod
+
 ```lua
--- this will allow the proxy table to be iterated by a for loop 
+-- this will allow the proxy table to be iterated by a for loop
 Proxy.__iter = function(self)
     return next,self.RealData -- similar to pairs(table)
 end
 
 --Example Use Case
 for i,v in ProxyTable do
-    print(i,v) --> A 2 | B 3     
+    print(i,v) --> A 2 | B 3
 end
 ```
+
 adding a bindable event to use as a changed event
+
 ```lua
--- this will allow the proxy table to be iterated by a for loop 
+-- this will allow the proxy table to be iterated by a for loop
 Proxy.__newindex = function(self,key,value)
     self.RealData[key] = value
     self.Changed:Fire(key,value)
@@ -97,7 +105,9 @@ ProxyTable.Changed.event:Connect(function(key,value)
     print("table was modified")
 end)
 ```
+
 Check out this [link](https://create.roblox.com/docs/scripting/luau/metatables) for more metamethods
 
-# Conclusion 
-if you think you're going to use RealData as a key name you can name the key to something random so that when you do ProxyTable.RealData={} it wouldn't override your real data with an empty table. Anyways thats it for this tutorial, hope this helps 
+# Conclusion
+
+if you think you're going to use RealData as a key name you can name the key to something random so that when you do ProxyTable.RealData={} it wouldn't override your real data with an empty table. Anyways thats it for this tutorial, hope this helps

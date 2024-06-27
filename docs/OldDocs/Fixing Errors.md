@@ -1,7 +1,9 @@
-# Fixing Errors 
+# Fixing Errors
+
 This section will go over some basics on how to fix or find errors
 
-## Checking Output 
+## Checking Output
+
 Usually, if your code doesn't run then it might be because there was an error in your code. Which you can check by going to output.
 
 To open output you go to View -> Output
@@ -9,17 +11,16 @@ To open output you go to View -> Output
 ![Alt text](https://camo.githubusercontent.com/c49980899ae8f35c159d72ed5921a170d267031a94311029b25d222c7becdf44/68747470733a2f2f6d656469612e646973636f72646170702e6e65742f6174746163686d656e74732f313039303535343236383439323234373130332f313134343337363136393436333034323137382f696d6167652e706e673f77696474683d373637266865696768743d313237)
 
 !!! info
-    Another useful tool is the Script Analysis, what it does is show warnings/errors 
-    (mainly [syntax](https://www.sciencedirect.com/topics/engineering/syntax-error) related) while you are editing the script. It is directly below the Output
-
+Another useful tool is the Script Analysis, what it does is show warnings/errors
+(mainly [syntax](https://www.sciencedirect.com/topics/engineering/syntax-error) related) while you are editing the script. It is directly below the Output
 
 To see if there is an error you will see a message that is red like this one
 
 ![error](https://camo.githubusercontent.com/5ed3c63737852d58fd4c1734230b043b1a387a220f4f362d80439faf7e055373/68747470733a2f2f6d656469612e646973636f72646170702e6e65742f6174746163686d656e74732f313039303535343236383439323234373130332f313134343337373831303933333236303431382f696d6167652e706e673f77696474683d373637266865696768743d313034)
 
-You can click on the error and it will bring you to the line and script that it errored on 
+You can click on the error and it will bring you to the line and script that it errored on
 
-If clicking on it doesn't lead you anywhere and you see this 
+If clicking on it doesn't lead you anywhere and you see this
 
 ![a](https://camo.githubusercontent.com/0946a37370117458fb6f82e47700ea7b30c21f88e8b9f47348439558394d8a57/68747470733a2f2f6d656469612e646973636f72646170702e6e65742f6174746163686d656e74732f313039303535343236383439323234373130332f313134343337383631353131353534363732342f696d6167652e706e673f77696474683d373637266865696768743d313033)
 it means that the script it errored in was deleted. Which usually means it was a local script or a cloned script.
@@ -29,23 +30,21 @@ What you can do is click on the error while in the game instead of after stoppin
 
 ![ok](https://camo.githubusercontent.com/f8ef25c7db728a824a56d6daac6fffcc1c1e8a6c818196e5d0467f9d44ed6d71/68747470733a2f2f6d656469612e646973636f72646170702e6e65742f6174746163686d656e74732f313039303535343236383439323234373130332f313134343338333336383136333737343437342f696d6167652e706e673f77696474683d373637266865696768743d313832)
 
-- <span style="color:Orange">Time of message: </span> When did it error
-- <span style="color:Lime">Script Location: </span> What script did it error on and where is the script
-- <span style="color:magenta">Line the error is on: </span> What line did it error on
-- <span style="color:yellow; -webkit-text-stroke: .25px black; text-stroke;">Error Message: </span> What is the error
-- <span style="color: White; -webkit-text-stroke: .25px black; text-stroke;">Environment: </span> is the error on the server, client, or studio
-
+-   <span style="color:Orange">Time of message: </span> When did it error
+-   <span style="color:Lime">Script Location: </span> What script did it error on and where is the script
+-   <span style="color:magenta">Line the error is on: </span> What line did it error on
+-   <span style="color:yellow; -webkit-text-stroke: .25px black; text-stroke;">Error Message: </span> What is the error
+-   <span style="color: White; -webkit-text-stroke: .25px black; text-stroke;">Environment: </span> is the error on the server, client, or studio
 
 You mainly only need to focus on the Script Location, error line, and the error itself. If it's an error you don't understand you can use Google to search for the error message. There is a section below explaining how to do that.
 
-???+ info "Common Error Messages"
-    ### <span style="color:red"> [name] is not a valid member of object </span>
-    This error shows up when you try to get a child that does not exist in the object, Usually if its to do with the client you can use WaitForChild but if that doesn't work, check your code and make sure the child exists.  
-    ### <span style="color:red"> attempt to perform arithmetic(arithmetic) on number and [type] </span>
-    This means you are trying to do arithmetic on a number and a type you can not do arithmetic on. 
-    The only objects you can do arithmetic on are numbers, strings, and objects that have arithmetic metamethods (__mul,__add...)
+???+ info "Common Error Messages" ### <span style="color:red"> [name] is not a valid member of object </span>
+This error shows up when you try to get a child that does not exist in the object, Usually if its to do with the client you can use WaitForChild but if that doesn't work, check your code and make sure the child exists.  
+ ### <span style="color:red"> attempt to perform arithmetic(arithmetic) on number and [type] </span>
+This means you are trying to do arithmetic on a number and a type you can not do arithmetic on.
+The only objects you can do arithmetic on are numbers, strings, and objects that have arithmetic metamethods (**mul,**add...)
 
-    !!!info 
+    !!!info
         This also applies to <span style="color:red"> attempt to compare something < number </span> and <span style="color:red"> attempt to concatenate string with something </span>. They either must be types that be compared on concatenated or have the [metatmethods](https://create.roblox.com/docs/luau/metatables#metamethods) that allow them to do it
     ###  <span style="color:red"> Argument [number] missing or nil </span>
     This means that one of the arguments you sent is nil or empty. arguments are the data you are sending ex.
@@ -60,12 +59,15 @@ You mainly only need to focus on the Script Location, error line, and the error 
     this means that the value you are trying to send cannot be converted into the object the function wants. To fix this make sure that the data type is the correct one.
     ###  <span style="color:red"> Expected ')' (to close '(' at column [number]), got eof </span>
     This is a syntax error. it means that you either have extra parentheses or lack one. To fix this look for where the lines are underlined in red as roblox catches syntax errors before the game is being run.
-## Print Debugging 
+
+## Print Debugging
+
 Print debugging mainly consists of adding print statements to find out what is wrong this is mainly used if no errors are showing up in the output
 
 ### use case
 
 let's say we have a script set up like this
+
 ```lua
 local x = getX()
 local y = getY()
@@ -75,9 +77,11 @@ if x >= 3 then
     end
 end
 ```
+
 and for some reason doSomething() is not being invoked, instead of going to scripting help and asking why the doSomething isn't working here is what you can do.
 
-### 1. Print before an if statement 
+### 1. Print before an if statement
+
 ```lua
 local x = getX()
 local y = getY()
@@ -90,16 +94,19 @@ if x >= 3 then
     end
 end
 ```
-When you run the script and you only see 
+
+When you run the script and you only see
+
 ```
 script is running
 x check passed
 ```
+
 Then you will know that y is not equal to 0
 
 !!! note
-    You don't really need to add all those prints to figure out what's wrong for example if you know your code is running you can probably remove the print("script is running").
-    You also can just print("X") (or anything that will help) instead of print("x check passed")
+You don't really need to add all those prints to figure out what's wrong for example if you know your code is running you can probably remove the print("script is running").
+You also can just print("X") (or anything that will help) instead of print("x check passed")
 
 ### 2. Printing the variables
 
@@ -114,17 +121,22 @@ if x >= 3 then
     end
 end
 ```
+
 ```
 4
 4
 ```
-From this, you can tell that y is 4 not 0 so from this you would most likely look into how y is being assigned which in this case can tell us that something must be wrong with the getY function 
+
+From this, you can tell that y is 4 not 0 so from this you would most likely look into how y is being assigned which in this case can tell us that something must be wrong with the getY function
 
 ## visualize debugging
-This type of debugging can be using parts or other methods to visualize the problem this can be used if using prints doesn't really tell you what's wrong 
+
+This type of debugging can be using parts or other methods to visualize the problem this can be used if using prints doesn't really tell you what's wrong
 
 ### use case
-Let's say we are doing some raycasting but the ray isn't hitting anything 
+
+Let's say we are doing some raycasting but the ray isn't hitting anything
+
 ```lua
 local green = workspace.PartA
 local red = workspace.PartB
@@ -136,6 +148,7 @@ print(direction)
 ```
 
 ![placeholder](https://camo.githubusercontent.com/e658633f9600907164031a15b24197f5346040d4e5e53232ca8e5321663d2f0c/68747470733a2f2f6d656469612e646973636f72646170702e6e65742f6174746163686d656e74732f313039373131353134303932343634353337362f313134333031333132313436383934303239392f696d6167652e706e673f77696474683d353137266865696768743d343130)
+
 ```
 nil
 600.8695068359375, -531.7534790039062, -596.8199462890625
@@ -162,6 +175,7 @@ dir.Parent = workspace
 From this we can see that direction is indeed wrong and when we look at how direction is defined we can see that we did (start-goal) when the proper way is (goal - start)
 
 So fixing that and running the code will now give the correct results
+
 ```lua
 local green = workspace.PartA
 local red = workspace.PartB
@@ -176,16 +190,18 @@ dir.CFrame = CFrame.lookAt(green.Position+direction/2,green.Position + direction
 dir.Anchored = true
 dir.Parent = workspace
 ```
+
 ```
-RaycastResult{PartB @ -4.82407379, 11.2030563, 18.3839722; normal = 0, 0, -1; material = Plastic} 
+RaycastResult{PartB @ -4.82407379, 11.2030563, 18.3839722; normal = 0, 0, -1; material = Plastic}
 ```
 
 ![placeholder](https://camo.githubusercontent.com/7c2be402e3b54e2fb5a0d28d493a4e61a45bfae3fb113fb008317f7f571d5532/68747470733a2f2f6d656469612e646973636f72646170702e6e65742f6174746163686d656e74732f313039373131353134303932343634353337362f313134333031353930363238393635353837382f696d6167652e706e673f77696474683d363231266865696768743d343335)
 
 ## Making your code more readable/ Remaking it
-Sometimes making your code more readable will help with debugging 
+
+Sometimes making your code more readable will help with debugging
 ex:
-given this script it might be a bit annoying to figure out what wrong 
+given this script it might be a bit annoying to figure out what wrong
 
 ```lua
 --GOAL: to make the ProximityPrompt enabled set to true if both the flags for
@@ -198,7 +214,9 @@ if RandomTor:FindFirstChild("Flag").Value == false then
     end
 end
 ```
+
 What we can do is use variables to make it cleaner
+
 ```lua
 local randomFlag = RandomTor:FindFirstChild("Flag")
 local LocalFlag = LocalTorso:FindFirstChild("Flag")
@@ -211,28 +229,32 @@ if not randomFlag.Value then
     end
 end
 ```
+
 If you still don't see what's wrong with it what you can do is just plug values into it and think what the expected results are. The reason this isn't working is because it ignores when randomFlag.Value is true so to fix this we can do:
+
 ```lua
 local randomFlag = RandomTor:FindFirstChild("Flag")
 local LocalFlag = LocalTorso:FindFirstChild("Flag")
 local RandomProx = RandomTor:FindFirstChild("ProximityPrompt")
-if (not randomFlag.Value) and (not LocalFlag.Value) then 
+if (not randomFlag.Value) and (not LocalFlag.Value) then
     RandomProx.Enabled = true
 else
     RandomProx.Enabled = false
 end
 ```
-!!!info 
-    For people that really care how much lines their code has you can do
-    ```lua
+
+!!!info
+For people that really care how much lines their code has you can do
+`lua
     local randomFlag = RandomTor:FindFirstChild("Flag")
     local LocalFlag = LocalTorso:FindFirstChild("Flag")
     local RandomProx = RandomTor:FindFirstChild("ProximityPrompt")
     RandomProx.Enabled =  not (randomFlag.Value or LocalFlag.Value)
-    ```
-    as the condition is just a boolean 
+    `
+as the condition is just a boolean
 
-## Using google 
+## Using google
+
 When you get an error message that you don't know or understand, what you can do is go to google.com and search for the error message. Usually, you will find a devform post that has the same error and the solution. Another way to help enhance the search is by using "". This tells google to look for that keyword. Sometimes you might not get the results you're looking for, for example, this error
 
 ![placeholder](https://camo.githubusercontent.com/07249c9dc85738d404d508718bdee137c8183342863c791741e08d63c609fe9f/68747470733a2f2f6d656469612e646973636f72646170702e6e65742f6174746163686d656e74732f313039373131353134303932343634353337362f313134333432323133393734343133373235372f696d6167652e706e673f77696474683d353532266865696768743d3234)
@@ -246,14 +268,19 @@ So what we can do here is maybe change the wording or adding roblox into the sea
 ![asaada](https://camo.githubusercontent.com/3e62fd80d0faa8f0d72b030707cb541fe92a996ac046572cdc1bb97b0b750102/68747470733a2f2f6d656469612e646973636f72646170702e6e65742f6174746163686d656e74732f313039373131353134303932343634353337362f313134333432333039353536373239383631302f696d6167652e706e673f77696474683d373637266865696768743d363638)
 
 and there we go.
+
 ## Using roblox debugger
+
 Another way of debugging is using tools roblox provided such as breakpoints, watch, and call stack. But most of the time you won't really be needing this. but if you want you can find out how to use them [here](https://create.roblox.com/docs/studio/debugging).
 
-## Common mistakes 
+## Common mistakes
+
 This section is just a list of common mistakes people tend to do
 
 ### 1. Using starter Gui instead of playergui
+
 #### StarterGui
+
 StarterGui is a container that is under Game. Its purpose is to act like a container to hold your guis before they are cloned into the PlayerGui. When a player joins roblox will take everything that is currently in StarterGui and clone them into the players PlayerGui.
 https://create.roblox.com/docs/reference/engine/classes/StarterGui
 
@@ -261,10 +288,11 @@ So given a script like the one below, it will **not** make ScreenGui visible bec
 
 ```lua
  --LocalScript
-local StarterGui = game.StarterGui 
+local StarterGui = game.StarterGui
 local ScreenGui = StarterGui:WaitForChild("ScreenGui")
 ScreenGui.Enabled = true --!! THIS WILL NOT WORK !!
 ```
+
 #### PlayerGui
 
 PlayerGui is a container that is under the player that joined. Each player will have their own PlayerGui which other players will **not** be able to see. The server will be able to see it but its is **not recommended** to let the server modify anything in PlayerGui. PlayerGui is what the client actually sees.
@@ -280,10 +308,11 @@ local player = game.Players
 local LocalPlayer = player.LocalPlayer
 local PlayerGui = LocalPlayer.PlayerGui
 local ScreenGui = PlayerGui:WaitForChild("ScreenGui")
-ScreenGui.Enabled = true 
+ScreenGui.Enabled = true
 ```
 
 ### 2. LocalScripts in the wrong places
+
 Another common mistake is having LocalScripts in the wrong place such as having a LocalScript in ServerScriptService. LocalScripts run in a client environment such as StarterPlayerScripts, ServerScriptService is on the server
 
 ![a](https://camo.githubusercontent.com/23e591c5e1aa20bca4fb4fdf7014d5cec1fc993b2047fd95c37a5744c6538e02/68747470733a2f2f6d656469612e646973636f72646170702e6e65742f6174746163686d656e74732f313039373131353134303932343634353337362f313134333432383733303839393933353235322f696d6167652e706e673f77696474683d373637266865696768743d323531)
@@ -291,9 +320,11 @@ Another common mistake is having LocalScripts in the wrong place such as having 
 [https://create.roblox.com/docs/reference/engine/classes/LocalScript](https://create.roblox.com/docs/reference/engine/classes/LocalScript)
 
 ### 3. Trying to access ServerStorage from the client
+
 ServerStorage is a Storage for the server to see not the client. If you want to store something store it in ReplicatedStorage
 
 ### 4. Indirect Change
+
 Indirect Change is when you are changing the variable, not the actual value, for example:
 
 ```lua
@@ -312,9 +343,11 @@ local position = part.Position
 position = Vector3.new(1,2,3)
 -- this is wrong
 ```
+
 The example above is wrong because you are not changing the values but instead the variable.
 
 the proper way to do this is to do:
+
 ```lua
 local t = {}
 t.Value = 1
@@ -327,11 +360,12 @@ local part = workspace.Part
 part.Position = Vector3.new(1,2,3)
 ```
 
-
 ### 5. Not having a BindToClose in their DataStoreSaving script
+
 A very common mistake people tend to make is not having a BindToClose in their Datastore script
 
 Here is an example script:
+
 ```lua
 local dss =game:GetService("DataStoreService")
 local MyDs = dss:GetDataStore("MyStore")
@@ -342,9 +376,11 @@ end
 
 game.Players.PlayerRemoving(save)
 ```
+
 This will work, but will only work sometimes, this is because when the last person leaves roblox doesn't care if a script is still running or not. To fix this you can use a [BindToClose](https://create.roblox.com/docs/reference/engine/classes/DataModel#BindToClose). What a BindToClose does is it forces roblox's server or studio to wait until the function inside of it is done running (30 seconds max) then tell the server to close.
 
 Heres is how we can implement it:
+
 ```lua
 local dss =game:GetService("DataStoreService")
 local MyDs = dss:GetDataStore("MyStore")
@@ -362,17 +398,17 @@ game:BindToClose(function()
 end)
 ```
 
-???+ warning 
-    Another mistake people tend to do is using spawn/task.spawn inside of the BindToClose
-    ```lua
+???+ warning
+Another mistake people tend to do is using spawn/task.spawn inside of the BindToClose
+`lua
     game:BindToClose(function()
         for _,Player in game.Players:GetPlayers() do
             task.spawn(save,Player)
         end
     end)
-    ```
-    this is wrong because task.spawn makes it so that the saving process doesn't yield, but we need it to yield. If you want to do it correctly you can do it like this
-    ```lua
+    `
+this is wrong because task.spawn makes it so that the saving process doesn't yield, but we need it to yield. If you want to do it correctly you can do it like this
+`lua
     game:BindToClose(function()
         local players = game.Players:GetPlayers()
         local amt = #players -- how many players need to be saved
@@ -387,9 +423,9 @@ end)
         end
         repeat task.wait() until count == amt -- yields until everything is done
     end)
-    ```
-    or if you want to be fancy
-    ```lua
+    `
+or if you want to be fancy
+`lua
     game:BindToClose(function()
         local players = game.Players:GetPlayers()
         local thread = coroutine.running() --gets current thread
@@ -410,13 +446,17 @@ end)
         if count == amt then return end -- if everyone's data has already been saved there is no need to yield
         coroutine.yield() -- yields the thread
     end)
-    ```
+    `
+
 ### 6. Animations working in Studio but not In game
-Animations only work if the game the animation is owned is the same to fix it you will have to upload the animation to the same game owner or group 
+
+Animations only work if the game the animation is owned is the same to fix it you will have to upload the animation to the same game owner or group
 
 ![ani](https://camo.githubusercontent.com/53d146fc05eabc961a0d5da262c415d7eee44d8919079e880cc5d830b4da16e5/68747470733a2f2f6d656469612e646973636f72646170702e6e65742f6174746163686d656e74732f313039373131353134303932343634353337362f313133333635393434393132333431303030302f746f6769662e6769663f77696474683d373637266865696768743d333637)
 (The green is what will happen)
-## Conclusion  
+
+## Conclusion
+
 Hope this helps if you have any more questions you can ask in scripting-help. Anyways Good luck out there and don't get joe tagged.
 
 ![joe](https://camo.githubusercontent.com/d05cb3e2d45b76011b5c637611d9b54595536704a489021a691733c8e7c23059/68747470733a2f2f6d656469612e646973636f72646170702e6e65742f6174746163686d656e74732f3839353135313833303334353038343934392f313132393838373739353133383237373439362f746f6769662e6769663f77696474683d333630266865696768743d3936)
