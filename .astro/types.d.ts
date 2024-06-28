@@ -125,14 +125,85 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		"documents": Record<string, {
-  id: string;
-  slug: string;
+		"documents": {
+"helpful/Basic Methods of Instances.md": {
+	id: "helpful/Basic Methods of Instances.md";
+  slug: "helpful/basic-methods-of-instances";
   body: string;
   collection: "documents";
-  data: any;
-  render(): Render[".md"];
-}>;
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"helpful/Fixing Errors.md": {
+	id: "helpful/Fixing Errors.md";
+  slug: "helpful/fixing-errors";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"helpful/Inheritance.md": {
+	id: "helpful/Inheritance.md";
+  slug: "helpful/inheritance";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"helpful/Parallel luau.md": {
+	id: "helpful/Parallel luau.md";
+  slug: "helpful/parallel-luau";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"helpful/ProxyTables.md": {
+	id: "helpful/ProxyTables.md";
+  slug: "helpful/proxytables";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"helpful/Vector3 Methods.md": {
+	id: "helpful/Vector3 Methods.md";
+  slug: "helpful/vector3-methods";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"helpful/index.md": {
+	id: "helpful/index.md";
+  slug: "helpful";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"index.md": {
+	id: "index.md";
+  slug: "index";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"page2.md": {
+	id: "page2.md";
+  slug: "page2";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tag1.md": {
+	id: "tag1.md";
+  slug: "tag1";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tag2.md": {
+	id: "tag2.md";
+  slug: "tag2";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+};
 
 	};
 
@@ -142,5 +213,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = never;
+	export type ContentConfig = typeof import("./../src/content/config.js");
 }
