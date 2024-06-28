@@ -1,5 +1,9 @@
 import js from "@eslint/js";
 import astro from "eslint-plugin-astro";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactJSXRuntime from "eslint-plugin-react/configs/jsx-runtime.js";
+import reactRecommended from "eslint-plugin-react/configs/recommended.js";
+import globals from "globals";
 import typescript from "typescript-eslint";
 
 export default [
@@ -15,6 +19,40 @@ export default [
         },
     },
     ...astro.configs.recommended,
+    {
+        ...reactRecommended,
+
+        files: ["**/*.{jsx,tsx}"],
+        languageOptions: {
+            ...reactRecommended.languageOptions,
+
+            globals: {
+                ...globals.serviceworker,
+                ...globals.browser,
+            },
+        },
+        rules: {
+            ...reactRecommended.rules,
+
+            "react/no-unknown-property": "error",
+        },
+    },
+    {
+        ...reactJSXRuntime,
+
+        settings: {
+            ...reactJSXRuntime.settings,
+
+            react: {
+                version: "detect",
+            },
+        },
+    },
+    {
+        plugins: {
+            "react-hooks": reactHooks,
+        },
+    },
     {
         ignores: ["node_modules/", ".astro/"],
     },

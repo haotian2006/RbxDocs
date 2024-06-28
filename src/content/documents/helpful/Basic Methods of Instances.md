@@ -1,4 +1,6 @@
-# Basic Methods of Instances
+---
+title: "Basic Methods of Instances"
+---
 
 ## AddTag(tag: string): void
 

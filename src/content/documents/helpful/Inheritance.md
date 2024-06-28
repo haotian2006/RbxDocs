@@ -1,3 +1,7 @@
+---
+title: "Inheritance"
+---
+
 ## Pre-requisites
 
 Before reading this tutorial, you should know about metatables. An explanation of [~~metatables~~](https://docs.rodevs.com/Scripting/Advanced-Courses/metatables/) exists in the Lua-Learning folder (not anymore).

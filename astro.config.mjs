@@ -1,3 +1,4 @@
+import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
 
@@ -9,5 +10,5 @@ export default defineConfig({
         host: true,
     },
     site: "https://haotian2004.github.io",
-    integrations: [tailwind()],
+    integrations: [tailwind(), react()],
 });

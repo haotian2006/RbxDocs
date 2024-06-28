@@ -1,4 +1,7 @@
-# Welcome
+---
+title: "Welcome"
+search: false
+---
 
 ## Discord servers you can join to get help
 

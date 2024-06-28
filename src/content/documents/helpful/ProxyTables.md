@@ -1,3 +1,7 @@
+---
+title: "Proxy Tables"
+---
+
 ## Pre-requisites
 
 Before reading this tutorial, you should know about metatables. An explanation of metatable exists in the Lua-Learning folder (not anymore).

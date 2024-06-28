@@ -1,4 +1,6 @@
-# Fixing Errors
+---
+title: "Fixing Errors"
+---
 
 This section will go over some basics on how to fix or find errors
 
@@ -416,7 +418,7 @@ this is wrong because task.spawn makes it so that the saving process doesn't yie
         local amt = #players -- how many players need to be saved
         local count = 0 -- how many players have been saved
         for _,Player in players do
-            task.spawn(function() 
+            task.spawn(function()
             -- makes it so that everyone saves at the same time instead of 1 by 1
                 save(Player)
                 count += 1

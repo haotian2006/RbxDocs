@@ -16,7 +16,8 @@ export async function getStaticPaths() {
     }));
 }
 
-const { Content } = await Astro.props.entry.render();
+const { entry } = Astro.props;
+const { Content } = await entry.render();
 ---
 
 <Layout class="flex justify-center py-12">
@@ -31,6 +32,8 @@ const { Content } = await Astro.props.entry.render();
             prose-a:visited:text-purple-600
         `}
     >
+        <h1>{entry.data.title}</h1>
+
         <Content />
     </main>
 </Layout>

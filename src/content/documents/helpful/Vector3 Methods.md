@@ -1,3 +1,7 @@
+---
+title: "Vector3 Methods"
+---
+
 ## Pre-requisites
 
 Before reading this tutorial, you should know about vector3s. An explanation of vector3 exists in the [~~Lua-Learning folder~~](https://docs.rodevs.com//Scripting/Intermediate-Courses/Vector3/) (not anymore). Or check out the Roblox [docs](https://create.roblox.com/docs/reference/engine/datatypes/Vector3#summary-methods).
