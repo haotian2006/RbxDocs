@@ -26,7 +26,7 @@ const { class: class_ = null } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,6 +35,23 @@ const { class: class_ = null } = Astro.props;
         <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
 
         <title>Docs Idk</title>
+
+        <script is:inline>
+            // prevents flatuence
+
+            // https://css-tricks.com/flash-of-inaccurate-color-theme-fart/
+            if (localStorage.getItem("theme") === null) {
+                document.documentElement.setAttribute("data-theme", "light");
+            } else {
+                document.documentElement.setAttribute("data-theme", localStorage.getItem("theme"));
+            }
+        </script>
+
+        <script>
+            import { themeChange } from "theme-change";
+
+            themeChange();
+        </script>
     </head>
 
     <body>

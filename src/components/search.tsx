@@ -54,20 +54,20 @@ export default function Search(properties: Properties) {
             ref={container}
         >
             <div className="box-border flex cursor-default items-center gap-2 rounded-lg bg-black bg-opacity-30 px-2 py-1 transition-colors hover:cursor-text group-data-[has-results=true]:rounded-b-none">
-                <MagnifyingGlass className="size-5 stroke-2 text-white" />
+                <MagnifyingGlass className="size-5 stroke-2 text-neutral-200" />
 
                 <input
-                    className="bg-transparent text-white opacity-85 outline-none"
+                    className="bg-transparent text-neutral-300 outline-none"
                     placeholder="Search"
                     onInput={search}
                     ref={bar}
                 />
             </div>
 
-            <div className="absolute box-border flex w-full flex-col rounded-b-lg bg-white p-2 shadow-xl group-data-[has-results=true]:visible group-data-[has-results=false]:invisible">
+            <div className="bg-base-100 text-base-content absolute box-border flex w-full flex-col rounded-b-lg p-2 shadow-2xl group-data-[has-results=true]:visible group-data-[has-results=false]:invisible">
                 {results.map((entry, index) => (
                     <a
-                        className="box-border rounded-md px-2 py-2 transition-colors hover:bg-gray-300"
+                        className="hover:bg-neutral-content box-border rounded-md px-2 py-2 transition-colors"
                         href={`/MyDocs/${entry.item.slug}`}
                         key={`result-${index + 1}`}
                     >

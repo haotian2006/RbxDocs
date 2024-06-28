@@ -24,12 +24,12 @@ const { Content } = await entry.render();
     <main
         class={`
             prose
-            marker:text-gray-400
-            prose-headings:font-light
-            prose-h1:text-gray-500
+            marker:text-base-content
+            prose-headings:font-light prose-headings:text-base-content
             prose-h2:mt-0
-            prose-a:text-blue-600 prose-a:decoration-inherit prose-a:underline-offset-1
-            prose-a:visited:text-purple-600
+            prose-p:text-base-content
+            prose-a:text-blue-600 prose-a:decoration-inherit prose-a:underline-offset-1 prose-a:opacity-90
+            prose-a:visited:text-purple-500
         `}
     >
         <h1>{entry.data.title}</h1>
