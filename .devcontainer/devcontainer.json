@@ -9,10 +9,13 @@
         "vscode": {
             "extensions": [
                 "Gruntfuggly.todo-tree",
+                "YoavBls.pretty-ts-errors",
                 "astro-build.astro-vscode",
+                "better-ts-errors.better-ts-errors",
                 "bradlc.vscode-tailwindcss",
                 "esbenp.prettier-vscode",
                 "henriiik.vscode-sort",
+                "neotan.vscode-auto-restart-typescript-eslint-servers",
                 "streetsidesoftware.code-spell-checker",
                 "wayou.vscode-todo-highlight"
             ],
