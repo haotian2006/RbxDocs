@@ -9,7 +9,7 @@
         "preview": "astro preview",
         "astro": "astro",
         "format": "prettier --write .",
-        "lint": "tsc --noEmit"
+        "lint": "eslint --max-warnings 9999 ."
     },
     "dependencies": {
         "@astrojs/check": "^0.7.0",
@@ -24,12 +24,14 @@
         "@fontsource/roboto": "^5.0.13",
         "@ianvs/prettier-plugin-sort-imports": "^4.3.0",
         "@tailwindcss/typography": "^0.5.13",
-        "@typescript-eslint/eslint-plugin": "^7.14.1",
+        "@types/eslint__js": "^8.42.3",
         "eslint": "^9.5.0",
         "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-astro": "^1.2.2",
         "prettier": "^3.3.2",
         "prettier-plugin-astro": "^0.14.0",
         "prettier-plugin-sort-json": "^4.0.0",
-        "prettier-plugin-tailwindcss": "^0.6.5"
+        "prettier-plugin-tailwindcss": "^0.6.5",
+        "typescript-eslint": "^7.14.1"
     }
 }
