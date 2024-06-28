@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+
+import Layout from "@/layouts/base.astro";
+
+export async function getStaticPaths() {
+    const documents = await getCollection("documents");
+
+    return documents.map(entry => ({
+        params: {
+            slug: entry.slug === "index" ? "/" : entry.slug,
+        },
+        props: {
+            entry,
+        },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout class="flex justify-center py-12">
+    <main
+        class={`
+            prose
+            marker:text-base-content
+            prose-headings:font-light prose-headings:text-base-content
+            prose-h2:mt-0
+            prose-p:text-base-content
+            prose-a:text-blue-500 prose-a:decoration-inherit prose-a:underline-offset-1
+            prose-a:visited:text-purple-500
+        `}
+    >
+        <h1>{entry.data.title}</h1>
+
+        <Content />
+    </main>
+</Layout>
