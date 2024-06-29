@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: ci
 
 on:
     push:
@@ -16,6 +16,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                node-version: 18
+            - run: npm install --legacy-peer-deps
+            - run: npm run build
             - name: Install, build, and upload your site
               uses: withastro/action@v2
 
@@ -26,6 +31,8 @@ jobs:
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}
         steps:
+            - uses: actions/checkout@v4
+            - uses: actions/download-artifact@v4
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v4
