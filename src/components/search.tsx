@@ -64,10 +64,10 @@ export default function Search(properties: Properties) {
                 />
             </div>
 
-            <div className="bg-base-100 text-base-content absolute box-border flex w-full flex-col rounded-b-lg p-2 shadow-2xl group-data-[has-results=true]:visible group-data-[has-results=false]:invisible">
+            <div className="absolute box-border flex w-full flex-col rounded-b-lg bg-base-100 p-2 text-base-content shadow-2xl group-data-[has-results=true]:visible group-data-[has-results=false]:invisible">
                 {results.map((entry, index) => (
                     <a
-                        className="hover:bg-neutral-content box-border rounded-md px-2 py-2 transition-colors"
+                        className="box-border rounded-md px-2 py-2 transition-colors hover:bg-neutral-content"
                         href={`/MyDocs/${entry.item.slug}`}
                         key={`result-${index + 1}`}
                     >

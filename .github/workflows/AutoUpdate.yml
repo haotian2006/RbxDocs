@@ -2,21 +2,22 @@ name: ci
 
 on:
     push:
-        branches:
-            - master
-            - main
+        branches: [main]
+    workflow_dispatch:
 
 permissions:
-  contents: write
-  id-token: write
+    contents: read
+    pages: write
+    id-token: write
+
 jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-          - name: Checkout your repository using git
-            uses: actions/checkout@v4
-          - name: Install, build, and upload your site
-            uses: withastro/action@v2
+            - name: Checkout your repository using git
+              uses: actions/checkout@v4
+            - name: Install, build, and upload your site
+              uses: withastro/action@v2
 
     deploy:
         needs: build
