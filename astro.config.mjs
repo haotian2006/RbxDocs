@@ -9,6 +9,6 @@ export default defineConfig({
         port: 3000,
         host: true,
     },
-    site: "https://haotian2004.github.io",
+    site: "https://haotian2006.github.io",
     integrations: [tailwind(), react()],
 });
