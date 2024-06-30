@@ -19,13 +19,15 @@ jobs:
             - name: Set up Node.js
               uses: actions/setup-node@v4
               with:
-                node-version: 20
+                node-version: 15
     
             - name: Install dependencies with legacy-peer-deps
               run: npm install --legacy-peer-deps
     
             - name: Build the Astro site
               uses: withastro/action@v2
+              with:
+                node-version: 15
 
     deploy:
         needs: build
