@@ -16,18 +16,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - name: Set up Node.js
-              uses: actions/setup-node@v4
-              with:
-                node-version: 15
-    
-            - name: Install dependencies with legacy-peer-deps
-              run: npm install --legacy-peer-deps
     
             - name: Build the Astro site
               uses: withastro/action@v2
               with:
-                node-version: 15
+                node-version: 18
 
     deploy:
         needs: build
