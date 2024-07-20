@@ -1,5 +1,6 @@
 ---
 title: "Animation Ownership"
+author: https://github.com/cyrus01337
 ---
 
  

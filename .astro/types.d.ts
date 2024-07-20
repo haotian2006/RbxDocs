@@ -126,44 +126,44 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"documents": {
-"Basic Methods of Instances.md": {
-	id: "Basic Methods of Instances.md";
-  slug: "basic-methods-of-instances";
+"docs/Basic Methods of Instances.md": {
+	id: "docs/Basic Methods of Instances.md";
+  slug: "docs/basic-methods-of-instances";
   body: string;
   collection: "documents";
   data: InferEntrySchema<"documents">
 } & { render(): Render[".md"] };
-"Fixing Errors.md": {
-	id: "Fixing Errors.md";
-  slug: "fixing-errors";
+"docs/Fixing Errors.md": {
+	id: "docs/Fixing Errors.md";
+  slug: "docs/fixing-errors";
   body: string;
   collection: "documents";
   data: InferEntrySchema<"documents">
 } & { render(): Render[".md"] };
-"Inheritance.md": {
-	id: "Inheritance.md";
-  slug: "inheritance";
+"docs/Inheritance.md": {
+	id: "docs/Inheritance.md";
+  slug: "docs/inheritance";
   body: string;
   collection: "documents";
   data: InferEntrySchema<"documents">
 } & { render(): Render[".md"] };
-"Parallel luau.md": {
-	id: "Parallel luau.md";
-  slug: "parallel-luau";
+"docs/Parallel luau.md": {
+	id: "docs/Parallel luau.md";
+  slug: "docs/parallel-luau";
   body: string;
   collection: "documents";
   data: InferEntrySchema<"documents">
 } & { render(): Render[".md"] };
-"ProxyTables.md": {
-	id: "ProxyTables.md";
-  slug: "proxytables";
+"docs/ProxyTables.md": {
+	id: "docs/ProxyTables.md";
+  slug: "docs/proxytables";
   body: string;
   collection: "documents";
   data: InferEntrySchema<"documents">
 } & { render(): Render[".md"] };
-"Vector3 Methods.md": {
-	id: "Vector3 Methods.md";
-  slug: "vector3-methods";
+"docs/Vector3 Methods.md": {
+	id: "docs/Vector3 Methods.md";
+  slug: "docs/vector3-methods";
   body: string;
   collection: "documents";
   data: InferEntrySchema<"documents">
@@ -175,324 +175,316 @@ declare module 'astro:content' {
   collection: "documents";
   data: InferEntrySchema<"documents">
 } & { render(): Render[".md"] };
-"tag1.md": {
-	id: "tag1.md";
-  slug: "tag1";
+"tags/Animation Ownership.md": {
+	id: "tags/Animation Ownership.md";
+  slug: "tags/animation-ownership";
   body: string;
   collection: "documents";
   data: InferEntrySchema<"documents">
 } & { render(): Render[".md"] };
-"tag2.md": {
-	id: "tag2.md";
-  slug: "tag2";
+"tags/Before You Ask.md": {
+	id: "tags/Before You Ask.md";
+  slug: "tags/before-you-ask";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Beginner Tips.md": {
+	id: "tags/Beginner Tips.md";
+  slug: "tags/beginner-tips";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Breakdown.md": {
+	id: "tags/Breakdown.md";
+  slug: "tags/breakdown";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Don't Ask to Ask.md": {
+	id: "tags/Don't Ask to Ask.md";
+  slug: "tags/dont-ask-to-ask";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Factory Method.md": {
+	id: "tags/Factory Method.md";
+  slug: "tags/factory-method";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Filtering Enabled.md": {
+	id: "tags/Filtering Enabled.md";
+  slug: "tags/filtering-enabled";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Generalised Iteration.md": {
+	id: "tags/Generalised Iteration.md";
+  slug: "tags/generalised-iteration";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Guard Clause.md": {
+	id: "tags/Guard Clause.md";
+  slug: "tags/guard-clause";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/How to Print Debug.md": {
+	id: "tags/How to Print Debug.md";
+  slug: "tags/how-to-print-debug";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Infinite Yield.md": {
+	id: "tags/Infinite Yield.md";
+  slug: "tags/infinite-yield";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Latency.md": {
+	id: "tags/Latency.md";
+  slug: "tags/latency";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/List of Debounces.md": {
+	id: "tags/List of Debounces.md";
+  slug: "tags/list-of-debounces";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Local Scripts.md": {
+	id: "tags/Local Scripts.md";
+  slug: "tags/local-scripts";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Managing Connections.md": {
+	id: "tags/Managing Connections.md";
+  slug: "tags/managing-connections";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Memory Leaks.md": {
+	id: "tags/Memory Leaks.md";
+  slug: "tags/memory-leaks";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Module Scripts.md": {
+	id: "tags/Module Scripts.md";
+  slug: "tags/module-scripts";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/New Alternative Methods.md": {
+	id: "tags/New Alternative Methods.md";
+  slug: "tags/new-alternative-methods";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/No DM Help.md": {
+	id: "tags/No DM Help.md";
+  slug: "tags/no-dm-help";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Partitioning.md": {
+	id: "tags/Partitioning.md";
+  slug: "tags/partitioning";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Pass by value vs reference.md": {
+	id: "tags/Pass by value vs reference.md";
+  slug: "tags/pass-by-value-vs-reference";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/PlayerAdded in Studio.md": {
+	id: "tags/PlayerAdded in Studio.md";
+  slug: "tags/playeradded-in-studio";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Prefabrication.md": {
+	id: "tags/Prefabrication.md";
+  slug: "tags/prefabrication";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Race Condition.md": {
+	id: "tags/Race Condition.md";
+  slug: "tags/race-condition";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Recommended Modules.md": {
+	id: "tags/Recommended Modules.md";
+  slug: "tags/recommended-modules";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Remote Events.md": {
+	id: "tags/Remote Events.md";
+  slug: "tags/remote-events";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Remote Functions.md": {
+	id: "tags/Remote Functions.md";
+  slug: "tags/remote-functions";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Rubber Duck Debugging.md": {
+	id: "tags/Rubber Duck Debugging.md";
+  slug: "tags/rubber-duck-debugging";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Scripting Tutorials.md": {
+	id: "tags/Scripting Tutorials.md";
+  slug: "tags/scripting-tutorials";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Server Scripts.md": {
+	id: "tags/Server Scripts.md";
+  slug: "tags/server-scripts";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Timing Methods.md": {
+	id: "tags/Timing Methods.md";
+  slug: "tags/timing-methods";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Tutorial Hell.md": {
+	id: "tags/Tutorial Hell.md";
+  slug: "tags/tutorial-hell";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Unique Random Value.md": {
+	id: "tags/Unique Random Value.md";
+  slug: "tags/unique-random-value";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Unique Random Values.md": {
+	id: "tags/Unique Random Values.md";
+  slug: "tags/unique-random-values";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/VSCode Recommended Extensions.md": {
+	id: "tags/VSCode Recommended Extensions.md";
+  slug: "tags/vscode-recommended-extensions";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Variable.md": {
+	id: "tags/Variable.md";
+  slug: "tags/variable";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/What Should I Make.md": {
+	id: "tags/What Should I Make.md";
+  slug: "tags/what-should-i-make";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/What are Frameworks.md": {
+	id: "tags/What are Frameworks.md";
+  slug: "tags/what-are-frameworks";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/What is return.md": {
+	id: "tags/What is return.md";
+  slug: "tags/what-is-return";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/When to use AI.md": {
+	id: "tags/When to use AI.md";
+  slug: "tags/when-to-use-ai";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/When to use Knit.md": {
+	id: "tags/When to use Knit.md";
+  slug: "tags/when-to-use-knit";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/When to use Paradigms.md": {
+	id: "tags/When to use Paradigms.md";
+  slug: "tags/when-to-use-paradigms";
+  body: string;
+  collection: "documents";
+  data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+"tags/Why External Editors.md": {
+	id: "tags/Why External Editors.md";
+  slug: "tags/why-external-editors";
   body: string;
   collection: "documents";
   data: InferEntrySchema<"documents">
 } & { render(): Render[".md"] };
 };
-"tags": {
-"Animation Ownership.md": {
-	id: "Animation Ownership.md";
-  slug: "animation-ownership";
+"tags": Record<string, {
+  id: string;
+  slug: string;
   body: string;
   collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Before You Ask.md": {
-	id: "Before You Ask.md";
-  slug: "before-you-ask";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Beginner Tips.md": {
-	id: "Beginner Tips.md";
-  slug: "beginner-tips";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Breakdown.md": {
-	id: "Breakdown.md";
-  slug: "breakdown";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Don't Ask to Ask.md": {
-	id: "Don't Ask to Ask.md";
-  slug: "dont-ask-to-ask";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Factory Method.md": {
-	id: "Factory Method.md";
-  slug: "factory-method";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Filtering Enabled.md": {
-	id: "Filtering Enabled.md";
-  slug: "filtering-enabled";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Generalised Iteration.md": {
-	id: "Generalised Iteration.md";
-  slug: "generalised-iteration";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Guard Clause.md": {
-	id: "Guard Clause.md";
-  slug: "guard-clause";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"How to Print Debug.md": {
-	id: "How to Print Debug.md";
-  slug: "how-to-print-debug";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Infinite Yield.md": {
-	id: "Infinite Yield.md";
-  slug: "infinite-yield";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Latency.md": {
-	id: "Latency.md";
-  slug: "latency";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"List of Debounces.md": {
-	id: "List of Debounces.md";
-  slug: "list-of-debounces";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Local Scripts.md": {
-	id: "Local Scripts.md";
-  slug: "local-scripts";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Managing Connections.md": {
-	id: "Managing Connections.md";
-  slug: "managing-connections";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Memory Leaks.md": {
-	id: "Memory Leaks.md";
-  slug: "memory-leaks";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Module Scripts.md": {
-	id: "Module Scripts.md";
-  slug: "module-scripts";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"New Alternative Methods.md": {
-	id: "New Alternative Methods.md";
-  slug: "new-alternative-methods";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"No DM Help.md": {
-	id: "No DM Help.md";
-  slug: "no-dm-help";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Partitioning.md": {
-	id: "Partitioning.md";
-  slug: "partitioning";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Pass by value vs reference.md": {
-	id: "Pass by value vs reference.md";
-  slug: "pass-by-value-vs-reference";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"PlayerAdded in Studio.md": {
-	id: "PlayerAdded in Studio.md";
-  slug: "playeradded-in-studio";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Prefabrication.md": {
-	id: "Prefabrication.md";
-  slug: "prefabrication";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Race Condition.md": {
-	id: "Race Condition.md";
-  slug: "race-condition";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Recommended Modules.md": {
-	id: "Recommended Modules.md";
-  slug: "recommended-modules";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Remote Events.md": {
-	id: "Remote Events.md";
-  slug: "remote-events";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Remote Functions.md": {
-	id: "Remote Functions.md";
-  slug: "remote-functions";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Rubber Duck Debugging.md": {
-	id: "Rubber Duck Debugging.md";
-  slug: "rubber-duck-debugging";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Scripting Tutorials.md": {
-	id: "Scripting Tutorials.md";
-  slug: "scripting-tutorials";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Server Scripts.md": {
-	id: "Server Scripts.md";
-  slug: "server-scripts";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Timing Methods.md": {
-	id: "Timing Methods.md";
-  slug: "timing-methods";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Tutorial Hell.md": {
-	id: "Tutorial Hell.md";
-  slug: "tutorial-hell";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Unique Random Value.md": {
-	id: "Unique Random Value.md";
-  slug: "unique-random-value";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Unique Random Values.md": {
-	id: "Unique Random Values.md";
-  slug: "unique-random-values";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"VSCode Recommended Extensions.md": {
-	id: "VSCode Recommended Extensions.md";
-  slug: "vscode-recommended-extensions";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Variable.md": {
-	id: "Variable.md";
-  slug: "variable";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"What Should I Make.md": {
-	id: "What Should I Make.md";
-  slug: "what-should-i-make";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"What are Frameworks.md": {
-	id: "What are Frameworks.md";
-  slug: "what-are-frameworks";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"What is return.md": {
-	id: "What is return.md";
-  slug: "what-is-return";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"When to use AI.md": {
-	id: "When to use AI.md";
-  slug: "when-to-use-ai";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"When to use Knit.md": {
-	id: "When to use Knit.md";
-  slug: "when-to-use-knit";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"When to use Paradigms.md": {
-	id: "When to use Paradigms.md";
-  slug: "when-to-use-paradigms";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-"Why External Editors.md": {
-	id: "Why External Editors.md";
-  slug: "why-external-editors";
-  body: string;
-  collection: "tags";
-  data: any
-} & { render(): Render[".md"] };
-};
+  data: any;
+  render(): Render[".md"];
+}>;
 
 	};
 

@@ -3,14 +3,15 @@ import { getCollection } from 'astro:content';
 import Layout from '@/layouts/base.astro';
 
 // Fetch all documents from the 'tags' collection
-const documents = await getCollection('tags');
+const documents = await getCollection('documents');
+const filteredDocs = documents.filter((doc) => doc.slug.startsWith('tags/'));
 ---
 
 <Layout class="p-6">
   <div class="space-y-4">
-    {documents.map((doc) => (
+    {filteredDocs.map((doc) => (
       <a
-        href={`/MyDocs/tags/${doc.slug}`}
+        href={`/MyDocs/${doc.slug}`}
         class="inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
 
       >
