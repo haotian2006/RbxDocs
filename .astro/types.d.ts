@@ -126,51 +126,44 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"documents": {
-"helpful/Basic Methods of Instances.md": {
-	id: "helpful/Basic Methods of Instances.md";
-  slug: "helpful/basic-methods-of-instances";
+"Basic Methods of Instances.md": {
+	id: "Basic Methods of Instances.md";
+  slug: "basic-methods-of-instances";
   body: string;
   collection: "documents";
   data: InferEntrySchema<"documents">
 } & { render(): Render[".md"] };
-"helpful/Fixing Errors.md": {
-	id: "helpful/Fixing Errors.md";
-  slug: "helpful/fixing-errors";
+"Fixing Errors.md": {
+	id: "Fixing Errors.md";
+  slug: "fixing-errors";
   body: string;
   collection: "documents";
   data: InferEntrySchema<"documents">
 } & { render(): Render[".md"] };
-"helpful/Inheritance.md": {
-	id: "helpful/Inheritance.md";
-  slug: "helpful/inheritance";
+"Inheritance.md": {
+	id: "Inheritance.md";
+  slug: "inheritance";
   body: string;
   collection: "documents";
   data: InferEntrySchema<"documents">
 } & { render(): Render[".md"] };
-"helpful/Parallel luau.md": {
-	id: "helpful/Parallel luau.md";
-  slug: "helpful/parallel-luau";
+"Parallel luau.md": {
+	id: "Parallel luau.md";
+  slug: "parallel-luau";
   body: string;
   collection: "documents";
   data: InferEntrySchema<"documents">
 } & { render(): Render[".md"] };
-"helpful/ProxyTables.md": {
-	id: "helpful/ProxyTables.md";
-  slug: "helpful/proxytables";
+"ProxyTables.md": {
+	id: "ProxyTables.md";
+  slug: "proxytables";
   body: string;
   collection: "documents";
   data: InferEntrySchema<"documents">
 } & { render(): Render[".md"] };
-"helpful/Vector3 Methods.md": {
-	id: "helpful/Vector3 Methods.md";
-  slug: "helpful/vector3-methods";
-  body: string;
-  collection: "documents";
-  data: InferEntrySchema<"documents">
-} & { render(): Render[".md"] };
-"helpful/index.md": {
-	id: "helpful/index.md";
-  slug: "helpful";
+"Vector3 Methods.md": {
+	id: "Vector3 Methods.md";
+  slug: "vector3-methods";
   body: string;
   collection: "documents";
   data: InferEntrySchema<"documents">
@@ -178,13 +171,6 @@ declare module 'astro:content' {
 "index.md": {
 	id: "index.md";
   slug: "index";
-  body: string;
-  collection: "documents";
-  data: InferEntrySchema<"documents">
-} & { render(): Render[".md"] };
-"page2.md": {
-	id: "page2.md";
-  slug: "page2";
   body: string;
   collection: "documents";
   data: InferEntrySchema<"documents">
@@ -202,6 +188,309 @@ declare module 'astro:content' {
   body: string;
   collection: "documents";
   data: InferEntrySchema<"documents">
+} & { render(): Render[".md"] };
+};
+"tags": {
+"Animation Ownership.md": {
+	id: "Animation Ownership.md";
+  slug: "animation-ownership";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Before You Ask.md": {
+	id: "Before You Ask.md";
+  slug: "before-you-ask";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Beginner Tips.md": {
+	id: "Beginner Tips.md";
+  slug: "beginner-tips";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Breakdown.md": {
+	id: "Breakdown.md";
+  slug: "breakdown";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Don't Ask to Ask.md": {
+	id: "Don't Ask to Ask.md";
+  slug: "dont-ask-to-ask";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Factory Method.md": {
+	id: "Factory Method.md";
+  slug: "factory-method";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Filtering Enabled.md": {
+	id: "Filtering Enabled.md";
+  slug: "filtering-enabled";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Generalised Iteration.md": {
+	id: "Generalised Iteration.md";
+  slug: "generalised-iteration";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Guard Clause.md": {
+	id: "Guard Clause.md";
+  slug: "guard-clause";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"How to Print Debug.md": {
+	id: "How to Print Debug.md";
+  slug: "how-to-print-debug";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Infinite Yield.md": {
+	id: "Infinite Yield.md";
+  slug: "infinite-yield";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Latency.md": {
+	id: "Latency.md";
+  slug: "latency";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"List of Debounces.md": {
+	id: "List of Debounces.md";
+  slug: "list-of-debounces";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Local Scripts.md": {
+	id: "Local Scripts.md";
+  slug: "local-scripts";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Managing Connections.md": {
+	id: "Managing Connections.md";
+  slug: "managing-connections";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Memory Leaks.md": {
+	id: "Memory Leaks.md";
+  slug: "memory-leaks";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Module Scripts.md": {
+	id: "Module Scripts.md";
+  slug: "module-scripts";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"New Alternative Methods.md": {
+	id: "New Alternative Methods.md";
+  slug: "new-alternative-methods";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"No DM Help.md": {
+	id: "No DM Help.md";
+  slug: "no-dm-help";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Partitioning.md": {
+	id: "Partitioning.md";
+  slug: "partitioning";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Pass by value vs reference.md": {
+	id: "Pass by value vs reference.md";
+  slug: "pass-by-value-vs-reference";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"PlayerAdded in Studio.md": {
+	id: "PlayerAdded in Studio.md";
+  slug: "playeradded-in-studio";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Prefabrication.md": {
+	id: "Prefabrication.md";
+  slug: "prefabrication";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Race Condition.md": {
+	id: "Race Condition.md";
+  slug: "race-condition";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Recommended Modules.md": {
+	id: "Recommended Modules.md";
+  slug: "recommended-modules";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Remote Events.md": {
+	id: "Remote Events.md";
+  slug: "remote-events";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Remote Functions.md": {
+	id: "Remote Functions.md";
+  slug: "remote-functions";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Rubber Duck Debugging.md": {
+	id: "Rubber Duck Debugging.md";
+  slug: "rubber-duck-debugging";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Scripting Tutorials.md": {
+	id: "Scripting Tutorials.md";
+  slug: "scripting-tutorials";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Server Scripts.md": {
+	id: "Server Scripts.md";
+  slug: "server-scripts";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Timing Methods.md": {
+	id: "Timing Methods.md";
+  slug: "timing-methods";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Tutorial Hell.md": {
+	id: "Tutorial Hell.md";
+  slug: "tutorial-hell";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Unique Random Value.md": {
+	id: "Unique Random Value.md";
+  slug: "unique-random-value";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Unique Random Values.md": {
+	id: "Unique Random Values.md";
+  slug: "unique-random-values";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"VSCode Recommended Extensions.md": {
+	id: "VSCode Recommended Extensions.md";
+  slug: "vscode-recommended-extensions";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Variable.md": {
+	id: "Variable.md";
+  slug: "variable";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"What Should I Make.md": {
+	id: "What Should I Make.md";
+  slug: "what-should-i-make";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"What are Frameworks.md": {
+	id: "What are Frameworks.md";
+  slug: "what-are-frameworks";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"What is return.md": {
+	id: "What is return.md";
+  slug: "what-is-return";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"When to use AI.md": {
+	id: "When to use AI.md";
+  slug: "when-to-use-ai";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"When to use Knit.md": {
+	id: "When to use Knit.md";
+  slug: "when-to-use-knit";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"When to use Paradigms.md": {
+	id: "When to use Paradigms.md";
+  slug: "when-to-use-paradigms";
+  body: string;
+  collection: "tags";
+  data: any
+} & { render(): Render[".md"] };
+"Why External Editors.md": {
+	id: "Why External Editors.md";
+  slug: "why-external-editors";
+  body: string;
+  collection: "tags";
+  data: any
 } & { render(): Render[".md"] };
 };
 

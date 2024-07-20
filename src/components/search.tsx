@@ -6,7 +6,7 @@ import MagnifyingGlass from "@/components/magnifying-glass";
 import type { CollectionEntry } from "astro:content";
 import type { FuseResult } from "fuse.js/basic";
 
-type Collection = CollectionEntry<"documents">;
+type Collection = CollectionEntry<"documents"|"tags">;
 
 interface Properties {
     collection: Collection[];

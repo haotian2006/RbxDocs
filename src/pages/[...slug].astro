@@ -2,18 +2,43 @@
 import { getCollection } from "astro:content";
 
 import Layout from "@/layouts/base.astro";
+import { sys } from "typescript";
 
 export async function getStaticPaths() {
     const documents = await getCollection("documents");
+    const tags = await getCollection("tags");
 
-    return documents.map(entry => ({
-        params: {
-            slug: entry.slug === "index" ? "/" : entry.slug,
-        },
-        props: {
-            entry,
-        },
-    }));
+    const documentPaths = documents.map(entry => ({
+    params: {
+      slug: entry.slug === 'index' ? '/' : entry.slug,
+    },
+    props: {
+      entry,
+    },
+  }));
+
+
+  const tagPaths = tags.map(entry => ({
+    params: {
+      slug: `tags/${entry.slug}`,
+    },
+
+    props: {
+       entry:{
+         ...entry,
+        slug: `tags/${entry.slug}`
+       }
+    },
+
+    
+    
+  }));
+  
+//   console.log("logging")
+//   console.log(tagPaths[0]);
+//   console.log(documents[0]);
+
+  return [ ...tagPaths,...documentPaths];
 }
 
 const { entry } = Astro.props;
