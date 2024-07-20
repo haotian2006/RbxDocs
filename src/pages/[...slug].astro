@@ -25,6 +25,12 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+const extractUsername = (string:string) => {
+  const regex = /github\.com\/([^\/]+)/;
+  const match = string.match(regex);
+  return match ? match[1] : 'Unknown'; // Fallback value
+};
 ---
 
 <Layout class="flex justify-center py-12">
@@ -39,7 +45,16 @@ const { Content } = await entry.render();
             prose-a:visited:text-purple-500
         `}
     >
-        <h1>{entry.data.title}</h1>
+         <h1 class="m-0 mb-0">{entry.data.title}</h1> 
+        {entry.data.author !== "Anonymous" && (
+          <div class="flex items-center">
+            <p class="mr-4">by:</p> 
+            <img src={`${entry.data.author}.png`} alt={"author"} width={25} height={25} class="mr-2" />
+            <a href={entry.data.author} target="_blank" rel="noopener noreferrer">
+              {extractUsername(entry.data.author)}
+            </a>
+          </div>
+        )}
 
         <Content />
     </main>
