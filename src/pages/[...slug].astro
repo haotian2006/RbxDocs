@@ -1,37 +1,91 @@
 ---
+
 import { getCollection } from "astro:content";
 
 import Layout from "@/layouts/base.astro";
-import { sys } from "typescript";
+
+export const discordCache = new Map<string,{username:string,pfp:string}|undefined>();
+
+export const getDiscordAvatarAndUsername = async (userID:string) => {
+  if (discordCache.has(userID)) {
+    return discordCache.get(userID) as {username:string,pfp:string} | undefined;
+  }
+  const response = await fetch(`https://discord.com/api/v9/users/${userID}`, {
+    headers: {
+      Authorization: `Bot ${ import.meta.env.DISCORD_API_TOKEN}`,
+    },
+  });
+  const data = await response.json();
+  const username = data.username;
+  const pfp = `https://cdn.discordapp.com/avatars/${userID}/${data.avatar}.png`;
+
+  if (data.Id){
+    discordCache.set(userID, undefined);
+    return undefined;
+  }
+  discordCache.set(userID, {username: username, pfp:pfp });
+
+  return {username: username, pfp:pfp };
+};
+
+export const getGitHubUsername = async (userID:string) => {
+  const response = await fetch(`https://api.github.com/user/${userID}`
+  , {
+    headers: {
+      Authorization: `token ${import.meta.env.GITHUB_API_TOKEN}`,
+    },
+  }
+  );
+  const data = await response.json();
+  
+  return data.login;
+};
+
+export async function getDiscordUsername(userID:string) {
+  const data = await getDiscordAvatarAndUsername(userID);
+  return data ? data.username : false;
+};
+
+export const getDiscordPfp = async (userID:string) => {
+  const data = await getDiscordAvatarAndUsername(userID);
+  return data ? data.pfp : false;
+};
+
 
 export async function getStaticPaths() {
     const documents = await getCollection("documents");
 
-    const documentPaths = documents.map(entry => ({
-    params: {
-      slug: entry.slug === 'index' ? '/' : entry.slug,
-    },
-    props: {
-      entry,
-    },
+    const documentPaths = documents.map(async entry => ({
+      params: {
+        slug: entry.slug === 'index' ? '/' : entry.slug,
+      },
+      props: {
+        entry: {
+          ...entry,
+          data: {
+          ...entry.data,
+          author_data : entry.data.author_discord || entry.data.author_github ? {
+            discord_user : entry.data.author_discord ? await getDiscordUsername(entry.data.author_discord) : false,
+            discord_ava : entry.data.author_discord ? await getDiscordPfp(entry.data.author_discord) : false,
+
+            github_user : entry.data.author_github ? await getGitHubUsername(entry.data.author_github) : false,
+          }: undefined
+        }, 
+        }
+        
+      },
   }));
 
-  
-   // console.log("logging")
-//   console.log(documents[0]); 
-
-  return documentPaths;
+  return await Promise.all(documentPaths);
 }
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-const extractUsername = (string:string) => {
-  const regex = /github\.com\/([^\/]+)/;
-  const match = string.match(regex);
-  return match ? match[1] : 'Unknown'; // Fallback value
-};
+
+
 ---
+
 
 <Layout class="flex justify-center py-12">
     <main
@@ -46,13 +100,32 @@ const extractUsername = (string:string) => {
         `}
     >
          <h1 class="m-0 mb-0">{entry.data.title}</h1> 
-        {entry.data.author !== "Anonymous" && (
+        {entry.data.author_data  && (
           <div class="flex items-center">
             <p class="mr-4">by:</p> 
-            <img src={`${entry.data.author}.png`} alt={"author"} width={25} height={25} class="mr-2" />
-            <a href={entry.data.author} target="_blank" rel="noopener noreferrer">
-              {extractUsername(entry.data.author)}
-            </a>
+            {entry.data.author_data.discord_user && (
+              <div class="flex items-center">
+                <img src={entry.data.author_data.discord_ava as string} class="w-8 h-8 rounded-full mr-2" />
+                <p>{entry.data.author_data.discord_user}</p>
+
+              </div>
+            )}
+
+            {entry.data.author_data.github_user && (
+               <a>
+                {entry.data.author_data.discord_user && (
+                   <p style="padding-left: 15px;"> </p>
+              )}
+              </a>
+              <div class="flex items-center">
+                <img src={`https://github.com/${entry.data.author_data.github_user}.png`} class="w-8 h-8 rounded-full mr-2" />
+                <a href={`https://github.com/${entry.data.author_data.github_user}`}>
+                  <p>{entry.data.author_data.github_user}</p>
+                </a>
+              </div>
+            )}
+          
+            
           </div>
         )}
 

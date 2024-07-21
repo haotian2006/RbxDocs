@@ -1,6 +1,7 @@
 ---
 title: "Animation Ownership"
-author: https://github.com/cyrus01337
+author_github: "63274991"
+author_discord: "668906205799907348"
 ---
 
  
