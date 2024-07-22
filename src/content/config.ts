@@ -6,17 +6,11 @@ const documents = defineCollection({
         title: zod.string(),
         search: zod.boolean().default(true),
 
-        author_discord: zod.string().optional(),
-        author_github: zod.string().optional(),
+        author: zod.string().optional(),
+
+        author_data: zod.record(zod.unknown()).optional(),
         
-        author_data: zod.object({
-            hasAuthor : zod.boolean().default(false),
-
-            discord_user : zod.string().optional(),
-            discord_ava : zod.string().optional(),
-
-            github_user : zod.string().optional(),
-        }).optional(),
+     
     }),
 });
 

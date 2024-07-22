@@ -5,8 +5,9 @@ import { getCollection } from "astro:content";
 import Layout from "@/layouts/base.astro";
 
 export const discordCache = new Map<string,{username:string,pfp:string}|undefined>();
+export const githubCache = new Map<string,{username:string,pfp:string,url:string}|undefined>();
 
-export const getDiscordAvatarAndUsername = async (userID:string) => {
+export const getDiscordData = async (userID:string) => {
   if (discordCache.has(userID)) {
     return discordCache.get(userID) as {username:string,pfp:string} | undefined;
   }
@@ -28,7 +29,10 @@ export const getDiscordAvatarAndUsername = async (userID:string) => {
   return {username: username, pfp:pfp };
 };
 
-export const getGitHubUsername = async (userID:string) => {
+export const getGitHubData = async (userID:string) => {
+  if (githubCache.has(userID)) {
+    return githubCache.get(userID) as {username:string,pfp:string} | undefined;
+  }
   const response = await fetch(`https://api.github.com/user/${userID}`
   , {
     headers: {
@@ -37,19 +41,45 @@ export const getGitHubUsername = async (userID:string) => {
   }
   );
   const data = await response.json();
-  
-  return data.login;
+  const username = data.login;
+  const pfp = data.avatar_url;
+
+  if (data.Id){
+    githubCache.set(userID, undefined);
+    return undefined;
+  }
+  githubCache.set(userID, {username: username, pfp:pfp,url:data.html_url });
+
+  return {username: username, pfp:pfp,url:data.html_url };
 };
 
-export async function getDiscordUsername(userID:string) {
-  const data = await getDiscordAvatarAndUsername(userID);
-  return data ? data.username : false;
-};
+export function getPlatform(author:string): [string | undefined, string] {
+  if (author.startsWith("discord:")) {
+    const userID = author.split(":")[1].trim();
 
-export const getDiscordPfp = async (userID:string) => {
-  const data = await getDiscordAvatarAndUsername(userID);
-  return data ? data.pfp : false;
-};
+    return ["discord", userID];
+
+  } else if (author.startsWith("github:")) {
+    const userID = author.split(":")[1].trim();
+
+    return ["github", userID];
+
+  } else {
+    return [undefined, author];
+  }
+}
+
+export async function getAuthorData(author:string) {
+  const [platform, userID]  = getPlatform(author);
+
+  if (platform === "discord") {
+    return  await getDiscordData(userID);
+  } else if (platform === "github") {
+    return await getGitHubData(userID);
+  } else {
+    return {username: author, pfp: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAL0AyAMBIgACEQEDEQH/xAAaAAEAAwEBAQAAAAAAAAAAAAAAAQQFAwIH/8QAMhABAAIBAQUFBgYDAQAAAAAAAAECAxEEITFBYQUSMlGBEzNCcXKxIiNDUlORFGKSFf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABgRAQEBAQEAAAAAAAAAAAAAAAABESEx/9oADAMBAAIRAxEAPwD6oA0wAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAARr6EeXNb2fY/aR38sT3Z4QaK1aXvupXvT0d6bFmt4tKtKtK0jSsaR0ek1rGd/gW/fX+ni+xZq+HSzUDTGJas03XrNZ6vM9NJht2x1vGlqxMdVDaNj7kd/HrNY41XTFMTOnJBrIAAAAAAAAAAAAAAD3jp7S9aV4yaLGw4O/+ZeN0cOrR0RWsVrFYjSIemW4AAAAI0SAzdu2eKT7SkfhnjCo27Ui1Zid8Sx8lPZ5bUtyVmx4AVAAAAAAAAAAAABb7OrrmtbyqqL3Zs+89EIvgI2AAAAAAM3tGumWs+dWjqo9pccfrKxKogKyAAAAAAAAAAAALfZ1tMl6+cblR0wX9nkrblE6SmEbIiLRMawI2kAAAAAEM7tG2uStY5Q0JmIiZnlxZGa85Ms25TOkES+OYDTIAAAAAAAAAAAAaALq/sOfWIx24xw6rrEjdw4xwnyXtm2yJ0plnf+7zTCLw8xbX5PSNAIBKCbab+XVR2nbI0mmLXXnYTTbs+6cdeM8VGNyZ38Z3+aGozQAAAAAAAAAAAAAAA0wT6bkHTmK6Y82TH4LaR5LNe0J+LHr8pU6xNuFZ9Ie4w5J/Tt/RiSrn/oV/jn+3O3aFvhxxHzlw/wAfN/HKJw5I/Tt/ycNpkzZMnjtrHk8alomvGs+sI6cwoHMAAAAAAAAAAAAAB6pWclu7SNZBHLV7xYcmXw1n5rmDYqV35vxW8uS5FYjgjWKVOz4/UvPos02fFTw0h0iNEorzERHDclICA0NAJrE8d7nfZ8V/FSHUBQvsHPHefVVyYcmLx1mOvJsyiaxPy8l1MYiGhn2KlvxYt1vLko3rNLd20aSus3jyAGAAAAAAAJiszMRHPd6g9YsdstorSN/Po1MOGmGulY3+fNGzYYw00+LTfLuy1IACgAAAAAAAAADjmwUzV0tG/wA+bsjQGNlx2xWmt438urw1tpwRmx6fFHCWVNZiZieXHo0iABkAAAAW9gx9683nhXdHzVGpsVe7gr1jVKRZ0ARsAAAAAAAAAAAAABGjP2/HFbxeOFt0/Noq+3V72z284jVYlZQCs4AAAANjBH5OP6Y+zHbOD3WP6Y+yVY6AI0AAAAAAAAAAAAAAOWePyLx/q6uef3OT6Z+wMYBpkAEAAGzg91j+mPsxmzg91j+mPslajoAigAAAAAAAAAAAAADnn91k+mfs6Oef3WT6Z+wMYBpkAEf/2Q=="};
+  }
+}
 
 
 export async function getStaticPaths() {
@@ -60,24 +90,19 @@ export async function getStaticPaths() {
         slug: entry.slug === 'index' ? '/' : entry.slug,
       },
       props: {
-        entry: {
+        entry:{
           ...entry,
-          data: {
-          ...entry.data,
-          author_data : entry.data.author_discord || entry.data.author_github ? {
-            discord_user : entry.data.author_discord ? await getDiscordUsername(entry.data.author_discord) : false,
-            discord_ava : entry.data.author_discord ? await getDiscordPfp(entry.data.author_discord) : false,
-
-            github_user : entry.data.author_github ? await getGitHubUsername(entry.data.author_github) : false,
-          }: undefined
-        }, 
+          data:{
+            ...entry.data,
+            author_data: entry.data.author ? await getAuthorData(entry.data.author as string): undefined,
+          }
         }
-        
       },
   }));
 
-  return await Promise.all(documentPaths);
+  return Promise.all(documentPaths);
 }
+
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
@@ -103,28 +128,20 @@ const { Content } = await entry.render();
         {entry.data.author_data  && (
           <div class="flex items-center">
             <p class="mr-4">by:</p> 
-            {entry.data.author_data.discord_user && (
-              <div class="flex items-center">
-                <img src={entry.data.author_data.discord_ava as string} class="w-8 h-8 rounded-full mr-2" />
-                <p>{entry.data.author_data.discord_user}</p>
 
-              </div>
+            
+            <img src={ (entry.data.author_data as {pfp:string}).pfp } class="w-8 h-8 rounded-full mr-2" />
+
+            { (entry.data.author_data as {url:string}).url &&(
+              <a href = {(entry.data.author_data as {url:string}).url}>{(entry.data.author_data as {username:string}).username}</a>
+            )}
+            {!(entry.data.author_data as {url:string}).url && (
+              <p>{(entry.data.author_data as {username:string}).username}</p>
             )}
 
-            {entry.data.author_data.github_user && (
-               <a>
-                {entry.data.author_data.discord_user && (
-                   <p style="padding-left: 15px;"> </p>
-              )}
-              </a>
-              <div class="flex items-center">
-                <img src={`https://github.com/${entry.data.author_data.github_user}.png`} class="w-8 h-8 rounded-full mr-2" />
-                <a href={`https://github.com/${entry.data.author_data.github_user}`}>
-                  <p>{entry.data.author_data.github_user}</p>
-                </a>
-              </div>
-            )}
-          
+            
+        
+
             
           </div>
         )}

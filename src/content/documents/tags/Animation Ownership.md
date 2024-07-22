@@ -1,7 +1,10 @@
 ---
 title: "Animation Ownership"
+
 author_github: "63274991"
-author_discord: "668906205799907348"
+dis: "668906205799907348"
+
+author: "discord: 668906205799907348"
 ---
 
  

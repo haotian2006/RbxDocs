@@ -1,7 +1,7 @@
 ---
 title: "Fixing Errors"
-author_github: "71573739"
-author_discord: "435997176477253682"
+author: "github: 71573739"
+
 ---
 
 This section will go over some basics on how to fix or find errors
