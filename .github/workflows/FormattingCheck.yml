@@ -1,0 +1,29 @@
+name: formatting-check
+
+on: [pull_request, push]
+
+permissions:
+    contents: read
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: ${{ github.head_ref }}
+                  fetch-depth: 0
+
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "latest"
+            - run: bun install
+
+    check:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check formatting with Prettier
+              id: check
+              uses: oven-sh/setup-bun@v2
+            - run: bun prettier --dry --check .
