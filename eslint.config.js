@@ -1,4 +1,4 @@
-import js from "@eslint/js";
+import javascript from "@eslint/js";
 import astro from "eslint-plugin-astro";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactJSXRuntime from "eslint-plugin-react/configs/jsx-runtime.js";
@@ -7,6 +7,7 @@ import globals from "globals";
 import typescript from "typescript-eslint";
 
 export default [
+    javascript.configs.recommended,
     ...typescript.configs.recommended,
     ...typescript.configs.stylistic,
     ...astro.configs.recommended,
