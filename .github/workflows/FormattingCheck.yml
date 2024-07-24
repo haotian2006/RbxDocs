@@ -6,7 +6,8 @@ permissions:
     contents: read
 
 jobs:
-    build:
+    check:
+        name: Check formatting with Prettier
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
@@ -14,10 +15,7 @@ jobs:
                   ref: ${{ github.head_ref }}
                   fetch-depth: 0
 
-    check:
-        name: Check formatting with Prettier
-        runs-on: ubuntu-latest
-        steps:
             - uses: oven-sh/setup-bun@v2
+
             - run: bun install
             - run: bun prettier --dry --check .
