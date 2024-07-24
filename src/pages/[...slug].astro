@@ -1,35 +1,34 @@
 ---
 import { getCollection } from "astro:content";
+import { sys } from "typescript";
 
 import Layout from "@/layouts/base.astro";
-import { sys } from "typescript";
 
 export async function getStaticPaths() {
     const documents = await getCollection("documents");
 
     const documentPaths = documents.map(entry => ({
-    params: {
-      slug: entry.slug === 'index' ? '/' : entry.slug,
-    },
-    props: {
-      entry,
-    },
-  }));
+        params: {
+            slug: entry.slug === "index" ? "/" : entry.slug,
+        },
+        props: {
+            entry,
+        },
+    }));
 
-  
-   // console.log("logging")
-//   console.log(documents[0]); 
+    // console.log("logging")
+    //   console.log(documents[0]);
 
-  return documentPaths;
+    return documentPaths;
 }
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-const extractUsername = (string:string) => {
-  const regex = /github\.com\/([^\/]+)/;
-  const match = string.match(regex);
-  return match ? match[1] : 'Unknown'; // Fallback value
+const extractUsername = (string: string) => {
+    const regex = /github\.com\/([^\/]+)/;
+    const match = string.match(regex);
+    return match ? match[1] : "Unknown"; // Fallback value
 };
 ---
 
@@ -45,16 +44,24 @@ const extractUsername = (string:string) => {
             prose-a:visited:text-purple-500
         `}
     >
-         <h1 class="m-0 mb-0">{entry.data.title}</h1> 
-        {entry.data.author !== "Anonymous" && (
-          <div class="flex items-center">
-            <p class="mr-4">by:</p> 
-            <img src={`${entry.data.author}.png`} alt={"author"} width={25} height={25} class="mr-2" />
-            <a href={entry.data.author} target="_blank" rel="noopener noreferrer">
-              {extractUsername(entry.data.author)}
-            </a>
-          </div>
-        )}
+        <h1 class="m-0 mb-0">{entry.data.title}</h1>
+        {
+            entry.data.author !== "Anonymous" && (
+                <div class="flex items-center">
+                    <p class="mr-4">by:</p>
+                    <img
+                        src={`${entry.data.author}.png`}
+                        alt={"author"}
+                        width={25}
+                        height={25}
+                        class="mr-2"
+                    />
+                    <a href={entry.data.author} target="_blank" rel="noopener noreferrer">
+                        {extractUsername(entry.data.author)}
+                    </a>
+                </div>
+            )
+        }
 
         <Content />
     </main>
