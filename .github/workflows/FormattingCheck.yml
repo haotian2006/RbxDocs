@@ -14,11 +14,6 @@ jobs:
                   ref: ${{ github.head_ref }}
                   fetch-depth: 0
 
-            - uses: oven-sh/setup-bun@v2
-              with:
-                  bun-version: "latest"
-            - run: bun install
-
     check:
         needs: build
         runs-on: ubuntu-latest
@@ -26,4 +21,5 @@ jobs:
             - name: Check formatting with Prettier
               id: check
               uses: oven-sh/setup-bun@v2
+            - run: bun install
             - run: bun prettier --dry --check .
