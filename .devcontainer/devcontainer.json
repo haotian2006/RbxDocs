@@ -21,7 +21,8 @@
                 "wayou.vscode-todo-highlight"
             ],
             "settings": {
-                "editor.defaultFormatter": "esbenp.prettier-vscode"
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "editor.formatOnSave": true
             }
         }
     },
