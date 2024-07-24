@@ -2,10 +2,10 @@
 title: "Generalised Iteration"
 ---
 
+ 
 Since the new metamethod `__iter` was added to every table, all tables can be used as the iterator within for loops, making `pairs` and `ipairs` redundant.
 
 Here's an example:
-
 ```lua
 local array = {1, 2, 3}
 local dictionary = {a = 1, b = 2, c = 3}
