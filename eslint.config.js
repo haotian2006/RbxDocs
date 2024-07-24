@@ -1,4 +1,5 @@
 import javascript from "@eslint/js";
+import prettier from "eslint-config-prettier";
 import astro from "eslint-plugin-astro";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactJSXRuntime from "eslint-plugin-react/configs/jsx-runtime.js";
@@ -6,6 +7,7 @@ import typescript from "typescript-eslint";
 
 export default [
     javascript.configs.recommended,
+    prettier,
     ...typescript.configs.recommended,
     ...typescript.configs.stylistic,
     ...astro.configs.recommended,
