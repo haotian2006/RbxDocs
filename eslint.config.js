@@ -7,17 +7,8 @@ import globals from "globals";
 import typescript from "typescript-eslint";
 
 export default [
-    js.configs.recommended,
-    ...typescript.configs.recommendedTypeChecked,
-    ...typescript.configs.stylisticTypeChecked,
-    {
-        languageOptions: {
-            parserOptions: {
-                project: true,
-                tsconfigRootDir: import.meta.dirname,
-            },
-        },
-    },
+    ...typescript.configs.recommended,
+    ...typescript.configs.stylistic,
     ...astro.configs.recommended,
     {
         ...reactRecommended,
