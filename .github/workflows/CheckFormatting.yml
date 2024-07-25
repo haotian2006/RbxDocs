@@ -22,5 +22,5 @@ jobs:
 
             - uses: oven-sh/setup-bun@v2
 
-            - run: bun install
-            - run: bun prettier --check .
+            - run: bun install --frozen-lockfile
+            - run: bunx prettier --check .
