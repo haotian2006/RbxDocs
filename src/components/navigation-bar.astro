@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 
 import Search from "@/components/search.tsx";
-
 import ThemeChanger from "@/components/theme-changer.astro";
 
 const docs = await getCollection("documents");
@@ -16,12 +15,11 @@ const documents = docs.filter(entry => entry.data.search);
         <a class="text-lg font-bold text-gray-200" href="/MyDocs">Rbx tags</a>
 
         <ThemeChanger class="swap swap-rotate ml-auto text-gray-300" />
-        <Search client:load collection={documents } />
+        <Search client:load collection={documents} />
     </div>
 
-    <div class="flex h-12 items-center text-sm font-medium tracking-tight space-x-4">
+    <div class="flex h-12 items-center space-x-4 text-sm font-medium tracking-tight">
         <a class="hover text-gray-300" href="/MyDocs">Home</a>
         <a class="hover text-gray-300" href="/MyDocs/tags">Tags</a>
     </div>
-        
 </nav>

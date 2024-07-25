@@ -1,7 +1,6 @@
 ---
 title: "Fixing Errors"
 author: "github: 71573739"
-
 ---
 
 This section will go over some basics on how to fix or find errors

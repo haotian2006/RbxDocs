@@ -6,11 +6,11 @@ const documents = defineCollection({
         title: zod.string(),
         search: zod.boolean().default(true),
 
-        author: zod.string().optional(),
+        author: zod
+            .string()
+            .regex(/(?:discord|github): ([0-9]+)/)
+            .optional(),
 
-        author_data: zod.record(zod.unknown()).optional(),
-        
-     
     }),
 });
 
