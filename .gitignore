@@ -130,13 +130,11 @@ dist
 .pnp.*
 
 # ignore Astro artifacts
-.astro
+.astro/types.d.ts
+.astro/settings.json
 
 # package manager agnosticism
 package-lock.json
-yarn.lock
-pnpm-lock.yaml
-bun.lockb
 
 # Asto cache
 .astro
