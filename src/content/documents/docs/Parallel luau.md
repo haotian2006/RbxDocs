@@ -12,7 +12,7 @@ Multithreading is a way of running multiple threads at the same time. Base Lua d
 Actors is an Instance that allows scripts under that Actor to run in Parallel.
 
 !!!warning Actors and Modules
-The Memory under Actors will not be the same so when you require a module a different table will be returned (if your module returns a table) than in the main Thread. This means you can't use modules to transfer data between Actors.
+    The Memory under Actors will not be the same so when you require a module a different table will be returned (if your module returns a table) than in the main Thread. This means you can't use modules to transfer data between Actors.
 
     ```lua
     --Script1
@@ -77,7 +77,7 @@ print(SharedTable.X) --> 1
 ```
 
 !!!Warning Thread Safety
-When using SharedTable you could have race conditions that can cause unwanted behaviors. If you want to know more about Thread Safety you can scroll down
+    When using SharedTable you could have race conditions that can cause unwanted behaviors. If you want to know more about Thread Safety you can scroll down
 
 ### Bindables
 
@@ -102,7 +102,7 @@ end
 ```
 
 !!!info Tables and Bindables
-When Sending/Returning Tables, avoid large dictionaries if you can. If possible try to convert dictionaries into arrays. Another thing is if your array is going to consist of Strings that are showing up more than once you could send/return two tables, the data table, and a key table.
+    When Sending/Returning Tables, avoid large dictionaries if you can. If possible try to convert dictionaries into arrays. Another thing is if your array is going to consist of Strings that are showing up more than once you could send/return two tables, the data table, and a key table.
 
     ```lua
 
@@ -187,7 +187,7 @@ print(SharedTable.Value)
 ```
 
 !!!info More Explanation
-The reason why it's happening can be shown in this diagram.
+    The reason why it's happening can be shown in this diagram.
 
     ![Race Conditions](https://raw.githubusercontent.com/haotian2006/HelperDocs-contributions/master/Images/ThreadSafety_.png)
 
@@ -236,7 +236,7 @@ This will allow you to see how long primes takes to calculate.
 which you can see here takes 1.313 ms
 
 !!!info How to look for profiles
-Profiles will have a unique color depending on the name, so each profile will have the each color each time. To look for a profile look for colored boxes that stand out more.
+    Profiles will have a unique color depending on the name, so each profile will have the each color each time. To look for a profile look for colored boxes that stand out more.
 
     ![Alt text](https://raw.githubusercontent.com/haotian2006/HelperDocs-contributions/master/Images/primes1.png)
 
@@ -277,7 +277,7 @@ When using Parallel Luau it is recommended to separate tasks into smaller tasks.
 What we could have done better here was to split the tasks into smaller tasks and use more Actors.
 
 !!!warning Splitting too much
-When using Parallel luau try not to split the tasks to into very small sections. If a simple task takes 1 ms on a single thread and you try to split it into 2 separate threads you could see a .4 ms decrease in time but if you split it into 4 threads then you could see it take longer than on a single thread as other factors can cause delay such as going into parallel and sending data across.
+    When using Parallel luau try not to split the tasks to into very small sections. If a simple task takes 1 ms on a single thread and you try to split it into 2 separate threads you could see a .4 ms decrease in time but if you split it into 4 threads then you could see it take longer than on a single thread as other factors can cause delay such as going into parallel and sending data across.
 
 ### How many actors should you use
 
