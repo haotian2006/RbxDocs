@@ -20,7 +20,9 @@ jobs:
                   ref: ${{ github.head_ref }}
                   fetch-depth: 0
 
-            - uses: oven-sh/setup-bun@v2
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: latest
 
-            - run: bun install --frozen-lockfile
-            - run: bunx prettier --check .
+            - run: npm ci
+            - run: npm run lint:formatting

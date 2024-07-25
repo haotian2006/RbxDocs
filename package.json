@@ -9,7 +9,8 @@
         "preview": "astro preview",
         "astro": "astro",
         "format": "prettier --write .",
-        "lint": "eslint --max-warnings 9999 ."
+        "lint": "eslint --max-warnings 9999 .",
+        "lint:formatting": "prettier --check ."
     },
     "dependencies": {
         "@astrojs/check": "^0.7.0",
