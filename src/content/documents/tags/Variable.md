@@ -2,8 +2,8 @@
 title: "Variable"
 ---
 
- 
 A variable is something that can be created, changed and referenced:
+
 ```lua
 -- Creating
 local myVariable = 0
