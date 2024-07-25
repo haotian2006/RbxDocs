@@ -28,6 +28,7 @@
     },
     "features": {
         "ghcr.io/devcontainers/features/git": {},
-        "ghcr.io/devcontainers/features/github-cli": {}
+        "ghcr.io/devcontainers/features/github-cli": {},
+        "ghcr.io/dhoeric/features/act": {}
     }
 }
