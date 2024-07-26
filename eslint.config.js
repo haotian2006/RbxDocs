@@ -1,20 +1,36 @@
 import javascript from "@eslint/js";
 import prettier from "eslint-config-prettier";
 import astro from "eslint-plugin-astro";
+import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
-import reactJSXRuntime from "eslint-plugin-react/configs/jsx-runtime.js";
+import globals from "globals";
 import typescript from "typescript-eslint";
 
-export default [
+export default typescript.config(
     javascript.configs.recommended,
     prettier,
     ...typescript.configs.recommended,
     ...typescript.configs.stylistic,
     ...astro.configs.recommended,
-    reactJSXRuntime,
     {
-        files: ["**/*.tsx"],
+        ...react.configs.flat.recommended,
+        ...react.configs.flat["jsx-runtime"],
+
+        files: ["**/*.{jsx,tsx}"],
+        languageOptions: {
+            ...react.configs.flat.recommended.languageOptions,
+            ...react.configs.flat["jsx-runtime"].languageOptions,
+
+            globals: {
+                ...globals.browser,
+                ...globals.serviceworker,
+            },
+        },
         rules: {
+            ...react.configs.flat.recommended.rules,
+            ...react.configs.flat["jsx-runtime"].rules,
+
+            "react/display-name": "off",
             "react/no-unknown-property": "error",
         },
         settings: {
@@ -24,17 +40,18 @@ export default [
         },
     },
     {
-        rules: reactHooks.configs.recommended.rules,
         plugins: {
             "react-hooks": reactHooks,
         },
+        rules: reactHooks.configs.recommended.rules,
     },
     {
-        ignores: ["node_modules/", ".astro/"],
+        ignores: [".astro/", "dist/", "node_modules/"],
     },
     {
         rules: {
             "@typescript-eslint/ban-ts-comment": "off",
+            "@typescript-eslint/no-empty-function": "off",
             "@typescript-eslint/no-unsafe-assignment": "off",
             "@typescript-eslint/no-unsafe-call": "off",
             "@typescript-eslint/no-unsafe-member-access": "off",
@@ -45,4 +62,4 @@ export default [
             "no-control-regex": "off",
         },
     },
-];
+);
