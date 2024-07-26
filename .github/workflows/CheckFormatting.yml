@@ -25,4 +25,9 @@ jobs:
                   node-version: latest
 
             - run: npm ci
-            - run: npm run lint:formatting
+
+            - uses: creyD/prettier_action@v4.3
+              with:
+                  prettier_options: --check .
+                  dry: true
+                  only_changed: true
