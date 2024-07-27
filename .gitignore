@@ -136,5 +136,4 @@ dist
 # package manager agnosticism
 package-lock.json
 
-# Asto cache
-.astro
+

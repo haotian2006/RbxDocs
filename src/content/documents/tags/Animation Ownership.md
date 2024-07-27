@@ -1,6 +1,5 @@
 ---
 title: "Animation Ownership"
-
 author: "discord: 668906205799907348"
 ---
 

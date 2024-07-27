@@ -10,7 +10,6 @@ const documents = defineCollection({
             .string()
             .regex(/(?:discord|github): ([0-9]+)/)
             .optional(),
-
     }),
 });
 

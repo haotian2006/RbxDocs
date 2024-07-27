@@ -4,7 +4,6 @@ import { getCollection } from "astro:content";
 import Layout from "@/layouts/base.astro";
 import { getAuthorData } from "@/modules/author";
 
-
 export async function getStaticPaths() {
     const documents = await getCollection("documents");
 
@@ -15,8 +14,8 @@ export async function getStaticPaths() {
         props: {
             entry: {
                 ...entry,
-                author_data: await getAuthorData(entry.data.author)        
-            },        
+                author_data: await getAuthorData(entry.data.author),
+            },
         },
     }));
 
@@ -26,7 +25,6 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 console.log(entry);
-
 ---
 
 <Layout class="flex justify-center py-12">
@@ -43,7 +41,7 @@ console.log(entry);
     >
         <h1 class="m-0 mb-0">{entry.data.title}</h1>
         {
-            (entry.author_data) && (
+            entry.author_data && (
                 <div class="flex items-center">
                     <p class="mr-4">by:</p>
 
@@ -52,14 +50,10 @@ console.log(entry);
                         class="mr-2 h-8 w-8 rounded-full"
                     />
 
-                    {(entry.author_data ).url && (
-                        <a href={(entry.author_data ).url}>
-                            {(entry.author_data ).username}
-                        </a>
+                    {entry.author_data.url && (
+                        <a href={entry.author_data.url}>{entry.author_data.username}</a>
                     )}
-                    {!(entry.author_data ).url && (
-                        <p>{(entry.author_data ).username}</p>
-                    )}
+                    {!entry.author_data.url && <p>{entry.author_data.username}</p>}
                 </div>
             )
         }

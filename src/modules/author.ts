@@ -1,8 +1,11 @@
-const discordCache = new Map<string, { username: string; pfp: string } | null>();
-const githubCache = new Map<
-    string,
-    { username: string; pfp: string; url: string } | null
->();
+interface AuthorData {
+    username: string;
+    pfp: string;
+    url?: string;
+}
+
+const discordCache = new Map<string, AuthorData | null>();
+const githubCache = new Map<string, AuthorData | null>();
 
 const getDiscordData = async (userID: string) => {
     if (discordCache.has(userID)) {
@@ -64,7 +67,9 @@ function getPlatform(author: string): ["discord" | "github" | null, string] {
     }
 }
 
-export async function getAuthorData(author: string | undefined) : Promise<{ username: string; pfp: string; url?: string } | null> {
+export async function getAuthorData(
+    author: string | undefined,
+): Promise<{ username: string; pfp: string; url?: string } | null> {
     if (!author) {
         return null;
     }
