@@ -1,5 +1,5 @@
-build
-bun.lockb
-public
-node_modules/
 .devcontainer/devcontainer.json
+build
+node_modules/
+package-lock.json
+public
