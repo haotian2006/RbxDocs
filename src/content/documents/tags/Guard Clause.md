@@ -2,10 +2,10 @@
 title: "Guard Clause"
 ---
 
- 
 Guard clauses are assertions/if statements followed by a return to prevent the rest of the code from running. They're normally used in cases where you want to prevent data that doesn't match a certain criteria from causing issues when it is processed.
 
 Here is an example:
+
 ```lua
 local function add(x, y)
 	-- if x and y aren't numbers, we return early to prevent

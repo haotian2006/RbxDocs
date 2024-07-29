@@ -1,54 +1,30 @@
-import js from "@eslint/js";
+import javascript from "@eslint/js";
+import prettier from "eslint-config-prettier";
 import astro from "eslint-plugin-astro";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactJSXRuntime from "eslint-plugin-react/configs/jsx-runtime.js";
-import reactRecommended from "eslint-plugin-react/configs/recommended.js";
-import globals from "globals";
 import typescript from "typescript-eslint";
 
 export default [
-    js.configs.recommended,
-    ...typescript.configs.recommendedTypeChecked,
-    ...typescript.configs.stylisticTypeChecked,
-    {
-        languageOptions: {
-            parserOptions: {
-                project: true,
-                tsconfigRootDir: import.meta.dirname,
-            },
-        },
-    },
+    javascript.configs.recommended,
+    prettier,
+    ...typescript.configs.recommended,
+    ...typescript.configs.stylistic,
     ...astro.configs.recommended,
+    reactJSXRuntime,
     {
-        ...reactRecommended,
-
-        files: ["**/*.{jsx,tsx}"],
-        languageOptions: {
-            ...reactRecommended.languageOptions,
-
-            globals: {
-                ...globals.serviceworker,
-                ...globals.browser,
-            },
-        },
+        files: ["**/*.tsx"],
         rules: {
-            ...reactRecommended.rules,
-
             "react/no-unknown-property": "error",
         },
-    },
-    {
-        ...reactJSXRuntime,
-
         settings: {
-            ...reactJSXRuntime.settings,
-
             react: {
                 version: "detect",
             },
         },
     },
     {
+        rules: reactHooks.configs.recommended.rules,
         plugins: {
             "react-hooks": reactHooks,
         },
