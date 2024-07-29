@@ -133,7 +133,6 @@ dist
 .astro
 
 # package manager agnosticism
-package-lock.json
 yarn.lock
 pnpm-lock.yaml
 bun.lockb
