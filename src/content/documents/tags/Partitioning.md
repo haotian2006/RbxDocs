@@ -2,10 +2,10 @@
 title: "Partitioning"
 ---
 
- 
 When defining a lot of variables or having a lot of code as 1 block, it can be hard to read and confusing to those trying to help you.
 
 Partitioning is where you group up code by adding spacing around related blocks, allowing you to better organise what you have already defined. Here is an example with variables you normally define at the start of most scripts:
+
 ```lua
 -- Services (you use these)
 local ContextActionService = game:GetService("ContextActionService")
