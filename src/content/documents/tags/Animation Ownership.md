@@ -1,9 +1,7 @@
 ---
 title: "Animation Ownership"
-author: https://github.com/cyrus01337
+author: "discord: 668906205799907348"
 ---
-
- 
 
 If you are experiencing issues playing your animations, or are receiving the sanitised ID error, it's likely that you're running into problems regarding ownership. Here are your options:
 
