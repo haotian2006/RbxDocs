@@ -4,7 +4,7 @@
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
     "workspaceFolder": "/workspace",
     "postCreateUser": "node",
-    "postCreateCommand": "npm install",
+    "postCreateCommand": "npm install --legacy-peer-deps",
     "customizations": {
         "vscode": {
             "extensions": [
