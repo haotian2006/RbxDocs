@@ -24,7 +24,7 @@ jobs:
               with:
                   node-version: latest
 
-            - run: npm ci
+            - run: npm ci --legacy-peer-deps
 
             - uses: creyD/prettier_action@v4.3
               with:
