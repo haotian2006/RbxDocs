@@ -9,7 +9,8 @@
         "preview": "astro preview",
         "astro": "astro",
         "format": "prettier --write .",
-        "lint": "eslint --max-warnings 9999 ."
+        "lint": "eslint --max-warnings 9999 .",
+        "lint:formatting": "prettier --check ."
     },
     "dependencies": {
         "@astrojs/check": "^0.7.0",
@@ -35,8 +36,8 @@
         "eslint": "^9.7.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-astro": "^1.2.2",
-        "eslint-plugin-react": "^7.34.3",
-        "eslint-plugin-react-hooks": "^4.6.2",
+        "eslint-plugin-react": "^7.35.0",
+        "eslint-plugin-react-hooks": "^5.1.0-rc-941e1b4a-20240729",
         "prettier": "^3.3.2",
         "prettier-plugin-astro": "^0.14.0",
         "prettier-plugin-sort-json": "^4.0.0",

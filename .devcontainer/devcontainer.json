@@ -1,10 +1,10 @@
 {
     "name": "MyDocs",
-    "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
     "workspaceFolder": "/workspace",
     "postCreateUser": "node",
-    "postCreateCommand": "npm install -g npm@latest && npm install --legacy-peer-deps",
+    "postCreateCommand": "npm install -g npm@latest && npm install",
     "customizations": {
         "vscode": {
             "extensions": [
