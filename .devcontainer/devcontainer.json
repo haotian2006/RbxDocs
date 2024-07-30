@@ -1,6 +1,6 @@
 {
     "name": "MyDocs",
-    "dockerFile": "mcr.microsoft.com/devcontainers/javascript-node:18",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
     "workspaceFolder": "/workspace",
     "postCreateUser": "node",
