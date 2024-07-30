@@ -1,10 +1,10 @@
 {
     "name": "MyDocs",
-    "dockerFile": "Dockerfile",
+    "dockerFile": "mcr.microsoft.com/devcontainers/javascript-node:18",
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
     "workspaceFolder": "/workspace",
     "postCreateUser": "node",
-    "postCreateCommand": "bun install && (bun pm trust --all || true)",
+    "postCreateCommand": "npm install -g npm@latest && npm install",
     "customizations": {
         "vscode": {
             "extensions": [
