@@ -22,7 +22,7 @@ jobs:
                   GITHUB_API_TOKEN: ${{ secrets.GITTOKEN }}
                   TEST_TOKEN: ${{ secrets.TESTTOKEN }}
 
-              run: node .debug.js
+              run: node debug.js
                   
             - uses: actions/checkout@v4
             - name: Build the Astro site
