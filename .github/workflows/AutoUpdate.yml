@@ -24,8 +24,9 @@ jobs:
                   GITHUB_API_TOKEN: ${{ secrets.GITTOKEN }}
                   TEST_TOKEN: ${{ secrets.TESTTOKEN }}
 
-              run: npx ts-node src/modules/author.ts
-
+              run: |
+                  echo "Loaded token $TEST_TOKEN"
+                  
             - uses: actions/checkout@v4
             - name: Build the Astro site
               uses: withastro/action@v2
