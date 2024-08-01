@@ -11,7 +11,7 @@ const githubCache = new Map<string, AuthorData | null>();
 const discord_token = import.meta.env.DISCORD_API_TOKEN;
 const github_token = import.meta.env.GITHUB_API_TOKEN;
 
-console.log("TEST TOKEN",import.meta.env.TESTTOKEN);
+console.log("PRINT TOKEN",process.env.TESTTOKEN);
 
 const getDiscordData = async (userID: string) => {
     if (discordCache.has(userID)) {
