@@ -7,6 +7,11 @@ interface AuthorData {
 const discordCache = new Map<string, AuthorData | null>();
 const githubCache = new Map<string, AuthorData | null>();
 
+const discord_token = import.meta.env.DISCORD_API_TOKEN;
+const github_token = import.meta.env.GITHUB_API_TOKEN;
+
+console.log(import.meta.env.TESTTOKEN);
+
 const getDiscordData = async (userID: string) => {
     if (discordCache.has(userID)) {
         return discordCache.get(userID) as { username: string; pfp: string } | null;
@@ -14,7 +19,7 @@ const getDiscordData = async (userID: string) => {
 
     const response = await fetch(`https://discord.com/api/v9/users/${userID}`, {
         headers: {
-            Authorization: `Bot ${import.meta.env.DISCORD_API_TOKEN}`,
+            Authorization: `Bot ${discord_token}`,
         },
     });
 
@@ -38,7 +43,7 @@ const getGitHubData = async (userID: string) => {
     }
     const response = await fetch(`https://api.github.com/user/${userID}`, {
         headers: {
-            Authorization: `token ${import.meta.env.GITHUB_API_TOKEN}`,
+            Authorization: `token ${github_token}`,
         },
     });
     const data = await response.json();
