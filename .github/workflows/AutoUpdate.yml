@@ -13,12 +13,19 @@ permissions:
 
 jobs:
     build:
-        env:
-            DISCORD_API_TOKEN: ${{ secrets.DISCORDAPI }}
-            GITHUB_API_TOKEN: ${{ secrets.GITTOKEN }}
-            TEST_TOKEN: ${{ secrets.TESTTOKEN }}
         runs-on: ubuntu-latest
         steps:
+            - name: Install ts-node
+              run: npm install -D ts-node
+
+            - name: Import secrets
+              env:
+                  DISCORD_API_TOKEN: ${{ secrets.DISCORDAPI }}
+                  GITHUB_API_TOKEN: ${{ secrets.GITTOKEN }}
+                  TEST_TOKEN: ${{ secrets.TESTTOKEN }}
+
+              run: npx ts-node src/modules/author.ts
+
             - uses: actions/checkout@v4
             - name: Build the Astro site
               uses: withastro/action@v2
