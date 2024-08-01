@@ -1,4 +1,3 @@
-require('dotenv').config();
 
 interface AuthorData {
     username: string;
