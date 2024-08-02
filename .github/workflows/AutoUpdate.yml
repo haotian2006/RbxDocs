@@ -14,17 +14,17 @@ permissions:
 jobs:
     build:
         runs-on: ubuntu-latest
+        env:
+            DISCORD_API_TOKEN: ${{ secrets.DISCORDAPI }}
+            GITHUB_API_TOKEN: ${{ secrets.GITTOKEN }}
+            PUBLIC_TOKEN: ${{ secrets.TESTTOKEN }}
+
         steps:
                   
             - uses: actions/checkout@v4
-            - name: Import secrets
-              env:
-                  DISCORD_API_TOKEN: ${{ secrets.DISCORDAPI }}
-                  GITHUB_API_TOKEN: ${{ secrets.GITTOKEN }}
-                  PUBLIC_TOKEN: ${{ secrets.TESTTOKEN }}
-
+            - name: Test secrets
               run: |
-                  echo "Loaded token $TEST_TOKEN"
+                  echo "Loaded token $PUBLIC_TOKEN"
             - name: Build the Astro site
               uses: withastro/action@v2
               with:
