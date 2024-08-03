@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 
+import Aside from "@/components/Aside.astro";
 import Layout from "@/layouts/base.astro";
 import { getAuthorData } from "@/modules/author";
-import Aside from "@/components/Aside.astro";
 
 export async function getStaticPaths() {
     const documents = await getCollection("documents");
@@ -58,6 +58,6 @@ const { Content } = await entry.render();
             )
         }
 
-        <Content components={{ Aside: Aside }} /> 
+        <Content components={{ Aside: Aside }} />
     </main>
 </Layout>
