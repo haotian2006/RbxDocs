@@ -4,10 +4,10 @@ import { Icon } from "astro-icon/components";
 interface Props {
   variant: "tip" | "caution" | "danger" | "info";
   text: string | null;
-  collapsed: "false"| "true";
+  collapsed: "false" | "true";
 }
 
-const { variant, text,collapsed } = Astro.props as Props;
+const { variant, text, collapsed } = Astro.props as Props;
 
 const icon = (() => {
   switch (variant) {
@@ -22,9 +22,7 @@ const icon = (() => {
   }
 })();
 
-
 ---
-
 
 <div
   class:list={[
@@ -45,39 +43,35 @@ const icon = (() => {
 >
 
 <div>
-  {
-    !collapsed &&(
-      <details open>
-        <summary class="flex items-center gap-2 pb-2">
-          <Icon name={icon} class="w-6 h-6" />
-          <p class="text-sm font-bold">{text ? text : variant.toUpperCase()}</p>
-          <span class="icon"></span>
-        </summary>
-        <slot />
-      </div>
-      </details>
-    )
-  }
-  {
-    collapsed && (
-      <details>
-        <summary class="flex items-center gap-2 pb-2">
-          <Icon name={icon} class="w-6 h-6" />
-          <p class="text-sm font-bold">{text ? text : variant.toUpperCase()}</p>
-          <span class="icon"></span>
-        </summary>
-        <slot />
-      </div>
-      </details>
-    )
-    }
+  {!collapsed && (
+    <details open>
+      <summary class="flex items-center gap-2 pb-2">
+        <Icon name={icon} class="w-6 h-6" />
+        <p class="text-sm font-bold">{text ? text : variant.toUpperCase()}</p>
+        <span class="icon"></span>
+      </summary>
+      <slot />
+    </div>
+    </details>
+  )}
+  {collapsed && (
+    <details>
+      <summary class="flex items-center gap-2 pb-2">
+        <Icon name={icon} class="w-6 h-6" />
+        <p class="text-sm font-bold">{text ? text : variant.toUpperCase()}</p>
+        <span class="icon"></span>
+      </summary>
+      <slot />
+    </div>
+    </details>
+  )}
 </div>
 
 <style>
   details {
     user-select: none;
   }
-  
+
   details>summary span.icon {
     color: #2596be;
     width: 60px;
@@ -85,25 +79,22 @@ const icon = (() => {
     transition: all 0.3s;
     margin-left: auto;
   }
-  
-    .icon::before {
-    content: "expand"; 
+
+  .icon::before {
+    content: "expand";
   }
 
   details[open] .icon::before {
     content: "collapse";
   }
-  
+
   summary {
     display: flex;
     cursor: pointer;
   }
-  
+
   summary::-webkit-details-marker {
     display: none;
   }
-  
-  </style>
 
-
-
+</style>
