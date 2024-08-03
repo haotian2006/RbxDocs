@@ -13,9 +13,11 @@ To open output you go to View -> Output
 
 ![Alt text](https://camo.githubusercontent.com/c49980899ae8f35c159d72ed5921a170d267031a94311029b25d222c7becdf44/68747470733a2f2f6d656469612e646973636f72646170702e6e65742f6174746163686d656e74732f313039303535343236383439323234373130332f313134343337363136393436333034323137382f696d6167652e706e673f77696474683d373637266865696768743d313237)
 
-!!! info
-Another useful tool is the Script Analysis, what it does is show warnings/errors
-(mainly [syntax](https://www.sciencedirect.com/topics/engineering/syntax-error) related) while you are editing the script. It is directly below the Output
+<Aside variant="tip">
+  Another useful tool is the Script Analysis, what it does is show warnings/errors
+ (mainly [syntax](https://www.sciencedirect.com/topics/engineering/syntax-error) related) while you are editing the script. It is directly below the Output
+
+</Aside>
 
 To see if there is an error you will see a message that is red like this one
 
