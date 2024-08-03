@@ -8,6 +8,7 @@ interface Props {
 const { variant } = Astro.props as Props;
 
 const icon = (() => {
+  
   switch (variant) {
     case "tip":
       return "tabler/bulb";
@@ -16,7 +17,7 @@ const icon = (() => {
     case "danger":
       return "tabler/flame";
     case "info":
-      return "tabler/info-circle";
+      return "tabler/info";
   }
 })();
 ---
@@ -43,7 +44,7 @@ const icon = (() => {
   ]}
 >
   <div class="flex items-center gap-2 pb-2">
-    <Icon name={icon} class="h-7 w-7" aria-hidden="true" />
+    <Icon name={icon} class="w-6 h-6" />
     <p class="text-sm font-bold">{variant.toUpperCase()}</p>
   </div>
   <slot />
