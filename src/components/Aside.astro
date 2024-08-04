@@ -51,7 +51,7 @@ const icon = (() => {
                         </p>
                         <span class="icon" />
                     </summary>
-                    <slot />
+                    <slot/>
                 </details>
             )
         }
@@ -83,9 +83,6 @@ const icon = (() => {
     </div>
 
     <style>
-        details {
-            user-select: none;
-        }
 
         details > summary span.icon {
             color: #2596be;
@@ -103,14 +100,7 @@ const icon = (() => {
             content: "collapse";
         }
 
-        slot {
-            user-select: text; /* Ensure text can be selected */
-        }
-
         summary {
-            user-select: text;
-            pointer-events: auto;
-
             display: flex;
             cursor: pointer;
         }
