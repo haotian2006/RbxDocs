@@ -51,7 +51,7 @@ const icon = (() => {
                         </p>
                         <span class="icon" />
                     </summary>
-                    <slot/>
+                    <slot />
                 </details>
             )
         }
@@ -71,19 +71,20 @@ const icon = (() => {
         }
         {
             collapsed == undefined && (
-                <summary class="flex items-center gap-2 pb-2">
-                    <Icon name={icon} class="h-6 w-6" />
-                    <p class="font-bold text-base-content">
-                        {text ? text : variant.toUpperCase()}
-                    </p>
-                </summary>
-                <slot />
+                <>
+                    <summary class="flex items-center gap-2 pb-2">
+                        <Icon name={icon} class="h-6 w-6" />
+                        <p class="font-bold text-base-content">
+                            {text ? text : variant.toUpperCase()}
+                        </p>
+                    </summary>
+                    <slot />
+                </>
             )
         }
     </div>
 
     <style>
-
         details > summary span.icon {
             color: #2596be;
             width: 60px;
