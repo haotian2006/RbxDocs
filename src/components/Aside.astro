@@ -42,7 +42,7 @@ const icon = (() => {
 >
     <div>
         {
-            !collapsed && (
+            collapsed == "false" && (
                 <details open>
                     <summary class="flex items-center gap-2 pb-2">
                         <Icon name={icon} class="h-6 w-6" />
@@ -56,7 +56,7 @@ const icon = (() => {
             )
         }
         {
-            collapsed && (
+            collapsed == "true" && (
                 <details>
                     <summary class="flex items-center gap-2 pb-2">
                         <Icon name={icon} class="h-6 w-6" />
@@ -67,6 +67,17 @@ const icon = (() => {
                     </summary>
                     <slot />
                 </details>
+            )
+        }
+        {
+            collapsed == undefined && (
+                <summary class="flex items-center gap-2 pb-2">
+                    <Icon name={icon} class="h-6 w-6" />
+                    <p class="font-bold text-base-content">
+                        {text ? text : variant.toUpperCase()}
+                    </p>
+                </summary>
+                <slot />
             )
         }
     </div>
@@ -92,7 +103,14 @@ const icon = (() => {
             content: "collapse";
         }
 
+        slot {
+            user-select: text; /* Ensure text can be selected */
+        }
+
         summary {
+            user-select: text;
+            pointer-events: auto;
+
             display: flex;
             cursor: pointer;
         }

@@ -21,16 +21,12 @@ Testing some stuff aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     `text = "info with code block"`
 </Aside>
 
-<Aside variant="info" text = "collapsed block" collapsed = "true">
-  `collapsed = "true"`
-  ```lua
-    local function myFunc(x)
-      return x
-    end
+<Aside variant="info" text="Collapsible block" collapsed="false">
+    `collapsed = "false"`
+</Aside>
 
-    print('hello world')
-    ```
-
+<Aside variant="info" text="Collapsed block" collapsed="true">
+    `collapsed = "true"`
 </Aside>
 
 <Aside variant="info" text="Nested code block">
@@ -45,3 +41,9 @@ Testing some stuff aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     </Aside>
 
 </Aside>
+
+```lua
+local function myFunc(x)
+  return x
+end
+```
