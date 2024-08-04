@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
+import Aside from "@/components/Aside.astro";
 import Layout from "@/layouts/base.astro";
 import { getAuthorData } from "@/modules/author";
 
@@ -57,6 +58,6 @@ const { Content } = await entry.render();
             )
         }
 
-        <Content />
+        <Content components={{ Aside: Aside }} />
     </main>
 </Layout>
