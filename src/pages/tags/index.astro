@@ -12,7 +12,7 @@ const tags = await getCollection("tags");
         {
             tags.map(doc => (
                 <a
-                    href={`/MyDocs/tags/${doc.slug}`}
+                    href={`/RbxDocs/tags/${doc.slug}`}
                     class="inline-block rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
                 >
                     {doc.data.title || doc.slug}

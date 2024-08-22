@@ -10,19 +10,19 @@ const content = [...docs, ...tags];
 const documents = content.filter(entry => entry.data.search);
 ---
 
-<nav class="w-full bg-indigo-700 px-4 shadow-lg">
+<nav class="w-full bg-red-600 px-4 shadow-lg">
     <div class="flex h-12 items-center justify-between gap-2">
         <!-- Icon goes here -->
 
-        <a class="text-lg font-bold text-gray-200" href="/MyDocs">Rbx tags</a>
+        <a class="text-lg font-bold text-gray-200" href="/RbxDocs">Rbx Docs</a>
 
         <ThemeChanger class="swap swap-rotate ml-auto text-gray-300" />
         <Search client:load collection={documents} />
     </div>
 
     <div class="flex h-12 items-center space-x-4 text-sm font-medium tracking-tight">
-        <a class="hover text-gray-300" href="/MyDocs">Home</a>
-        <a class="hover text-gray-300" href="/MyDocs/tags">Tags</a>
-        <a class="hover text-gray-300" href="/MyDocs/documents">Docs</a>
+        <a class="hover text-gray-300" href="/RbxDocs">Home</a>
+        <a class="hover text-gray-300" href="/RbxDocs/tags">Tags</a>
+        <a class="hover text-gray-300" href="/RbxDocs/documents">Docs</a>
     </div>
 </nav>

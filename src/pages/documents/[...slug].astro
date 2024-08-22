@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 
 import Aside from "@/components/Aside.astro";
+import TableOfContents from '@/components/TableOfContents.astro';
 import Layout from "@/layouts/base.astro";
 import { getAuthorData } from "@/modules/author";
 
@@ -24,10 +25,11 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content,headings } = await entry.render();
 ---
 
 <Layout class="flex justify-center py-12">
+    <div class="flex w-full max-w-7xl px-20">
     <main
         class={`
             prose
@@ -39,7 +41,7 @@ const { Content } = await entry.render();
             prose-a:visited:text-purple-500
         `}
     >
-        <h1 class="m-0 mb-0">{entry.data.title}</h1>
+    <h1 style="font-size: 3rem; margin: 0; padding: 0;"><b>{entry.data.title}</b></h1>
         {
             entry.author_data && (
                 <div class="flex items-center">
@@ -58,6 +60,33 @@ const { Content } = await entry.render();
             )
         }
 
+        <div class="mt-5">
+            
+        </div>
+
         <Content components={{ Aside: Aside }} />
     </main>
+    <aside class="toc">
+        <h2><b><u>Table of Contents</u></b></h2>
+        <body>
+            <TableOfContents headings={headings} />
+        </body>
+    </aside>
+    </div>
 </Layout>
+
+
+
+<style>
+    aside.toc {
+    width:  max-content;
+    margin: 20px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px; 
+    border: 2pt solid rgba(119, 115, 115, 0.644);
+    height: max-content;
+    padding: 10px;
+}
+</style>
+
