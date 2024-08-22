@@ -10,7 +10,7 @@ export async function getStaticPaths() {
 
     const documentPaths = documents.map(async entry => ({
         params: {
-            slug: entry.slug === "index" ? "/" : entry.slug,
+            slug: entry.slug,
         },
         props: {
             entry: {

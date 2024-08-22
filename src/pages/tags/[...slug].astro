@@ -1,0 +1,63 @@
+---
+import { getCollection } from "astro:content";
+
+import Aside from "@/components/Aside.astro";
+import Layout from "@/layouts/base.astro";
+import { getAuthorData } from "@/modules/author";
+
+export async function getStaticPaths() {
+    const documents = await getCollection("tags");
+
+    const documentPaths = documents.map(async entry => ({
+        params: {
+            slug: entry.slug,
+        },
+        props: {
+            entry: {
+                ...entry,
+                author_data: await getAuthorData(entry.data.author),
+            },
+        },
+    }));
+
+    return Promise.all(documentPaths);
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout class="flex justify-center py-12">
+    <main
+        class={`
+            prose
+            marker:text-base-content
+            prose-headings:font-light prose-headings:text-base-content
+            prose-h2:mt-0
+            prose-p:text-base-content
+            prose-a:text-blue-500 prose-a:decoration-inherit prose-a:underline-offset-1
+            prose-a:visited:text-purple-500
+        `}
+    >
+        <h1 class="m-0 mb-0">{entry.data.title}</h1>
+        {
+            entry.author_data && (
+                <div class="flex items-center">
+                    <p class="mr-4">by:</p>
+
+                    <img
+                        src={(entry.author_data as { pfp: string }).pfp}
+                        class="mr-2 h-8 w-8 rounded-full"
+                    />
+
+                    {entry.author_data.url && (
+                        <a href={entry.author_data.url}>{entry.author_data.username}</a>
+                    )}
+                    {!entry.author_data.url && <p>{entry.author_data.username}</p>}
+                </div>
+            )
+        }
+
+        <Content components={{ Aside: Aside }} />
+    </main>
+</Layout>
