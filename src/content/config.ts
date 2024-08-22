@@ -5,6 +5,7 @@ const documents = defineCollection({
     schema: zod.object({
         title: zod.string(),
         search: zod.boolean().default(true),
+        thumbnail: zod.string().default("none"),
 
         author: zod
             .string()
