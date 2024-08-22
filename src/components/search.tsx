@@ -6,7 +6,7 @@ import MagnifyingGlass from "@/components/magnifying-glass";
 import type { CollectionEntry } from "astro:content";
 import type { FuseResult } from "fuse.js/basic";
 
-export type Collection = CollectionEntry<"documents">;
+export type Collection = CollectionEntry<"documents"|"tags">;
 
 interface Properties {
     collection: Collection[];
@@ -68,7 +68,7 @@ export default function Search(properties: Properties) {
                 {results.map((entry, index) => (
                     <a
                         className="box-border rounded-md px-2 py-2 transition-colors hover:bg-neutral-content"
-                        href={`/MyDocs/${entry.item.slug}`}
+                        href={`/MyDocs/${entry.item.collection}/${entry.item.slug}`}
                         key={`result-${index + 1}`}
                     >
                         {entry.item.data.title}

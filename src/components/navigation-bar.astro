@@ -5,7 +5,9 @@ import Search from "@/components/search.tsx";
 import ThemeChanger from "@/components/theme-changer.astro";
 
 const docs = await getCollection("documents");
-const documents = docs.filter(entry => entry.data.search);
+const tags = await getCollection("tags");
+const content = [...docs, ...tags];
+const documents = content.filter(entry => entry.data.search);
 ---
 
 <nav class="w-full bg-indigo-700 px-4 shadow-lg">
@@ -21,6 +23,6 @@ const documents = docs.filter(entry => entry.data.search);
     <div class="flex h-12 items-center space-x-4 text-sm font-medium tracking-tight">
         <a class="hover text-gray-300" href="/MyDocs">Home</a>
         <a class="hover text-gray-300" href="/MyDocs/tags">Tags</a>
-        <a class="hover text-gray-300" href="/MyDocs/docs">Docs</a>
+        <a class="hover text-gray-300" href="/MyDocs/documents">Docs</a>
     </div>
 </nav>
