@@ -408,6 +408,7 @@ end)
 
 ???+ warning
 Another mistake people tend to do is using spawn/task.spawn inside of the BindToClose
+
 ```lua
 game:BindToClose(function()
     for _,Player in game.Players:GetPlayers() do
@@ -415,7 +416,9 @@ game:BindToClose(function()
     end
 end)
 ```
+
 this is wrong because task.spawn makes it so that the saving process doesn't yield, but we need it to yield. If you want to do it correctly you can do it like this
+
 ```lua
 game:BindToClose(function()
     local players = game.Players:GetPlayers()
@@ -432,7 +435,9 @@ game:BindToClose(function()
     repeat task.wait() until count == amt -- yields until everything is done
 end)
 ```
+
 or if you want to be fancy
+
 ```lua
 game:BindToClose(function()
     local players = game.Players:GetPlayers()

@@ -1,5 +1,6 @@
 ---
 title: "Basic Methods of Instances"
+author: "github: 71573739"
 ---
 
 ## AddTag(tag: string): void

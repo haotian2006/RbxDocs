@@ -1,5 +1,6 @@
 ---
 title: "Vector3 Methods"
+author: "github: 71573739"
 ---
 
 ## Pre-requisites

@@ -13,13 +13,23 @@ let documents = await getCollection("documents");
             documents.map(doc => (
                 <a
                     href={`/RbxDocs/documents/${doc.slug}`}
-                    class="inline-block rounded bg-blue-500 text-white hover:bg-blue-600 "
-                    style={{ width: '200px', height: '200px', textAlign: 'center', alignItems: 'center', justifyContent: 'center' }}
+                    class="inline-block rounded bg-blue-500 text-white hover:bg-blue-600"
+                    style={{
+                        width: "200px",
+                        height: "200px",
+                        textAlign: "center",
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}
                 >
-                    <div class="w-full h-full bg-blue-500 p-1  hover:border-2 hover:border-orange-500">
-                        <img src={doc.data.thumbnail} alt={"no image"} class="w-full h-full object-cover" />
+                    <div class="h-full w-full bg-blue-500 p-1 hover:border-2 hover:border-orange-500">
+                        <img
+                            src={doc.data.thumbnail}
+                            alt={"no image"}
+                            class="h-full w-full object-cover"
+                        />
                     </div>
-                    <span class="relative z-10 bg-blue-500  rounded-sm text-center leading-tight">
+                    <span class="relative z-10 rounded-sm bg-blue-500 text-center leading-tight">
                         {doc.data.title || doc.slug}
                     </span>
                 </a>
@@ -29,11 +39,11 @@ let documents = await getCollection("documents");
 </Layout>
 
 <style>
-.elements {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 40px;
-    row-gap: 40px;
-    justify-content: left;
-  }
+    .elements {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 40px;
+        row-gap: 40px;
+        justify-content: left;
+    }
 </style>
