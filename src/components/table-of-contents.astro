@@ -34,7 +34,7 @@ const grouppedHeadings = headings.reduce((array, heading) => {
                 <li>
                     <a href={`#${h.slug}`}>{h.text}</a>
                     {h.subheadings.length > 0 && (
-                        <ol>
+                        <ol class="subHeader">
                             {h.subheadings.map(sub => (
                                 <li>
                                     <a href={`#${sub.slug}`}>{sub.text}</a>
@@ -100,26 +100,8 @@ const grouppedHeadings = headings.reduce((array, heading) => {
         font-weight: bold;
     }
 
-    #table-of-contents {
-        font-family: Arial, sans-serif;
-        font-size: 16px;
-    }
-
-    #table-of-contents > ol {
-        padding-left: 0;
-        margin: 0;
-    }
-
-    #table-of-contents > ol > li {
-        margin-bottom: 0.5em;
-    }
-
-    #table-of-contents ol ol {
+    ol.subHeader {
         padding-left: 20px;
         margin: 0;
-    }
-
-    #table-of-contents ol ol li {
-        margin-bottom: 0.5em;
     }
 </style>

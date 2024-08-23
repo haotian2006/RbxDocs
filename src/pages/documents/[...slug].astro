@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 
-import Aside from "@/components/Aside.astro";
-import TableOfContents from "@/components/TableOfContents.astro";
+import Aside from "@/components/aside.astro";
+import TableOfContents from "@/components/table-of-contents.astro";
 import Layout from "@/layouts/base.astro";
 import { getAuthorData } from "@/modules/author";
 
@@ -65,10 +65,9 @@ const { Content, headings } = await entry.render();
             <Content components={{ Aside: Aside }} />
         </main>
         <aside class="toc">
-            <h2><b><u>Table of Contents</u></b></h2>
-            <body>
-                <TableOfContents headings={headings} />
-            </body>
+            <p class="font-bold underline">Table of Contents</p>
+
+            <TableOfContents headings={headings} />
         </aside>
     </div>
 </Layout>
