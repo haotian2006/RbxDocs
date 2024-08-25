@@ -1,5 +1,6 @@
 ---
 title: "Inheritance"
+author: "github: 71573739"
 ---
 
 ## Pre-requisites

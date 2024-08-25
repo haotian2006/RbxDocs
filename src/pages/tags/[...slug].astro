@@ -1,16 +1,16 @@
 ---
 import { getCollection } from "astro:content";
 
-import Aside from "@/components/Aside.astro";
+import Aside from "@/components/aside.astro";
 import Layout from "@/layouts/base.astro";
 import { getAuthorData } from "@/modules/author";
 
 export async function getStaticPaths() {
-    const documents = await getCollection("documents");
+    const documents = await getCollection("tags");
 
     const documentPaths = documents.map(async entry => ({
         params: {
-            slug: entry.slug === "index" ? "/" : entry.slug,
+            slug: entry.slug,
         },
         props: {
             entry: {
@@ -58,6 +58,6 @@ const { Content } = await entry.render();
             )
         }
 
-        <Content components={{ Aside: Aside }} />
+        <Content components={{ aside: Aside }} />
     </main>
 </Layout>

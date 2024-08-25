@@ -8,4 +8,4 @@ title: "Beginner Tips"
 -   There is no best solution for learning - outside of learning methods, you will need to spend time working on projects like everyone else
 -   Do not compare yourself to others - use their creations as goals, not to reflect on yourself, because learning takes different amounts of time for everybody
 
-More tips [here](https://haotian2006.github.io/MyDocs/Fixing%20Errors/)
+More tips [here](https://haotian2006.github.io/RbxDocs/Fixing%20Errors/)

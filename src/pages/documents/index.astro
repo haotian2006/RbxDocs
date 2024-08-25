@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+
+import Layout from "@/layouts/base.astro";
+
+// Fetch all documents from the 'tags' collection
+let documents = await getCollection("documents");
+---
+
+<Layout class="p-6">
+    <div class="elements">
+        {
+            documents.map(doc => (
+                <a
+                    href={`/RbxDocs/documents/${doc.slug}`}
+                    class="inline-block rounded bg-blue-500 text-white hover:bg-blue-600"
+                    style={{
+                        width: "12.5rem",
+                        height: "12.5rem",
+                        textAlign: "center",
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}
+                >
+                    <div class="h-full w-full bg-blue-500 p-1 hover:border-2 hover:border-orange-500">
+                        <img
+                            src={doc.data.thumbnail}
+                            alt={"no image"}
+                            class="h-full w-full object-cover"
+                        />
+                    </div>
+                    <span class="relative z-10 rounded-sm bg-blue-500 text-center leading-tight">
+                        {doc.data.title || doc.slug}
+                    </span>
+                </a>
+            ))
+        }
+    </div>
+</Layout>
+
+<style>
+    .elements {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 40px;
+        row-gap: 40px;
+        justify-content: start;
+    }
+</style>
