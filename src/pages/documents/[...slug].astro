@@ -8,7 +8,7 @@ import { getAuthorData } from "@/modules/author";
 
 export async function getStaticPaths() {
     const documents = await getCollection("documents");
-    
+
     const documentPaths = documents.map(async entry => ({
         params: {
             slug: entry.slug,
