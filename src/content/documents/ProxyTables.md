@@ -14,15 +14,16 @@ proxy table are Tables that allow you to detect when a table is updated or chang
 ???+ warning
 Proxy tables are less efficient then normal metatables and this is caused by setting the \_\_index to a function. If you want a more efficient method to detected Changes use Setters and Getter function instead.
 Ex.
-`lua
-    function Proxy:GetValue(key)
-        return self.RealData[key]
-    end
-    function Proxy:SetValue(key,value)
-        self.RealData[key] = value
-        print("Detected Change at",key,"new Value",value)
-    end
-    `
+
+```lua
+function Proxy:GetValue(key)
+    return self.RealData[key]
+end
+function Proxy:SetValue(key,value)
+    self.RealData[key] = value
+    print("Detected Change at",key,"new Value",value)
+end
+```
 
 ## How to set on up
 
