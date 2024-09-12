@@ -2,22 +2,25 @@
 import { getCollection } from "astro:content";
 
 import Layout from "@/layouts/base.astro";
+import { getAuthorOrDefault } from "@/modules/author";
 
 // Fetch all documents from the 'tags' collection
 const tags = await getCollection("tags");
 ---
 
-<Layout class="p-6">
-    <div class="space-y-4">
-        {
-            tags.map(doc => (
-                <a
-                    href={`/RbxDocs/tags/${doc.slug}`}
-                    class="inline-block rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-                >
-                    {doc.data.title || doc.slug}
-                </a>
-            ))
-        }
-    </div>
+<Layout class="px-72 py-8">
+    <ul class="space-y-4">
+        {tags.map(async doc => (
+        <li>
+            <a href={`/RbxDocs/tags/${doc.slug}`}>
+                <b>{doc.data.title}</b>
+                by {(await getAuthorOrDefault(doc.data.author)).username}
+                <p style={{ whiteSpace: 'normal', wordWrap: 'break-word', overflowWrap: 'break-word', maxWidth: '800px'  }}>
+                    {doc.body.length > 180 ? doc.body.slice(0, 180) + '...' : doc.body}
+                </p>
+   
+            </a>
+        </li>
+        ))} 
+    </ul>
 </Layout>

@@ -1,3 +1,5 @@
+import { log } from "node_modules/astro/dist/core/logger/core";
+
 interface AuthorData {
     username: string;
     pfp: string;
@@ -85,6 +87,19 @@ export async function getAuthorData(
     } else {
         return {
             username: author,
+            pfp: "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg",
+        };
+    }
+}
+
+export async function getAuthorOrDefault( author: string | undefined,
+): Promise<{ username: string; pfp: string; url?: string }> {
+    const authorData = await getAuthorData(author);
+    if (authorData && authorData.username !== undefined) {
+        return authorData;
+    } else {
+        return {
+            username:  "NoAuthor",
             pfp: "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg",
         };
     }

@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 import Aside from "@/components/aside.astro";
 import TableOfContents from "@/components/table-of-contents.astro";
 import Layout from "@/layouts/base.astro";
-import { getAuthorData } from "@/modules/author";
+import { getAuthorOrDefault } from "@/modules/author";
 
 export async function getStaticPaths() {
     const documents = await getCollection("documents");
@@ -16,7 +16,7 @@ export async function getStaticPaths() {
         props: {
             entry: {
                 ...entry,
-                author_data: await getAuthorData(entry.data.author),
+                author_data: await getAuthorOrDefault(entry.data.author),
             },
         },
     }));
