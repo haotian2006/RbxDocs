@@ -1,5 +1,6 @@
 ---
 title: "Infinite Yield"
+author: "github: 63274991"
 ---
 
 `Infinite yield possible` is a **warning** produced when you are waiting for a child to load in for potentially too long. Because it is a warning (orange text), it normally does not stop your script compared to errors (red text).

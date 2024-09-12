@@ -1,5 +1,6 @@
 ---
 title: "Unique Random Values"
+author: "github: 63274991"
 ---
 
 1. Make a copy of the **array**

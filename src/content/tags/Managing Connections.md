@@ -1,5 +1,6 @@
 ---
 title: "Managing Connections"
+author: "github: 63274991"
 ---
 
 Memory leaks and performance drops can become more common without properly managing your connections, which are made whenever you `:Connect()` a function to an event. To prevent these problems:

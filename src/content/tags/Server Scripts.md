@@ -1,5 +1,6 @@
 ---
 title: "Server Scripts"
+author: "github: 63274991"
 ---
 
 (Server) Scripts run code on a the game's server. Compared to local scripts that have many locations, server scripts can (and should) only be run in `ServerScriptService`.

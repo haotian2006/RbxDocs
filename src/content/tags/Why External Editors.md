@@ -1,5 +1,6 @@
 ---
 title: "Why External Editors"
+author: "github: 63274991"
 ---
 
 **The benefits of using external editors over the Roblox Studio editor:**

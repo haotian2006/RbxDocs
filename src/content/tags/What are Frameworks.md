@@ -1,5 +1,6 @@
 ---
 title: "What are Frameworks"
+author: "github: 63274991"
 ---
 
 Frameworks operate on a system or specific structure that streamlines the creation of something specific. Knit is an example of a _game_ framework that simplifies making games by handling project structure, module organisation and networking for you rather than you having to implement these features yourself.

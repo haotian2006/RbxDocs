@@ -1,5 +1,6 @@
 ---
 title: "PlayerAdded in Studio"
+author: "github: 63274991"
 ---
 
 The `PlayerAdded` event in studio does not always fire on time, sometimes it is so fast that the functions you connect to the event never get the chance to run.

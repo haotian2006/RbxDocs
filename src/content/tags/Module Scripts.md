@@ -1,6 +1,6 @@
 ---
 title: "Module Scripts"
-info: "a"
+author: "github: 63274991"
 ---
 
 Module scripts (or modules) normally contain code that does not run until they have been `require`d. The code you write will run under the same restrictions as the type of script requiring it, meaning:

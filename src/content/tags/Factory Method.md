@@ -1,5 +1,6 @@
 ---
 title: "Factory Method"
+author: "github: 63274991"
 ---
 
 Using classes with metatables ends up being problematic for several reasons:

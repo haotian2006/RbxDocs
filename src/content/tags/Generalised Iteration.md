@@ -1,5 +1,6 @@
 ---
 title: "Generalised Iteration"
+author: "github: 63274991"
 ---
 
 Since the new metamethod `__iter` was added to every table, all tables can be used as the iterator within for loops, making `pairs` and `ipairs` redundant.

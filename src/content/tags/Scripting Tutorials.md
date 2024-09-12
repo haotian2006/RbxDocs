@@ -1,5 +1,6 @@
 ---
 title: "Scripting Tutorials"
+author: "github: 63274991"
 ---
 
 -   If you prefer to read, check the [Roblox Documentation](https://create.roblox.com/docs).
