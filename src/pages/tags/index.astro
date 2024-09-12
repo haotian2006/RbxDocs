@@ -15,9 +15,9 @@ const tags = await getCollection("tags");
                 <li>
                     <a href={`/RbxDocs/tags/${doc.slug}`}>
                         <b style="color:#0096FF">
-                            <u>{doc.data.title}</u>
+                            {doc.data.title}
                         </b>
-                        by {(await getAuthorOrDefault(doc.data.author)).username}
+                        <a style="font-size:90%;color:rgb(109, 109, 109,.6);">by {(await getAuthorOrDefault(doc.data.author)).username}</a>
                         <p
                             style={{
                                 whiteSpace: "normal",
@@ -26,7 +26,7 @@ const tags = await getCollection("tags");
                                 maxWidth: "800px",
                             }}
                         >
-                            {doc.body.length > 180 ? doc.body.slice(0, 180) + "..." : doc.body}
+                            {doc.body.length > 200 ? doc.body.slice(0, 200) + "..." : doc.body}
                         </p>
                     </a>
                 </li>
