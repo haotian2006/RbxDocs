@@ -8,8 +8,10 @@ const documents = defineCollection({
         search: zod.boolean().default(true),
         thumbnail: zod.string().default("/images/thumbnails/WorkInProgress.webp"),
         author: zod
-            .string()
-            .regex(/(?:discord|github): ([0-9]+)/)
+            .union([
+                zod.string().regex(/^(?:discord|github): ([0-9]+)$/), 
+                zod.string().regex(/^author: .+$/i),                   
+            ])
             .optional(),
     }),
 });
@@ -21,9 +23,11 @@ const tags = defineCollection({
         search: zod.boolean().default(true),
 
         author: zod
-            .string()
-            .regex(/(?:discord|github): ([0-9]+)/)
-            .optional(),
+        .union([
+            zod.string().regex(/^(?:discord|github): ([0-9]+)$/), 
+            zod.string().regex(/^author: .+$/i),                   
+        ])
+        .optional(),
     }),
 });
 

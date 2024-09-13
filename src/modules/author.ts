@@ -85,8 +85,9 @@ export async function getAuthorData(
     } else if (platform === "github") {
         return await getGitHubData(userID);
     } else {
+        const pattern = author.match(/^author: (.+)$/);
         return {
-            username: author,
+            username: pattern ? pattern[1] : author,
             pfp: "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg",
         };
     }
