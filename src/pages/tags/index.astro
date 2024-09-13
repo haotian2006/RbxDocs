@@ -14,10 +14,10 @@ const tags = await getCollection("tags");
             tags.map(async doc => (
                 <li>
                     <a href={`/RbxDocs/tags/${doc.slug}`}>
-                        <b style="color:#0096FF">
-                            {doc.data.title}
-                        </b>
-                        <a style="font-size:90%;color:rgb(109, 109, 109,.6);">by {(await getAuthorOrDefault(doc.data.author)).username}</a>
+                        <b style="color:#0096FF">{doc.data.title}</b>
+                        <a style="font-size:90%;color:rgb(109, 109, 109,.6);">
+                            by {(await getAuthorOrDefault(doc.data.author)).username}
+                        </a>
                         <p
                             style={{
                                 whiteSpace: "normal",
