@@ -1,4 +1,3 @@
-import { log } from "node_modules/astro/dist/core/logger/core";
 
 interface AuthorData {
     username: string;
