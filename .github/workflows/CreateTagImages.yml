@@ -3,7 +3,7 @@ name: Generate Images for Tags
 on:
   pull_request:
     branches:
-      - main  # Specify the branches you want this action to run on
+      - main 
 
 jobs:
   generate-images:
@@ -27,7 +27,7 @@ jobs:
  
     - name: Generate images
       run: |
-        node CreateTagThumbs.cjs  # Replace with the path to your script
+        node CreateTagThumbs.cjs 
       env:
         NODE_ENV: production
 
@@ -36,4 +36,4 @@ jobs:
       with:
         add: 'public/tag_thumbs' 
         message: 'Add generated images from GitHub Actions'
-        push: true
+        push: origin HEAD:${{ github.head_ref }} 
