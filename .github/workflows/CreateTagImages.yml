@@ -35,12 +35,21 @@ jobs:
             echo "BASE_BRANCH=${BASE_BRANCH}" >> $GITHUB_ENV
           fi
 
-      - name: Check for changed files
+      - name: Fetch and Compare Changes
         id: check_files
         run: |
+          # Fetch base branch and current branch
           git fetch origin $BASE_BRANCH
-          CHANGED_FILES=$(git diff --name-only origin/$BASE_BRANCH...HEAD | grep '\.md$')
-          echo "CHANGED_FILES=${CHANGED_FILES}" >> $GITHUB_ENV
+          git fetch origin HEAD
+
+          # Use a different git diff syntax to avoid issues with no merge base
+          CHANGED_FILES=$(git diff --name-only origin/$BASE_BRANCH HEAD | grep '\.md$')
+          
+          if [[ -z "$CHANGED_FILES" ]]; then
+            echo "No Markdown files changed."
+          else
+            echo "CHANGED_FILES=${CHANGED_FILES}" >> $GITHUB_ENV
+          fi
 
       - name: Generate Tag Thumbnails
         if: env.CHANGED_FILES != ''
