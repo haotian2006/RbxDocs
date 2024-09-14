@@ -1,35 +1,35 @@
 name: Generate Images for Tags
 
 on:
-  push:
+    push:
         branches: [main]
 
 jobs:
-  generate-images:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-      
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18' 
+    generate-images:
+        runs-on: ubuntu-latest
 
-    - name: Install dependencies
-      run: |
-        npm install
- 
-    - name: Generate images
-      run: |
-        node CreateTagThumbs.cjs 
-      env:
-        NODE_ENV: production
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
 
-    - name: Commit and push generated images
-      uses: EndBug/add-and-commit@v9
-      with:
-        add: 'public/tag_thumbs' 
-        message: 'Add generated images from GitHub Action'
-        push: origin main --force
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "18"
+
+            - name: Install dependencies
+              run: |
+                  npm install
+
+            - name: Generate images
+              run: |
+                  node CreateTagThumbs.cjs
+              env:
+                  NODE_ENV: production
+
+            - name: Commit and push generated images
+              uses: EndBug/add-and-commit@v9
+              with:
+                  add: "public/tag_thumbs"
+                  message: "Add generated images from GitHub Action"
+                  push: origin main --force

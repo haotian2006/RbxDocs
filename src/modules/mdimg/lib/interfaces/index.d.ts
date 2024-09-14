@@ -67,4 +67,6 @@ export type IConvertResponse = {
 /** File type of output image */
 export type IConvertTypeOption = NonNullable<import("puppeteer").ScreenshotOptions["type"]>;
 /** Encode type of output image */
-export type IConvertEncodingOption = NonNullable<import("puppeteer").ScreenshotOptions["encoding"] | "blob">;
+export type IConvertEncodingOption = NonNullable<
+    import("puppeteer").ScreenshotOptions["encoding"] | "blob"
+>;

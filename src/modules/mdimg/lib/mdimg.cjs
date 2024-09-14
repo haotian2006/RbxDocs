@@ -10,14 +10,13 @@ var hljs = require("highlight.js");
 
 var marked = new Marked(
     markedHighlight({
-      langPrefix: 'hljs language-',
-      highlight(code, lang, info) {
-        const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-        return hljs.highlight(code, { language }).value;
-      }
-    })
-  );
-  
+        langPrefix: "hljs language-",
+        highlight(code, lang, info) {
+            const language = hljs.getLanguage(lang) ? lang : "plaintext";
+            return hljs.highlight(code, { language }).value;
+        },
+    }),
+);
 
 const s = async e => marked.parse(e),
     o = async ({

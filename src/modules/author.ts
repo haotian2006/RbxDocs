@@ -1,4 +1,3 @@
-
 interface AuthorData {
     username: string;
     pfp: string;

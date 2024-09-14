@@ -3,15 +3,14 @@ import { getCollection } from "astro:content";
 
 import Layout from "@/layouts/base.astro";
 
-const currentUrl = Astro.url.origin+"/RbxDocs";
+const currentUrl = Astro.url.origin + "/RbxDocs";
 let documents = await getCollection("documents");
 
-function getThumbnail(link:string) {
+function getThumbnail(link: string) {
     const linkRegex = /https?:\/\/[^\s]+/;
     const containsLink = link.match(linkRegex);
     return containsLink ? containsLink[0] : currentUrl + "/thumbnails/" + link;
 }
-
 ---
 
 <Layout class="p-6">
@@ -31,8 +30,8 @@ function getThumbnail(link:string) {
                 >
                     <div class="h-full w-full bg-blue-500 p-1 hover:border-2 hover:border-orange-500">
                         <img
-                            src= {getThumbnail(doc.data.thumbnail)}
-                            alt= {getThumbnail(doc.data.thumbnail)}
+                            src={getThumbnail(doc.data.thumbnail)}
+                            alt={getThumbnail(doc.data.thumbnail)}
                             class="h-full w-full object-cover"
                         />
                     </div>
