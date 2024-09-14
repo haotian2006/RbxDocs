@@ -16,4 +16,6 @@ If the game/animation is owned by a group, then both must be owned by the group.
 
 ```lua
     print("hello world")
+    print("yes")
+    print("no")
 ```
