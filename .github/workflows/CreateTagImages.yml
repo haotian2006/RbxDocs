@@ -1,56 +1,35 @@
-name: Generate Tag Thumbnails
+name: Generate Images for Tags
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
-      - main
-  workflow_dispatch:
+      - main  # Specify the branches you want this action to run on
 
 jobs:
-  generateImages:
+  generate-images:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18' 
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
+    - name: Install dependencies
+      run: |
+        npm install
+ 
+    - name: Generate images
+      run: |
+        node CreateTagThumbs.cjs  # Replace with the path to your script
+      env:
+        NODE_ENV: production
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Determine Branch or PR Base
-        id: determine_branch
-        run: |
-          if [[ $GITHUB_EVENT_NAME == 'pull_request' ]]; then
-            BASE_BRANCH=$(jq --raw-output .pull_request.base.ref "$GITHUB_EVENT_PATH")
-            echo "BASE_BRANCH=${BASE_BRANCH}" >> $GITHUB_ENV
-          else
-            BASE_BRANCH="main"
-            echo "BASE_BRANCH=${BASE_BRANCH}" >> $GITHUB_ENV
-          fi
-
-      - name: Fetch and Compare Changes
-        id: check_files
-        run: |
-          # Fetch base branch and current branch
-          git fetch origin $BASE_BRANCH
-          git fetch origin HEAD
-
-          # Use a different git diff syntax to avoid issues with no merge base
-          CHANGED_FILES=$(git diff --name-only origin/$BASE_BRANCH HEAD | grep '\.md$')
-          
-          if [[ -z "$CHANGED_FILES" ]]; then
-            echo "No Markdown files changed."
-          else
-            echo "CHANGED_FILES=${CHANGED_FILES}" >> $GITHUB_ENV
-          fi
-
-      - name: Generate Tag Thumbnails
-        if: env.CHANGED_FILES != ''
-        run: node CreateTagThumbs.cjs
+    - name: Commit and push generated images
+      uses: EndBug/add-and-commit@v9
+      with:
+        add: 'public/tag_thumbs' 
+        message: 'Add generated images from GitHub Actions'
