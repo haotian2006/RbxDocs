@@ -1,7 +1,8 @@
 name: Generate Images for Tags
 
 on:
-  pull_request:
+  push:
+        branches: [main]
 
 jobs:
   generate-images:
@@ -10,9 +11,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-      with:
-        repository: ${{ github.event.pull_request.head.repo.full_name }}
-        ref: ${{ github.event.pull_request.head.ref }}
       
     - name: Set up Node.js
       uses: actions/setup-node@v3
@@ -34,4 +32,4 @@ jobs:
       with:
         add: 'public/tag_thumbs' 
         message: 'Add generated images from GitHub Action'
-        push: origin ${{ github.head_ref }}:${{ github.head_ref }} --force
+        push: origin main --force
