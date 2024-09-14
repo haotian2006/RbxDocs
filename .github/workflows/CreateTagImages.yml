@@ -33,5 +33,5 @@ jobs:
       uses: EndBug/add-and-commit@v9
       with:
         add: 'public/tag_thumbs' 
-        message: 'Add generated images from GitHub Actions'
+        message: 'Add generated images from GitHub Action'
         push: origin ${{ github.head_ref }}:${{ github.head_ref }} --force
