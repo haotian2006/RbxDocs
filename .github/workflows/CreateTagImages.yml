@@ -1,0 +1,47 @@
+name: Generate Tag Thumbnails
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  generateImages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Determine Branch or PR Base
+        id: determine_branch
+        run: |
+          if [[ $GITHUB_EVENT_NAME == 'pull_request' ]]; then
+            BASE_BRANCH=$(jq --raw-output .pull_request.base.ref "$GITHUB_EVENT_PATH")
+            echo "BASE_BRANCH=${BASE_BRANCH}" >> $GITHUB_ENV
+          else
+            BASE_BRANCH="main"
+            echo "BASE_BRANCH=${BASE_BRANCH}" >> $GITHUB_ENV
+          fi
+
+      - name: Check for changed files
+        id: check_files
+        run: |
+          git fetch origin $BASE_BRANCH
+          CHANGED_FILES=$(git diff --name-only origin/$BASE_BRANCH...HEAD | grep '\.md$')
+          echo "CHANGED_FILES=${CHANGED_FILES}" >> $GITHUB_ENV
+
+      - name: Generate Tag Thumbnails
+        if: env.CHANGED_FILES != ''
+        run: node CreateTagThumbs.cjs
