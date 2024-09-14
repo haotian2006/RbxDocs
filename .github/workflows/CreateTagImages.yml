@@ -11,7 +11,7 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
       with:
         repository: ${{ github.event.pull_request.head.repo.full_name }}
         ref: ${{ github.event.pull_request.head.ref }}
@@ -36,4 +36,4 @@ jobs:
       with:
         add: 'public/tag_thumbs' 
         message: 'Add generated images from GitHub Actions'
-        push: origin HEAD:${{ github.head_ref }} 
+        push: origin HEAD:${{ github.head_ref }} --force
