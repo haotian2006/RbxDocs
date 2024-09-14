@@ -11,7 +11,10 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ github.event.pull_request.head.repo.full_name }}
+        ref: ${{ github.event.pull_request.head.ref }}
       
     - name: Set up Node.js
       uses: actions/setup-node@v3
@@ -33,3 +36,4 @@ jobs:
       with:
         add: 'public/tag_thumbs' 
         message: 'Add generated images from GitHub Actions'
+        push: true
