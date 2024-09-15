@@ -24,6 +24,7 @@
         "dotenv": "^16.4.5",
         "fuse.js": "^7.0.0",
         "highlight.js": "^11.10.0",
+        "lit": "^3.2.0",
         "marked": "^14.1.2",
         "marked-highlight": "^2.1.4",
         "puppeteer": "^23.3.0",
