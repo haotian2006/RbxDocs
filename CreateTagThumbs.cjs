@@ -20,7 +20,7 @@ function getCollection() {
                 .replace(/---[\s\S]*?---/g, "")
                 .trim(),
             filePath,
-        };
+        }; 
     });
 }
 
