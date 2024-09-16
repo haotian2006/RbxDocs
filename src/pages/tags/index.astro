@@ -16,12 +16,19 @@ const tags = await getCollection("tags");
     <meta content="#4c51bf" data-react-helmet="true" name="theme-color" />
 </content>
 
-<Layout class="px-72">
-    <main class="flex h-screen w-full flex-col items-center justify-start gap-6 py-10">
-        <!-- Adjust the padding, flex properties, and spacing as needed -->
+<Layout class="px-4 py-8 md:px-16 lg:px-72">
+    <div class="elements">
         {
             tags.map(async doc => (
-                <div class="box-border flex w-4/5 flex-col gap-2 rounded-xl p-4 shadow-lg outline outline-2 transition-transform duration-300 hover:-translate-y-1 hover:cursor-pointer">
+                <div  
+                    style={{
+                        width: "22rem",
+                        height: "12.5rem",
+                        minWidth: "300px",
+                        minHeight: "200px",
+   
+                    }}
+                    class="box-border flex flex-col gap-2 rounded-xl p-4 shadow-lg outline outline-2 transition-transform duration-300 hover:-translate-y-1 hover:cursor-pointer">
                     <a href={`/RbxDocs/tags/${doc.slug}`}>
                         <div class="flex flex-col">
                             <span class="mb-1 flex items-center text-sm italic">
@@ -32,7 +39,7 @@ const tags = await getCollection("tags");
                                 {(await getAuthorOrDefault(doc.data.author)).username}
                             </span>
                             <p class="mb-1 text-lg font-bold">{doc.data.title}</p>
-                            <p class="line-clamp-2 overflow-ellipsis text-sm">
+                            <p class="line-clamp-5 overflow-ellipsis text-sm">
                                 {doc.body.length > 350 ? doc.body.slice(0, 350) + "..." : doc.body}
                             </p>
                         </div>
@@ -43,29 +50,12 @@ const tags = await getCollection("tags");
     </main>
 </Layout>
 
-<!-- <Layout class="px-72 py-8">
-    <ul class="space-y-4">
-        {
-            tags.map(async doc => (
-                <li>
-                    <a href={`/RbxDocs/tags/${doc.slug}`}>
-                        <b style="color:#0096FF">{doc.data.title}</b>
-                        <a style="font-size:90%;color:rgb(109, 109, 109,.6);">
-                            by {(await getAuthorOrDefault(doc.data.author)).username}
-                        </a>
-                        <p
-                            style={{
-                                whiteSpace: "normal",
-                                wordWrap: "break-word",
-                                overflowWrap: "break-word",
-                                maxWidth: "800px",
-                            }}
-                        >
-                            {doc.body.length > 200 ? doc.body.slice(0, 200) + "..." : doc.body}
-                        </p>
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
-</Layout> -->
+
+<style>
+    .elements {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        justify-content: center;
+    }
+</style>
