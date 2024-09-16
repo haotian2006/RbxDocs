@@ -36,6 +36,10 @@ const currentUrl = Astro.url.origin + "/RbxDocs";
     <meta content={`/RbxDocs/tags/${entry.slug}`} property="og:url" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
+        property="og:image"
+        content={currentUrl + `/tag_thumbs/${entry.id.replace(".md", ".webp")}`}
+    />
+    <meta
         property="twitter:image"
         content={currentUrl + `/tag_thumbs/${entry.id.replace(".md", ".webp")}`}
     />
