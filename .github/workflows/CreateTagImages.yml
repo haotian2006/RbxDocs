@@ -21,7 +21,7 @@ jobs:
               run: npm install
 
             - name: Generate images
-              run: node scripts\CreateTagThumbs.cjs
+              run: node scripts/CreateTagThumbs.cjs
               env:
                   NODE_ENV: production
 
