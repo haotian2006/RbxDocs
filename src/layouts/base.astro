@@ -17,7 +17,7 @@ import "@fontsource/roboto/400-italic.css";
 import "@fontsource/roboto/500-italic.css";
 import "@fontsource/roboto/700-italic.css";
 import "@fontsource/roboto/900-italic.css";
-import "../modules/copyCodeButton/styles.css";
+import "@/modules/copy-code-button/styles.css";
 
 interface Props {
     class?: string;
@@ -37,8 +37,8 @@ const { class: class_ = null } = Astro.props;
 
         <title>Docs Idk</title>
         <script>
-            import "../modules/copyCodeButton/copy-code-button.js";
-            import "../modules/copyCodeButton/create-copy-buttons.js";
+            import "@/modules/copy-code-button/copy-code-button.js";
+            import "@/modules/copy-code-button/create-copy-buttons.js";
         </script>
         <script is:inline>
             // prevents flatuence

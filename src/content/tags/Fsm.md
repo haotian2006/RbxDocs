@@ -1,5 +1,5 @@
 ---
-title: "What is a Finite State Machine (FSM)"
+title: "FSM"
 author: "github: 65139606"
 ---
 

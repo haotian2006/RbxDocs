@@ -25,9 +25,11 @@ export async function getStaticPaths() {
 }
 
 const currentUrl = Astro.url.origin + "/RbxDocs";
+
 function getThumbnail(link: string) {
     const linkRegex = /https?:\/\/[^\s]+/;
     const containsLink = link.match(linkRegex);
+
     return containsLink ? containsLink[0] : currentUrl + "/thumbnails/" + link;
 }
 
@@ -48,7 +50,7 @@ const { Content, headings } = await entry.render();
 </content>
 
 <Layout class="flex justify-center px-12 py-12 md:px-16 lg:px-20">
-    <div class="flex w-full flex-col-reverse justify-center md:flex-row">
+    <div class="flex w-full justify-center md:flex-row">
         <main
             class={`
             prose
@@ -62,7 +64,7 @@ const { Content, headings } = await entry.render();
         `}
             style="width: 100%;"
         >
-            <h1 style="font-size: 2.25rem; margin: 0; padding: 0;"><b>{entry.data.title}</b></h1>
+            <h1 class="m-0 p-0 text-4xl"><b>{entry.data.title}</b></h1>
             {
                 entry.author_data && (
                     <div class="mb-4 flex items-center">
@@ -95,23 +97,7 @@ const { Content, headings } = await entry.render();
 </Layout>
 
 <style>
-    main {
-        width: 100%;
-    }
-
-    h1 {
-        font-size: 2.25rem;
-    }
-
-    img {
-        object-fit: cover;
-    }
-
     @media (max-width: 799px) {
-        .flex-col-reverse {
-            flex-direction: column-reverse;
-        }
-
         h1 {
             font-size: 1.75rem;
         }
@@ -131,12 +117,6 @@ const { Content, headings } = await entry.render();
             border: 2pt solid rgba(119, 115, 115, 0.644);
             height: max-content;
             padding: 20px;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        h1 {
-            font-size: 2.5rem;
         }
     }
 </style>

@@ -17,18 +17,10 @@ const tags = await getCollection("tags");
 </content>
 
 <Layout class="px-4 py-8 md:px-16 lg:px-72">
-    <div class="elements">
+    <div class="elements @apply flex flex-wrap justify-center gap-10">
         {
             tags.map(async doc => (
-                <div
-                    style={{
-                        width: "22rem",
-                        height: "12.5rem",
-                        minWidth: "300px",
-                        minHeight: "200px",
-                    }}
-                    class="box-border flex flex-col gap-2 rounded-xl p-4 shadow-lg outline outline-2 transition-transform duration-300 hover:-translate-y-1 hover:cursor-pointer"
-                >
+                <div class="box-border flex h-[12.5rem] min-h-[200px] w-[22rem] min-w-[300px] flex-col gap-2 rounded-xl p-4 shadow-lg outline outline-2 transition-transform duration-300 hover:-translate-y-1 hover:cursor-pointer">
                     <a href={`/RbxDocs/tags/${doc.slug}`}>
                         <div class="flex flex-col">
                             <span class="mb-1 flex items-center text-sm italic">
@@ -49,12 +41,3 @@ const tags = await getCollection("tags");
         }
     </div>
 </Layout>
-
-<style>
-    .elements {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 40px;
-        justify-content: center;
-    }
-</style>

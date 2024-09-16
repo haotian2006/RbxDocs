@@ -59,7 +59,7 @@ const currentUrl = Astro.url.origin + "/RbxDocs";
              break-words
         `}
     >
-        <h1 style="font-size: 2.25rem; margin: 0; padding: 0;"><b>{entry.data.title}</b></h1>
+        <h1 class="m-0 p-0 text-4xl"><b>{entry.data.title}</b></h1>
         {
             entry.author_data && (
                 <div class="flex items-center">
@@ -85,17 +85,7 @@ const currentUrl = Astro.url.origin + "/RbxDocs";
 <style>
     main {
         max-width: 100%;
-        margin: 0 auto;
         padding: 0 5rem;
-        margin: 0 auto;
-    }
-
-    h1 {
-        font-size: 1.75rem;
-    }
-
-    img {
-        object-fit: cover;
     }
 
     @media (max-width: 768px) {

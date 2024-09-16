@@ -6,6 +6,7 @@ export const copyIcon = html`<svg
     viewBox="0 0 24 24"
     width="18px"
     fill="currentColor"
+    opacity="0.5"
 >
     <path d="M0 0h24v24H0z" fill="none" />
     <path

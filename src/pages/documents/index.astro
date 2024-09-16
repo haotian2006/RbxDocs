@@ -9,7 +9,8 @@ let documents = await getCollection("documents");
 function getThumbnail(link: string) {
     const linkRegex = /https?:\/\/[^\s]+/;
     const containsLink = link.match(linkRegex);
-    return containsLink ? containsLink[0] : currentUrl + "/thumbnails/" + link;
+
+    return containsLink ? containsLink[0] : `${currentUrl}/thumbnails/${link}`;
 }
 ---
 
@@ -22,7 +23,7 @@ function getThumbnail(link: string) {
 </content>
 
 <Layout class="p-6">
-    <div class="elements">
+    <div class="flex flex-wrap justify-start gap-x-10 gap-y-10">
         {
             documents.map(doc => (
                 <a
@@ -51,13 +52,3 @@ function getThumbnail(link: string) {
         }
     </div>
 </Layout>
-
-<style>
-    .elements {
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: 40px;
-        row-gap: 40px;
-        justify-content: start;
-    }
-</style>
