@@ -179,13 +179,13 @@ declare module 'astro:content' {
   collection: "documents";
   data: any
 } & { render(): Render[".mdx"] };
-"ProxyTables.md": {
-	id: "ProxyTables.md";
+"ProxyTables.mdx": {
+	id: "ProxyTables.mdx";
   slug: "proxytables";
   body: string;
   collection: "documents";
   data: any
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "Testing.mdx": {
 	id: "Testing.mdx";
   slug: "testing";
