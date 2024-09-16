@@ -10,4 +10,3 @@ Animations at an equal/lower priority will not play over Roblox's default animat
 
 **Upload the animation to your game's group**
 If the game/animation is owned by a group, then both must be owned by the group.
-

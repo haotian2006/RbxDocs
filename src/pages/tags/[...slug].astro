@@ -42,7 +42,7 @@ const currentUrl = Astro.url.origin + "/RbxDocs";
     <meta content="#4c51bf" data-react-helmet="true" name="theme-color" />
 </content>
 
-<Layout class="flex justify-center py-12">
+<Layout class="flex justify-center px-4 py-12 md:px-16">
     <main
         class={`
             prose
@@ -52,17 +52,18 @@ const currentUrl = Astro.url.origin + "/RbxDocs";
             prose-p:text-base-content
             prose-a:text-blue-500 prose-a:decoration-inherit prose-a:underline-offset-1
             prose-a:visited:text-purple-500
+             break-words
         `}
     >
-        <h1 class="m-0 mb-0">{entry.data.title}</h1>
+        <h1 style="font-size: 2.25rem; margin: 0; padding: 0;"><b>{entry.data.title}</b></h1>
         {
             entry.author_data && (
                 <div class="flex items-center">
                     <p class="mr-4">by:</p>
 
                     <img
-                        src={(entry.author_data as { pfp: string }).pfp}
-                        class="mr-2 h-8 w-8 rounded-full"
+                        src={entry.author_data.pfp}
+                        class="mr-2 h-8 w-8 rounded-full md:h-10 md:w-10"
                     />
 
                     {entry.author_data.url && (
@@ -76,3 +77,50 @@ const currentUrl = Astro.url.origin + "/RbxDocs";
         <Content components={{ aside: Aside }} />
     </main>
 </Layout>
+
+<style>
+    main {
+        max-width: 100%;
+        margin: 0 auto;
+        width: 100%;
+        padding: 0 1rem;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    img {
+        object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+        main {
+            padding: 0 1rem;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+        img {
+            height: 40px;
+            width: 40px;
+        }
+    }
+
+    @media (min-width: 769px) {
+        main {
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+    }
+</style>
