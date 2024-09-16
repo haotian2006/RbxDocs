@@ -7,6 +7,7 @@ const documents = defineCollection({
         title: zod.string(),
         search: zod.boolean().default(true),
         thumbnail: zod.string().default("WorkInProgress.webp"),
+        description: zod.string().optional(),
         author: zod
             .union([
                 zod.string().regex(/^(?:discord|github): ([0-9]+)$/),

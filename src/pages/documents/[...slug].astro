@@ -38,7 +38,10 @@ const { Content, headings } = await entry.render();
 <content>
     <title>RBX docs</title>
     <meta content={entry.data.title} property="og:title" />
-    <meta content={"by " + entry.author_data.username} property="og:description" />
+    <meta
+        content={entry.data.description ?? "by " + entry.author_data.username}
+        property="og:description"
+    />
     <meta content={`/RbxDocs/tags/${entry.slug}`} property="og:url" />
     <meta property="og:image" content={getThumbnail(entry.data.thumbnail)} />
     <meta content="#4c51bf" data-react-helmet="true" name="theme-color" />
