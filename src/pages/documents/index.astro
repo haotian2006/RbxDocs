@@ -3,12 +3,27 @@ import { getCollection } from "astro:content";
 
 import Layout from "@/layouts/base.astro";
 
-// Fetch all documents from the 'tags' collection
+const currentUrl = Astro.url.origin + "/RbxDocs";
 let documents = await getCollection("documents");
+
+const getThumbnail = (link: string) => {
+    const linkRegex = /https?:\/\/[^\s]+/;
+    const containsLink = link.match(linkRegex);
+
+    return containsLink ? containsLink[0] : `${currentUrl}/thumbnails/${link}`;
+};
 ---
 
+<content>
+    <title>RBX docs</title>
+    <meta content="Rbx Docs" property="og:title" />
+    <meta content="Documents helpful for roblox development" property="og:description" />
+    <meta content={`/RbxDocs/documents`} property="og:url" />
+    <meta content="#4c51bf" data-react-helmet="true" name="theme-color" />
+</content>
+
 <Layout class="p-6">
-    <div class="elements">
+    <div class="flex flex-wrap justify-start gap-x-10 gap-y-10">
         {
             documents.map(doc => (
                 <a
@@ -24,8 +39,8 @@ let documents = await getCollection("documents");
                 >
                     <div class="h-full w-full bg-blue-500 p-1 hover:border-2 hover:border-orange-500">
                         <img
-                            src={doc.data.thumbnail}
-                            alt={"no image"}
+                            src={getThumbnail(doc.data.thumbnail)}
+                            alt={getThumbnail(doc.data.thumbnail)}
                             class="h-full w-full object-cover"
                         />
                     </div>
@@ -37,13 +52,3 @@ let documents = await getCollection("documents");
         }
     </div>
 </Layout>
-
-<style>
-    .elements {
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: 40px;
-        row-gap: 40px;
-        justify-content: start;
-    }
-</style>

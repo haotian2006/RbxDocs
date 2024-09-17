@@ -1,5 +1,6 @@
 ---
 title: "Variable"
+author: "github: 63274991"
 ---
 
 A variable is something that can be created, changed and referenced:

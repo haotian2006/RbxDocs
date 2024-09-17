@@ -1,5 +1,6 @@
 ---
 title: "New Alternative Methods"
+author: "github: 63274991"
 ---
 
 -   `workspace:FindPartsInRegion3()` (24th August 2024) - [Spatial Query](https://devforum.roblox.com/t/introducing-overlapparams-new-spatial-query-api/1435720)

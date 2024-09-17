@@ -1,5 +1,6 @@
 ---
 title: "When to use Knit"
+author: "github: 63274991"
 ---
 
 Knit is **good** for people who are new to/unsure of project design, i.e organising features into folders

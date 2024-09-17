@@ -1,5 +1,6 @@
 ---
 title: "Local Scripts"
+author: "github: 63274991"
 ---
 
 LocalScripts run code on a player's device. Compared to server scripts that normally have one agreed location (`ServerScriptService`), there are many locations that a local script can be placed for it to run:

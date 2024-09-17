@@ -130,6 +130,7 @@ dist
 .pnp.*
 
 # ignore Astro artifacts
+.astro/astro/content.d.ts
 .astro/types.d.ts
 .astro/settings.json
 

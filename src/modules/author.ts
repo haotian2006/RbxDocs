@@ -70,9 +70,9 @@ function getPlatform(author: string): ["discord" | "github" | null, string] {
     }
 }
 
-export async function getAuthorData(
+export const getAuthorData = async (
     author: string | undefined,
-): Promise<{ username: string; pfp: string; url?: string } | null> {
+): Promise<{ username: string; pfp: string; url?: string } | null> => {
     if (!author) {
         return null;
     }
@@ -83,9 +83,25 @@ export async function getAuthorData(
     } else if (platform === "github") {
         return await getGitHubData(userID);
     } else {
+        const pattern = author.match(/^author: (.+)$/);
         return {
-            username: author,
+            username: pattern ? pattern[1] : author,
             pfp: "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg",
         };
     }
-}
+};
+
+export const getAuthorOrDefault = async (
+    author: string | undefined,
+): Promise<{ username: string; pfp: string; url?: string }> => {
+    const authorData = await getAuthorData(author);
+
+    if (authorData && authorData.username !== undefined) {
+        return authorData;
+    } else {
+        return {
+            username: "NoAuthor",
+            pfp: "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg",
+        };
+    }
+};

@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 import Aside from "@/components/aside.astro";
 import TableOfContents from "@/components/table-of-contents.astro";
 import Layout from "@/layouts/base.astro";
-import { getAuthorData } from "@/modules/author";
+import { getAuthorOrDefault } from "@/modules/author";
 
 export async function getStaticPaths() {
     const documents = await getCollection("documents");
@@ -16,7 +16,7 @@ export async function getStaticPaths() {
         props: {
             entry: {
                 ...entry,
-                author_data: await getAuthorData(entry.data.author),
+                author_data: await getAuthorOrDefault(entry.data.author),
             },
         },
     }));
@@ -24,12 +24,33 @@ export async function getStaticPaths() {
     return Promise.all(documentPaths);
 }
 
+const currentUrl = Astro.url.origin + "/RbxDocs";
+
+function getThumbnail(link: string) {
+    const linkRegex = /https?:\/\/[^\s]+/;
+    const containsLink = link.match(linkRegex);
+
+    return containsLink ? containsLink[0] : currentUrl + "/thumbnails/" + link;
+}
+
 const { entry } = Astro.props;
 const { Content, headings } = await entry.render();
 ---
 
-<Layout class="flex justify-center py-12">
-    <div class="flex w-full max-w-7xl px-20">
+<content>
+    <title>RBX docs</title>
+    <meta content={entry.data.title} property="og:title" />
+    <meta
+        content={entry.data.description ?? "by " + entry.author_data.username}
+        property="og:description"
+    />
+    <meta content={`/RbxDocs/tags/${entry.slug}`} property="og:url" />
+    <meta property="og:image" content={getThumbnail(entry.data.thumbnail)} />
+    <meta content="#4c51bf" data-react-helmet="true" name="theme-color" />
+</content>
+
+<Layout class="flex justify-center px-12 py-12 md:px-16 lg:px-20">
+    <div class="flex w-full justify-center md:flex-row">
         <main
             class={`
             prose
@@ -39,12 +60,14 @@ const { Content, headings } = await entry.render();
             prose-p:text-base-content
             prose-a:text-blue-500 prose-a:decoration-inherit prose-a:underline-offset-1
             prose-a:visited:text-purple-500
+            break-words
         `}
+            style="width: 100%;"
         >
-            <h1 style="font-size: 3rem; margin: 0; padding: 0;"><b>{entry.data.title}</b></h1>
+            <h1 class="m-0 p-0 text-4xl"><b>{entry.data.title}</b></h1>
             {
                 entry.author_data && (
-                    <div class="flex items-center">
+                    <div class="mb-4 flex items-center">
                         <p class="mr-4">by:</p>
 
                         <img
@@ -64,7 +87,8 @@ const { Content, headings } = await entry.render();
 
             <Content components={{ Aside: Aside }} />
         </main>
-        <aside class="toc">
+
+        <aside class="toc hidden md:block">
             <p class="font-bold underline">Table of Contents</p>
 
             <TableOfContents headings={headings} />
@@ -73,14 +97,26 @@ const { Content, headings } = await entry.render();
 </Layout>
 
 <style>
-    aside.toc {
-        width: max-content;
-        margin: 20px;
-        position: -webkit-sticky;
-        position: sticky;
-        top: 20px;
-        border: 2pt solid rgba(119, 115, 115, 0.644);
-        height: max-content;
-        padding: 10px;
+    @media (max-width: 799px) {
+        h1 {
+            font-size: 1.75rem;
+        }
+
+        aside.toc {
+            display: none;
+        }
+    }
+
+    @media (min-width: 800px) {
+        aside.toc {
+            width: max-content;
+            margin-left: 20px;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 20px;
+            border: 2pt solid rgba(119, 115, 115, 0.644);
+            height: max-content;
+            padding: 20px;
+        }
     }
 </style>

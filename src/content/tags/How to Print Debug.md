@@ -1,5 +1,6 @@
 ---
 title: "How to Print Debug"
+author: "github: 63274991"
 ---
 
 Work backwards by adding prints around the code that is failing/not running.

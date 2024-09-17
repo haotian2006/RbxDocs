@@ -1,5 +1,6 @@
 ---
 title: "Tutorial Hell"
+author: "github: 63274991"
 ---
 
 When you want to create something, instead of making an honest attempt you search for tutorials instead. This isn't just bad but also makes developing harder for you as you create more complex features in your journey.

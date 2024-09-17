@@ -1,5 +1,6 @@
 ---
 title: "Before You Ask"
+author: "github: 63274991"
 ---
 
 **Before you ask a question, please do these things:**

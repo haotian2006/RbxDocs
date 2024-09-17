@@ -1,5 +1,6 @@
 ---
 title: "When to use Paradigms"
+author: "github: 63274991"
 ---
 
 Programming paradigms, like OOP and ECS, are a choice in designing a feature or system. Just because you didn't use/pay attention to paradigms when working on your project **_does not_** mean you are behind.

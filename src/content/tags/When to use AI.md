@@ -1,5 +1,6 @@
 ---
 title: "When to use AI"
+author: "github: 63274991"
 ---
 
 Collaborative AI tools like the Roblox Assistant, ChatGPT and extensions of these can be safely relied on for solving smaller issues like coming up with a name for something, or for a list of game ideas that fit a certain topic.

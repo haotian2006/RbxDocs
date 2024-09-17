@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 
 import Aside from "@/components/aside.astro";
 import Layout from "@/layouts/base.astro";
-import { getAuthorData } from "@/modules/author";
+import { getAuthorOrDefault } from "@/modules/author";
 
 export async function getStaticPaths() {
     const documents = await getCollection("tags");
@@ -15,7 +15,7 @@ export async function getStaticPaths() {
         props: {
             entry: {
                 ...entry,
-                author_data: await getAuthorData(entry.data.author),
+                author_data: await getAuthorOrDefault(entry.data.author),
             },
         },
     }));
@@ -25,9 +25,28 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+const currentUrl = Astro.url.origin + "/RbxDocs";
 ---
 
-<Layout class="flex justify-center py-12">
+<content>
+    <title>RBX docs</title>
+    <meta content={entry.data.title} property="og:title" />
+    <meta content={"by " + entry.author_data.username} property="og:description" />
+    <meta content={`/RbxDocs/tags/${entry.slug}`} property="og:url" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+        property="og:image"
+        content={currentUrl + `/tag_thumbs/${entry.id.replace(".md", ".webp")}`}
+    />
+    <meta
+        property="twitter:image"
+        content={currentUrl + `/tag_thumbs/${entry.id.replace(".md", ".webp")}`}
+    />
+    <meta content="#4c51bf" data-react-helmet="true" name="theme-color" />
+</content>
+
+<Layout class="flex justify-center px-4 py-12 md:px-16">
     <main
         class={`
             prose
@@ -37,17 +56,18 @@ const { Content } = await entry.render();
             prose-p:text-base-content
             prose-a:text-blue-500 prose-a:decoration-inherit prose-a:underline-offset-1
             prose-a:visited:text-purple-500
+             break-words
         `}
     >
-        <h1 class="m-0 mb-0">{entry.data.title}</h1>
+        <h1 class="m-0 p-0 text-4xl"><b>{entry.data.title}</b></h1>
         {
             entry.author_data && (
                 <div class="flex items-center">
                     <p class="mr-4">by:</p>
 
                     <img
-                        src={(entry.author_data as { pfp: string }).pfp}
-                        class="mr-2 h-8 w-8 rounded-full"
+                        src={entry.author_data.pfp}
+                        class="mr-2 h-8 w-8 rounded-full md:h-10 md:w-10"
                     />
 
                     {entry.author_data.url && (
@@ -61,3 +81,39 @@ const { Content } = await entry.render();
         <Content components={{ aside: Aside }} />
     </main>
 </Layout>
+
+<style>
+    main {
+        max-width: 100%;
+        padding: 0 5rem;
+    }
+
+    @media (max-width: 768px) {
+        main {
+            padding: 0 1rem;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+        img {
+            height: 40px;
+            width: 40px;
+        }
+    }
+
+    @media (min-width: 769px) {
+        main {
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+    }
+</style>

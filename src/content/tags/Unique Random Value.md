@@ -1,5 +1,6 @@
 ---
 title: "Unique Random Value"
+author: "github: 63274991"
 ---
 
 Generate a random index that ranges from 1 to the current size of the **array**, which can be used to get the first/last element, or any element between that range:

@@ -2,21 +2,41 @@
 import { getCollection } from "astro:content";
 
 import Layout from "@/layouts/base.astro";
+import { getAuthorOrDefault } from "@/modules/author";
 
 // Fetch all documents from the 'tags' collection
 const tags = await getCollection("tags");
 ---
 
-<Layout class="p-6">
-    <div class="space-y-4">
+<content>
+    <title>RBX docs</title>
+    <meta content="Rbx Docs" property="og:title" />
+    <meta content="Tags helpful for roblox development" property="og:description" />
+    <meta content={`/RbxDocs/tags`} property="og:url" />
+    <meta content="#4c51bf" data-react-helmet="true" name="theme-color" />
+</content>
+
+<Layout class="px-4 py-8 md:px-16 lg:px-72">
+    <div class="elements @apply flex flex-wrap justify-center gap-10">
         {
-            tags.map(doc => (
-                <a
-                    href={`/RbxDocs/tags/${doc.slug}`}
-                    class="inline-block rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-                >
-                    {doc.data.title || doc.slug}
-                </a>
+            tags.map(async doc => (
+                <div class="box-border flex h-[12.5rem] min-h-[200px] w-[22rem] min-w-[300px] flex-col gap-2 rounded-xl p-4 shadow-lg outline outline-2 transition-transform duration-300 hover:-translate-y-1 hover:cursor-pointer">
+                    <a href={`/RbxDocs/tags/${doc.slug}`}>
+                        <div class="flex flex-col">
+                            <span class="mb-1 flex items-center text-sm italic">
+                                <img
+                                    src={(await getAuthorOrDefault(doc.data.author)).pfp}
+                                    class="mr-2 h-6 w-6 rounded-full"
+                                />
+                                {(await getAuthorOrDefault(doc.data.author)).username}
+                            </span>
+                            <p class="mb-1 text-lg font-bold">{doc.data.title}</p>
+                            <p class="line-clamp-5 overflow-ellipsis text-sm">
+                                {doc.body.length > 350 ? doc.body.slice(0, 350) + "..." : doc.body}
+                            </p>
+                        </div>
+                    </a>
+                </div>
             ))
         }
     </div>

@@ -1,5 +1,6 @@
 ---
 title: "Partitioning"
+author: "github: 63274991"
 ---
 
 When defining a lot of variables or having a lot of code as 1 block, it can be hard to read and confusing to those trying to help you.
