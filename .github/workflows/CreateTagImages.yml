@@ -4,6 +4,10 @@ on:
     push:
         branches: [main]
 
+permissions:
+    contents: write
+    actions: write
+
 jobs:
     generate-images:
         runs-on: ubuntu-latest
@@ -30,4 +34,4 @@ jobs:
               with:
                   add: "public/tag_thumbs"
                   message: "Add generated images from GitHub Action"
-                  tag_push: '--force'
+                  push: origin main --force
