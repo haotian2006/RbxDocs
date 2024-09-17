@@ -24,9 +24,9 @@ jobs:
 
     - name: Clean folder
       run: rm -rf public/tag_thumbs/*
-      
+
     - name: Generate images
-      run: node CreateTagThumbs.cjs 
+      run: node scripts/CreateTagThumbs.cjs 
       env:
         NODE_ENV: production
 
