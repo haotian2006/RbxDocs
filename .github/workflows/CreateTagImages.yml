@@ -30,4 +30,4 @@ jobs:
               with:
                   add: "public/tag_thumbs"
                   message: "Add generated images from GitHub Action"
-                  push: origin main --force
+                  tag_push: '--force'
