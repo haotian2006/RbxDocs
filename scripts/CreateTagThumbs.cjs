@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-require-imports, no-undef */
-const mdimg = require("../src/modules/mdimg/lib/mdimg.cjs");
+const mdimg = require("../src/libs/mdimg/lib/mdimg.cjs");
 const fs = require("fs");
 const path = require("path");
 
