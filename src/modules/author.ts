@@ -95,6 +95,7 @@ export const getAuthorOrDefault = async (
     author: string | undefined,
 ): Promise<{ username: string; pfp: string; url?: string }> => {
     const authorData = await getAuthorData(author);
+
     if (authorData && authorData.username !== undefined) {
         return authorData;
     } else {

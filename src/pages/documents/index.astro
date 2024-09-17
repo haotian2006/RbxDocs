@@ -6,12 +6,12 @@ import Layout from "@/layouts/base.astro";
 const currentUrl = Astro.url.origin + "/RbxDocs";
 let documents = await getCollection("documents");
 
-function getThumbnail(link: string) {
+const getThumbnail = (link: string) => {
     const linkRegex = /https?:\/\/[^\s]+/;
     const containsLink = link.match(linkRegex);
 
     return containsLink ? containsLink[0] : `${currentUrl}/thumbnails/${link}`;
-}
+};
 ---
 
 <content>
