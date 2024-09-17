@@ -1,8 +1,7 @@
 name: Generate Images for Tags
 
 on:
-    push:
-        branches: [main]
+    pull_request:
 
 jobs:
     generate-images:
@@ -11,6 +10,9 @@ jobs:
         steps:
             - name: Checkout code
               uses: actions/checkout@v3
+              with:
+                  repository: ${{ github.event.pull_request.head.repo.full_name }}
+                  ref: ${{ github.event.pull_request.head.ref }}
 
             - name: Set up Node.js
               uses: actions/setup-node@v3
@@ -19,6 +21,9 @@ jobs:
 
             - name: Install dependencies
               run: npm install
+
+            - name: Clean folder
+              run: rm -rf public/tag_thumbs/*
 
             - name: Generate images
               run: node scripts/CreateTagThumbs.cjs
@@ -30,4 +35,4 @@ jobs:
               with:
                   add: "public/tag_thumbs"
                   message: "Add generated images from GitHub Action"
-                  push: origin main --force
+                  push: origin ${{ github.head_ref }}:${{ github.head_ref }} --force
