@@ -1,6 +1,6 @@
 ---
 title: "Remote Functions"
-author: "github: 63274991"
+author: "github: 168689936"
 ---
 
 Remote Functions allow you to send and receive data from either side in a two-way manner. Unlike Remote Events, Remote Functions will wait until the function is done running or returns something.
