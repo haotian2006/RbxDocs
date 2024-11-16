@@ -4,11 +4,13 @@ var e = require("path"),
     n = require("puppeteer"),
     Marked = require("marked").Marked,
     i = require("cheerio");
-
+var markedSmartypants = require("marked-smartypants").markedSmartypants;
 var markedHighlight = require("marked-highlight").markedHighlight;
 var hljs = require("highlight.js");
+var extendedTables = require("marked-extended-tables");
 
-var marked = new Marked(
+var marked = new Marked();
+marked.use(
     markedHighlight({
         langPrefix: "hljs language-",
         highlight(code, lang, info) {
@@ -17,6 +19,8 @@ var marked = new Marked(
         },
     }),
 );
+marked.use(markedSmartypants({ config: "1" }));
+marked.use(extendedTables());
 
 const s = async e => marked.parse(e),
     o = async ({

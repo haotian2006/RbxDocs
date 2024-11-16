@@ -17,7 +17,7 @@ const getCollection = () => {
             slug: file.replace(".md", ""),
             body: fs
                 .readFileSync(filePath, "utf8")
-                .replace(/---[\s\S]*?---/g, "")
+                .replace(/---[\s\S]*?---/, "")
                 .trim(),
             filePath,
         };
