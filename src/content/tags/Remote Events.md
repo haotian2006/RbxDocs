@@ -1,6 +1,6 @@
 ---
 title: "Remote Events"
-author: "github: 63274991"
+author: "github: 168689936"
 ---
 
 Remote Events are used to transfer data from one side to another, making it very useful in systems that need to send data from client to server and vice versa. Remote Events are one-way, meaning it won't wait for a response from the receiving end.
