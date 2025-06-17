@@ -25,7 +25,7 @@ const icon = (() => {
 
 <div
     class:list={[
-        "aside my-3 rounded-md border-l-4 px-4 py-3 prose-p:my-0",
+        "aside prose-p:my-0 my-3 rounded-md border-l-4 px-4 py-3",
         {
             "border-green-400 bg-green-400/20": variant === "tip",
         },
@@ -46,7 +46,7 @@ const icon = (() => {
                 <details open>
                     <summary class="flex items-center gap-2 pb-2">
                         <Icon name={icon} class="h-6 w-6" />
-                        <p class="font-bold text-base-content">
+                        <p class="text-base-content font-bold">
                             {text ? text : variant.toUpperCase()}
                         </p>
                         <span class="icon" />
@@ -60,7 +60,7 @@ const icon = (() => {
                 <details>
                     <summary class="flex items-center gap-2 pb-2">
                         <Icon name={icon} class="h-6 w-6" />
-                        <p class="font-bold text-base-content">
+                        <p class="text-base-content font-bold">
                             {text ? text : variant.toUpperCase()}
                         </p>
                         <span class="icon" />
@@ -74,7 +74,7 @@ const icon = (() => {
                 <>
                     <summary class="flex items-center gap-2 pb-2">
                         <Icon name={icon} class="h-6 w-6" />
-                        <p class="font-bold text-base-content">
+                        <p class="text-base-content font-bold">
                             {text ? text : variant.toUpperCase()}
                         </p>
                     </summary>
