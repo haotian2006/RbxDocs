@@ -29,7 +29,7 @@
         "marked-extended-tables": "^1.0.10",
         "marked-highlight": "^2.1.4",
         "marked-smartypants": "^1.1.9",
-        "puppeteer": "^24.10.1",
+        "puppeteer": "^23.3.0",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "tailwindcss": "^3.4.4",

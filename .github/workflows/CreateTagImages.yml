@@ -5,7 +5,7 @@ on:
 
 jobs:
     generate-images:
-        runs-on: ubuntu-22.04
+        runs-on: ubuntu-latest
 
         steps:
             - name: Checkout code
@@ -20,7 +20,7 @@ jobs:
                   node-version: "18"
 
             - name: Install dependencies
-              run: npm ci
+              run: npm install
 
             - name: Clean folder
               run: rm -rf public/tag_thumbs/*
