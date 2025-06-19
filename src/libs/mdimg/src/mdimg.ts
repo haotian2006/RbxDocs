@@ -22,7 +22,6 @@ const mdimg = async ({
     type = "png",
     width = 800,
     height = 600,
-    encoding = "binary",
     quality = 100,
     htmlText,
     cssText,
