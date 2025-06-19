@@ -13,7 +13,7 @@ permissions:
 jobs:
     check:
         name: Check formatting with Prettier
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         steps:
             - uses: actions/checkout@v4
               with:
@@ -26,8 +26,4 @@ jobs:
 
             - run: npm ci
 
-            - uses: creyD/prettier_action@v4.3
-              with:
-                  prettier_options: --check .
-                  dry: true
-                  only_changed: true
+            - run: npm run lint:formatting
