@@ -165,7 +165,6 @@ const mdimg = async ({
                 // Create empty output file
                 _createEmptyFile(_output);
             }
-
             // Generate output image
             const _outputBlob = await _body.screenshot({
                 type: _type,
