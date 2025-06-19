@@ -168,7 +168,6 @@ const mdimg = async ({
 
             // Generate output image
             const _outputBlob = await _body.screenshot({
-                path: _saveToDisk ? _output : undefined,
                 type: _type,
                 quality: _quality,
                 encoding: "binary",
