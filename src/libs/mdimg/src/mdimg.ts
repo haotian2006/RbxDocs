@@ -171,7 +171,6 @@ const mdimg = async ({
                 path: _saveToDisk ? _output : undefined,
                 type: _type,
                 quality: _quality,
-
             });
             if (log) {
                 process.stderr.write(
