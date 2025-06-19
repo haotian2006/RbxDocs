@@ -22,6 +22,7 @@ const mdimg = async ({
     type = "png",
     width = 800,
     height = 600,
+    encoding = "binary",
     quality = 100,
     htmlText,
     cssText,
@@ -170,7 +171,7 @@ const mdimg = async ({
                 path: _saveToDisk ? _output : undefined,
                 type: _type,
                 quality: _quality,
-                encoding: "binary",
+
             });
             if (log) {
                 process.stderr.write(
