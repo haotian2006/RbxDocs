@@ -9,5 +9,5 @@ As of 31st March 2024, almost all AI tools found on websites are not tools that 
 
 ### Side Notes
 
--   This does not apply to pathfinding, which does not affect how you code
--   Assistive code AI tools, like Tabnine and Copilot, suffer from the same problems. Always review solutions they provide before accepting them
+- This does not apply to pathfinding, which does not affect how you code
+- Assistive code AI tools, like Tabnine and Copilot, suffer from the same problems. Always review solutions they provide before accepting them
