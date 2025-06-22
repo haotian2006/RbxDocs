@@ -15,15 +15,15 @@ Consider a system where a npc has 3 states: Idle, Attacking, and Fleeing.
 
 ###### States:
 
--   idle: npc stands still
--   attacking: npc follows and attacks
--   fleeing: npc runs away
+- idle: npc stands still
+- attacking: npc follows and attacks
+- fleeing: npc runs away
 
 ###### Transitions:
 
--   from idle -> attacking: occurs when a player comes within a detectable range.
--   from attacking -> fleeing: when NPC's health falls below a certain threshold.
--   from fleeing -> idle: when the npc has escaped to a safe distance.
+- from idle -> attacking: occurs when a player comes within a detectable range.
+- from attacking -> fleeing: when NPC's health falls below a certain threshold.
+- from fleeing -> idle: when the npc has escaped to a safe distance.
 
 Example:
 

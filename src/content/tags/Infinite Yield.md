@@ -7,7 +7,7 @@ author: "github: 63274991"
 
 If your script has stopped running due to this warning, this is caused by:
 
--   Waiting in the wrong parent
--   Waiting with the wrong/typo'd name
--   Waiting for a child that has not been created yet by another script
--   A combination of the above
+- Waiting in the wrong parent
+- Waiting with the wrong/typo'd name
+- Waiting for a child that has not been created yet by another script
+- A combination of the above

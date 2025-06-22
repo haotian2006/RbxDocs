@@ -9,5 +9,5 @@ A common mistake for game developers is focusing on using paradigms the moment t
 
 You have two choices:
 
--   (Recommended) Do not worry about paradigms until your next project, where you can focus more on system design/architecture without being punished for poor decisions
--   Ask for advice after you have a working version of the feature or system - asking if a paradigm would benefit what you are focusing on can help with refactoring
+- (Recommended) Do not worry about paradigms until your next project, where you can focus more on system design/architecture without being punished for poor decisions
+- Ask for advice after you have a working version of the feature or system - asking if a paradigm would benefit what you are focusing on can help with refactoring
